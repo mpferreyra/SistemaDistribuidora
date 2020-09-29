@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SistemaDistribuidora.Migrations
 {
-    public partial class inicial1 : Migration
+    public partial class _1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,15 +28,15 @@ namespace SistemaDistribuidora.Migrations
                 {
                     CategoriaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<int>(nullable: false),
-                    subCategoriaId = table.Column<int>(nullable: true)
+                    Nombre = table.Column<string>(nullable: true),
+                    CategoriaPadreId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categoria", x => x.CategoriaId);
                     table.ForeignKey(
-                        name: "FK_Categoria_Categoria_subCategoriaId",
-                        column: x => x.subCategoriaId,
+                        name: "FK_Categoria_Categoria_CategoriaPadreId",
+                        column: x => x.CategoriaPadreId,
                         principalTable: "Categoria",
                         principalColumn: "CategoriaId",
                         onDelete: ReferentialAction.Restrict);
@@ -75,6 +75,7 @@ namespace SistemaDistribuidora.Migrations
                 {
                     OfertaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(nullable: true),
                     FechaInicio = table.Column<DateTime>(nullable: false),
                     FechaFin = table.Column<DateTime>(nullable: false),
                     Activa = table.Column<bool>(nullable: false)
@@ -82,6 +83,30 @@ namespace SistemaDistribuidora.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Oferta", x => x.OfertaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PersonaModel",
+                columns: table => new
+                {
+                    PersonaId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NumeroCliente = table.Column<int>(nullable: true),
+                    DNI = table.Column<string>(nullable: true),
+                    Nombres = table.Column<string>(nullable: true),
+                    Apellidos = table.Column<string>(nullable: true),
+                    Telefono1 = table.Column<int>(nullable: false),
+                    Telefono2 = table.Column<int>(nullable: false),
+                    Celular = table.Column<int>(nullable: false),
+                    CUIT = table.Column<int>(nullable: false),
+                    Localidad = table.Column<string>(nullable: true),
+                    Dirrecion = table.Column<string>(nullable: true),
+                    Mail = table.Column<string>(nullable: true),
+                    Cargo = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PersonaModel", x => x.PersonaId);
                 });
 
             migrationBuilder.CreateTable(
@@ -100,22 +125,6 @@ namespace SistemaDistribuidora.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Proveedor",
-                columns: table => new
-                {
-                    ProveedorId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(nullable: true),
-                    Telefono = table.Column<int>(nullable: false),
-                    Dirrecion = table.Column<string>(nullable: true),
-                    Mail = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Proveedor", x => x.ProveedorId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "UnidadMedida",
                 columns: table => new
                 {
@@ -130,24 +139,26 @@ namespace SistemaDistribuidora.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OfertaDetalle",
+                name: "Proveedor",
                 columns: table => new
                 {
-                    OfertaDetalleId = table.Column<int>(nullable: false)
+                    ProveedorId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DescuentoPorcentaje = table.Column<float>(nullable: false),
-                    CantidadValidadDescuento = table.Column<float>(nullable: false),
-                    DescuentoCantidad = table.Column<float>(nullable: false),
-                    OfertaId = table.Column<int>(nullable: false)
+                    Nombre = table.Column<string>(nullable: true),
+                    NombreFantasia = table.Column<string>(nullable: true),
+                    Telefono = table.Column<int>(nullable: false),
+                    Dirrecion = table.Column<string>(nullable: true),
+                    Mail = table.Column<string>(nullable: true),
+                    PersonaId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OfertaDetalle", x => x.OfertaDetalleId);
+                    table.PrimaryKey("PK_Proveedor", x => x.ProveedorId);
                     table.ForeignKey(
-                        name: "FK_OfertaDetalle_Oferta_OfertaId",
-                        column: x => x.OfertaId,
-                        principalTable: "Oferta",
-                        principalColumn: "OfertaId",
+                        name: "FK_Proveedor_PersonaModel_PersonaId",
+                        column: x => x.PersonaId,
+                        principalTable: "PersonaModel",
+                        principalColumn: "PersonaId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -193,6 +204,35 @@ namespace SistemaDistribuidora.Migrations
                         column: x => x.UnidadMedidaId,
                         principalTable: "UnidadMedida",
                         principalColumn: "UnidadMedidaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "OfertaDetalle",
+                columns: table => new
+                {
+                    OfertaDetalleId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DescuentoPorcentaje = table.Column<float>(nullable: false),
+                    CantidadValidadDescuento = table.Column<float>(nullable: false),
+                    DescuentoCantidad = table.Column<float>(nullable: false),
+                    OfertaId = table.Column<int>(nullable: false),
+                    ProductoId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OfertaDetalle", x => x.OfertaDetalleId);
+                    table.ForeignKey(
+                        name: "FK_OfertaDetalle_Oferta_OfertaId",
+                        column: x => x.OfertaId,
+                        principalTable: "Oferta",
+                        principalColumn: "OfertaId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OfertaDetalle_Producto_ProductoId",
+                        column: x => x.ProductoId,
+                        principalTable: "Producto",
+                        principalColumn: "ProductoId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -275,14 +315,19 @@ namespace SistemaDistribuidora.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categoria_subCategoriaId",
+                name: "IX_Categoria_CategoriaPadreId",
                 table: "Categoria",
-                column: "subCategoriaId");
+                column: "CategoriaPadreId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OfertaDetalle_OfertaId",
                 table: "OfertaDetalle",
                 column: "OfertaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OfertaDetalle_ProductoId",
+                table: "OfertaDetalle",
+                column: "ProductoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Producto_CategoriaId",
@@ -333,6 +378,11 @@ namespace SistemaDistribuidora.Migrations
                 name: "IX_ProductoProveedor_ProveedorId",
                 table: "ProductoProveedor",
                 column: "ProveedorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Proveedor_PersonaId",
+                table: "Proveedor",
+                column: "PersonaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -375,6 +425,9 @@ namespace SistemaDistribuidora.Migrations
 
             migrationBuilder.DropTable(
                 name: "UnidadMedida");
+
+            migrationBuilder.DropTable(
+                name: "PersonaModel");
         }
     }
 }

@@ -10,6 +10,7 @@ namespace SistemaDistribuidora.Models
     {
         [Key]
         public int OfertaId { get; set; }
+        public String Nombre { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public Boolean Activa { get; set; }

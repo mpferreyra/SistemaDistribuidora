@@ -22,5 +22,9 @@ namespace SistemaDistribuidora.Models
         [ForeignKey("OfertaModel")]
         public int OfertaId { get; set; }        
         public OfertaModel Oferta { get; set; }
+
+        [ForeignKey("ProductoModel")]
+        public int ProductoId { get; set; }
+        public ProductoModel Producto { get; set; }
     }
 }

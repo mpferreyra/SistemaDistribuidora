@@ -15,7 +15,7 @@ namespace SistemaDistribuidora.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.7")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -112,9 +112,14 @@ namespace SistemaDistribuidora.Migrations
                     b.Property<int>("OfertaId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
                     b.HasKey("OfertaDetalleId");
 
                     b.HasIndex("OfertaId");
+
+                    b.HasIndex("ProductoId");
 
                     b.ToTable("OfertaDetalle");
                 });
@@ -135,9 +140,60 @@ namespace SistemaDistribuidora.Migrations
                     b.Property<DateTime>("FechaInicio")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("OfertaId");
 
                     b.ToTable("Oferta");
+                });
+
+            modelBuilder.Entity("SistemaDistribuidora.Models.PersonaModel", b =>
+                {
+                    b.Property<int>("PersonaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Apellidos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CUIT")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Cargo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Celular")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DNI")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Dirrecion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Localidad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombres")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("NumeroCliente")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Telefono1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Telefono2")
+                        .HasColumnType("int");
+
+                    b.HasKey("PersonaId");
+
+                    b.ToTable("PersonaModel");
                 });
 
             modelBuilder.Entity("SistemaDistribuidora.Models.PrecioModel", b =>
@@ -290,10 +346,18 @@ namespace SistemaDistribuidora.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NombreFantasia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PersonaId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Telefono")
                         .HasColumnType("int");
 
                     b.HasKey("ProveedorId");
+
+                    b.HasIndex("PersonaId");
 
                     b.ToTable("Proveedor");
                 });
@@ -328,6 +392,12 @@ namespace SistemaDistribuidora.Migrations
                     b.HasOne("SistemaDistribuidora.Models.OfertaModel", "Oferta")
                         .WithMany()
                         .HasForeignKey("OfertaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SistemaDistribuidora.Models.ProductoModel", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -400,6 +470,15 @@ namespace SistemaDistribuidora.Migrations
                     b.HasOne("SistemaDistribuidora.Models.ProveedorModel", "Proveedor")
                         .WithMany()
                         .HasForeignKey("ProveedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SistemaDistribuidora.Models.ProveedorModel", b =>
+                {
+                    b.HasOne("SistemaDistribuidora.Models.PersonaModel", "Persona")
+                        .WithMany()
+                        .HasForeignKey("PersonaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

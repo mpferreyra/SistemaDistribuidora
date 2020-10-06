@@ -16,12 +16,7 @@ namespace SistemaDistribuidora.Models
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
         public string imagen { get; set; }
-        public bool disponibilidad { get; set; }
-
-        //llaves foraneas
-        [ForeignKey("Precio")]
-        public int PrecioID { get; set; }
-        public virtual PrecioModel Precio { get; set; }
+        public bool disponibilidad { get; set; }        
 
         [ForeignKey("Marca")]
         public int MarcaID { get; set; }
@@ -34,6 +29,9 @@ namespace SistemaDistribuidora.Models
         [ForeignKey("Categoria")]
         public int CategoriaId { get; set; }
         public virtual CategoriaModel Categoria { get; set; }
+
+        //Referencia a los precios producto
+        public virtual List<PrecioModel> Precios { get; set; }
 
 
 

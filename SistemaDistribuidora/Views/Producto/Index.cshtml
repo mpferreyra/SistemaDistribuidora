@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Producto</h1>
+<h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Crear uno nuevo</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -19,16 +19,25 @@
                 @Html.DisplayNameFor(model => model.Codigo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.disponibilidad)
+                @Html.DisplayNameFor(model => model.Descripcion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Precio)
+                @Html.DisplayNameFor(model => model.imagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.disponibilidad)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Marca)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.UnidadMedida)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precios.Last().Valor)
             </th>
             <th></th>
         </tr>
@@ -41,23 +50,32 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Codigo)
-            </td> 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imagen)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.disponibilidad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Precio.PrecioId)
+                @Html.DisplayFor(modelItem => item.Marca.MarcaId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Marca.MarcaId)
-            </td>            
+                @Html.DisplayFor(modelItem => item.UnidadMedida.UnidadMedidaId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Categoria.CategoriaId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductoId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductoId">Detalle</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductoId">Eliminar</a>
+                @Html.DisplayFor(modelItem => item.Precios.Last().Valor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductoId">Delete</a>
             </td>
         </tr>
 }

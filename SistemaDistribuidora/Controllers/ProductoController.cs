@@ -22,7 +22,7 @@ namespace SistemaDistribuidora.Controllers
         // GET: Producto
         public async Task<IActionResult> Index()
         {
-            var distribuidoraContext = _context.Producto.Include(p => p.Categoria).Include(p => p.Marca).Include(p => p.Precio).Include(p => p.UnidadMedida);
+            var distribuidoraContext = _context.Producto.Include(p => p.Categoria).Include(p => p.Marca).Include(p => p.UnidadMedida);
             return View(await distribuidoraContext.ToListAsync());
         }
 
@@ -37,7 +37,6 @@ namespace SistemaDistribuidora.Controllers
             var productoModel = await _context.Producto
                 .Include(p => p.Categoria)
                 .Include(p => p.Marca)
-                .Include(p => p.Precio)
                 .Include(p => p.UnidadMedida)
                 .FirstOrDefaultAsync(m => m.ProductoId == id);
             if (productoModel == null)
@@ -51,9 +50,8 @@ namespace SistemaDistribuidora.Controllers
         // GET: Producto/Create
         public IActionResult Create()
         {
-            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "CategoriaId", "Nombre");
-            ViewData["MarcaID"] = new SelectList(_context.Marca, "MarcaId", "Nombre");
-            ViewData["PrecioID"] = new SelectList(_context.Precio, "PrecioId", "PrecioId");
+            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaId");
+            ViewData["MarcaID"] = new SelectList(_context.Marca, "MarcaId", "MarcaId");
             ViewData["UnidadMedidaId"] = new SelectList(_context.UnidadMedida, "UnidadMedidaId", "UnidadMedidaId");
             return View();
         }
@@ -63,7 +61,7 @@ namespace SistemaDistribuidora.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductoId,Nombre,Codigo,Descripcion,imagen,disponibilidad,PrecioID,MarcaID,UnidadMedidaId,CategoriaId")] ProductoModel productoModel)
+        public async Task<IActionResult> Create([Bind("ProductoId,Nombre,Codigo,Descripcion,imagen,disponibilidad,MarcaID,UnidadMedidaId,CategoriaId")] ProductoModel productoModel)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +71,6 @@ namespace SistemaDistribuidora.Controllers
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaId", productoModel.CategoriaId);
             ViewData["MarcaID"] = new SelectList(_context.Marca, "MarcaId", "MarcaId", productoModel.MarcaID);
-            ViewData["PrecioID"] = new SelectList(_context.Precio, "PrecioId", "PrecioId", productoModel.PrecioID);
             ViewData["UnidadMedidaId"] = new SelectList(_context.UnidadMedida, "UnidadMedidaId", "UnidadMedidaId", productoModel.UnidadMedidaId);
             return View(productoModel);
         }
@@ -93,7 +90,6 @@ namespace SistemaDistribuidora.Controllers
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaId", productoModel.CategoriaId);
             ViewData["MarcaID"] = new SelectList(_context.Marca, "MarcaId", "MarcaId", productoModel.MarcaID);
-            ViewData["PrecioID"] = new SelectList(_context.Precio, "PrecioId", "PrecioId", productoModel.PrecioID);
             ViewData["UnidadMedidaId"] = new SelectList(_context.UnidadMedida, "UnidadMedidaId", "UnidadMedidaId", productoModel.UnidadMedidaId);
             return View(productoModel);
         }
@@ -103,7 +99,7 @@ namespace SistemaDistribuidora.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductoId,Nombre,Codigo,Descripcion,imagen,disponibilidad,PrecioID,MarcaID,UnidadMedidaId,CategoriaId")] ProductoModel productoModel)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductoId,Nombre,Codigo,Descripcion,imagen,disponibilidad,MarcaID,UnidadMedidaId,CategoriaId")] ProductoModel productoModel)
         {
             if (id != productoModel.ProductoId)
             {
@@ -132,7 +128,6 @@ namespace SistemaDistribuidora.Controllers
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaId", productoModel.CategoriaId);
             ViewData["MarcaID"] = new SelectList(_context.Marca, "MarcaId", "MarcaId", productoModel.MarcaID);
-            ViewData["PrecioID"] = new SelectList(_context.Precio, "PrecioId", "PrecioId", productoModel.PrecioID);
             ViewData["UnidadMedidaId"] = new SelectList(_context.UnidadMedida, "UnidadMedidaId", "UnidadMedidaId", productoModel.UnidadMedidaId);
             return View(productoModel);
         }
@@ -148,7 +143,6 @@ namespace SistemaDistribuidora.Controllers
             var productoModel = await _context.Producto
                 .Include(p => p.Categoria)
                 .Include(p => p.Marca)
-                .Include(p => p.Precio)
                 .Include(p => p.UnidadMedida)
                 .FirstOrDefaultAsync(m => m.ProductoId == id);
             if (productoModel == null)

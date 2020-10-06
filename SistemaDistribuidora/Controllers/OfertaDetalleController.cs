@@ -13,10 +13,12 @@ namespace SistemaDistribuidora.Controllers
     public class OfertaDetalleController : Controller
     {
         private readonly DistribuidoraContext _context;
+        private List<OfertaDetalleModel> detalles;
 
         public OfertaDetalleController(DistribuidoraContext context)
         {
-            _context = context;
+            _context = context;            
+            detalles = new List<OfertaDetalleModel>();
         }
 
         // GET: OfertaDetalle
@@ -170,21 +172,14 @@ namespace SistemaDistribuidora.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //ToDo: ver que hago aca con el modo de crear el detalle
-        public async Task<IActionResult> AgregarDetalle([Bind("OfertaDetalleId,DescuentoPorcentaje,ProductoId")] OfertaDetalleModel ofertaDetalleModel)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(ofertaDetalleModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["OfertaId"] = new SelectList(_context.Oferta, "OfertaId", "OfertaId", ofertaDetalleModel.OfertaId);
-            ViewData["ProductoId"] = new SelectList(_context.Producto, "ProductoId", "ProductoId", ofertaDetalleModel.ProductoId);
-            return View(ofertaDetalleModel);
+        public  IActionResult AgregarDetalle([Bind("OfertaDetalleId,DescuentoPorcentaje,CantidadValidadDescuento,DescuentoCantidad,OfertaId,ProductoId")] OfertaDetalleModel detalle)
+        {   
+            detalles.Add(detalle);            
+            ViewBag.Detalles = detalles;
+            return View(nameof(OfertasGestorView));
         }
     }
 }

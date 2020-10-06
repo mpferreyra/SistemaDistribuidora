@@ -1,5 +1,6 @@
 ﻿@model SistemaDistribuidora.Models.OfertaDetalleModel
 
+
 <h1>Gestor de Ofertas</h1>
 <hr />
 @*Seccion para agregar prodcutos a la oferta*@
@@ -10,25 +11,23 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label asp-for="Producto.Nombre" class="control-label"></label>
-                    <input asp-for="ProductoId" class="form-control" />
-                    <span asp-validation-for="ProductoId" class="text-danger"></span>
+                    <input asp-for="Producto.Nombre" class="form-control" />                    
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <input type="button" value="Buscar" class="btn btn-primary" />
                 </div>
-            </div>  n
+            </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="form-group">
-                    <label asp-for="Producto.Precio" class="control-label"></label>
-                    <input asp-for="Producto.Precio" class="form-control" />
-                    <span asp-validation-for="Producto.Precio" class="text-danger"></span>
+                    <label asp-for="Producto.Precios.Last().Valor" class="control-label"></label>
+                    <input asp-for="Producto.Precios.Last().Valor" class="form-control" readonly/>                   
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="form-group">
                     <label asp-for="DescuentoPorcentaje" class="control-label"></label>
                     <input asp-for="DescuentoPorcentaje" class="form-control" />
@@ -51,22 +50,41 @@
 
 @*Tabla que muestra los productos con sus valores de precio que han ido agregando*@
 <section>
-    <h3>Productos de oferta</h3>
-    <div class="row">
-        <table class="table">
+    <table class="table">
+        <thead>
             <tr>
                 <th>
-                    Producto
+                    @Html.DisplayNameFor(model => model.Producto.Nombre)
                 </th>
                 <th>
-                    Precion
+                    @Html.DisplayNameFor(model => model.Producto.Precios.Last().Valor)
                 </th>
                 <th>
-                    Descuento
+                    @Html.DisplayNameFor(model => model.DescuentoPorcentaje)
                 </th>
+                <th></th>
             </tr>
-        </table>
-    </div>
+        </thead>
+        <tbody>
+            @if (ViewBag.Detalles != null)
+            {
+                @foreach (var item in (List<OfertaDetalleModel>) ViewBag.Detalles)
+                {
+                    <tr>
+                        <td>
+                           @item.Producto.Nombre
+                        </td>
+                        <td>
+                           @item.Producto.Precios.Last().Valor
+                        </td>
+                        <td>
+                           @item.DescuentoPorcentaje
+                        </td>                        
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
 </section>
 
 <hr />

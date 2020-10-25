@@ -181,5 +181,17 @@ namespace SistemaDistribuidora.Controllers
             ViewBag.Detalles = detalles;
             return View(nameof(OfertasGestorView));
         }
+        
+        //TODO: Pasar esto al controlador de producto
+        public IActionResult BuscarProducto( int ProductoID)
+        {            
+            //HACK: cual de las dos formas de llamar a la entidad es correcta o incluso no es mejor llamar a las dos de un saque
+            ProductoModel Producto = _context.Producto.Find(1);
+            var Precio = _context.Precio.Where(p => p.ProductoID == Producto.ProductoId).ToList().Last(); 
+            ViewBag.ProductoNombre = Producto.Nombre;
+            ViewBag.ProductoPrecio = Precio.Valor;
+
+            return View(nameof(OfertasGestorView));
+        }
     }
 }

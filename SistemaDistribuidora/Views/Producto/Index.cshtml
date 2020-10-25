@@ -36,9 +36,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Categoria)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precios.Last().Valor)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -68,9 +65,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Categoria.CategoriaId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precios.Last().Valor)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProductoId">Edit</a> |

@@ -168,5 +168,29 @@ namespace SistemaDistribuidora.Controllers
         {
             return _context.Producto.Any(e => e.ProductoId == id);
         }
+
+
+        //public PartialViewResult BuscarProductoViewP()
+        //{           
+        //    return PartialView("_BuscarProductoViewP");
+        //}
+
+        //// GET: Producto
+        //public PartialViewResult BuscarProductoView()
+        //{
+        //    var distribuidoraContext = _context.Producto.Include(p => p.Categoria).Include(p => p.Marca).Include(p => p.UnidadMedida).Include(p => p.Precios);
+        //    return PartialView( distribuidoraContext.ToListAsync());
+        //}
+
+        //HACK:esto no se si es lo mas lindo
+        public IEnumerable<SistemaDistribuidora.Models.ProductoModel>  devolverProductos()
+        {
+            var distribuidoraContext = _context.Producto.Include(p => p.Categoria).Include(p => p.Marca).Include(p => p.UnidadMedida).Include(p => p.Precios);
+            return distribuidoraContext.ToList(); 
+        }
+
+        
+
+
     }
 }

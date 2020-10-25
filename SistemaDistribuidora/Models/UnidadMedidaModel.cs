@@ -10,7 +10,7 @@ namespace SistemaDistribuidora.Models
     {
         [Key]
         public int UnidadMedidaId { get; set; }
-        public int Nombre { get; set; }
+        public string Nombre { get; set; }
         public string Imagen { get; set; }
     }
 }

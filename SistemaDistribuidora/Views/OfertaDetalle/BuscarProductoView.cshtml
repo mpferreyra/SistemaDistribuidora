@@ -1,0 +1,89 @@
+﻿@model IEnumerable<SistemaDistribuidora.Models.ProductoModel>
+@*ERROR: esta ventana deveria ir en shared*@
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<section>
+    <form asp-action="FiltrarProductos">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="First().Nombre" class="control-label"></label>
+                    <input class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary" onclick="Invoke(2)">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="First().Codigo" class="control-label"></label>
+                    <input class="form-control" />
+                </div>
+            </div>           
+        </div>
+    </form>
+</section>
+<table class="ctrlTable table table-striped table-bordered table-hover" cellspacing="0" id="ProductoTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.disponibilidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.disponibilidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca.MarcaId)
+                </td>
+                <td>
+                    @*HACK= esta llamada deveria ser generica, para que llame al controlador que esta usando la vista parcial*@
+                    <a asp-action="BuscarProducto" asp-controller="OfertaDetalle" asp-route-id="@item.ProductoId">Seleccionar</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    //    function seleccionarProducto() {
+    //        var productoSeleccionado = ('#ProductoTable').find('td:first').html();    
+    //        ('#Prueba').val(productoSeleccionado);
+    //}
+
+    //$('#ProductoTable tr').on('click', function () {
+    //    var dato = $(this).find('td:first').html();
+    //    $('#Prueba').val(dato.text);
+    //});
+</script>

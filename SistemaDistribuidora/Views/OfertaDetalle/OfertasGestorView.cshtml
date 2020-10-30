@@ -10,35 +10,14 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
+                    <input asp-for="Producto.ProductoId" class="form-control" value=@ViewBag.ProductoId name="ProductoId" />
                     <label asp-for="Producto.Nombre" class="control-label"></label>
-                    <input asp-for="Producto.Nombre" class="form-control" value=@ViewBag.ProductoNombre />                    
+                    <input asp-for="Producto.Nombre" class="form-control" value=@ViewBag.ProductoNombre name="ProductoNombre" />                    
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                        Buscar
-                    </button>
-                </div>
-                @*Ventana modal para buscar producto*@
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Buscar Producto</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="vistaParcialDiv">                                   
-                                    @await Component.InvokeAsync("BuscarProductoViewComponent", "1")
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
+                    <input type="button" value="Buscar" class="btn btn-primary" onclick="location.href='@Url.Action("BuscarProductoView", "Producto")'" />
                 </div>
             </div>
         </div>
@@ -46,7 +25,7 @@
             <div class="col-md-2">
                 <div class="form-group">
                     <label asp-for="Producto.Precios.Last().Valor" class="control-label"></label>
-                    <input asp-for="Producto.Precios.Last().Valor" class="form-control" readonly value=@ViewBag.ProductoPrecio />
+                    <input asp-for="Producto.Precios.Last().Valor" class="form-control" readonly value=@ViewBag.ProductoPrecio name="ProductoPrecio" />
                 </div>
             </div>
             <div class="col-md-2">
@@ -88,19 +67,22 @@
             </tr>
         </thead>
         <tbody>
-            @if (ViewBag.Detalles != null)
+            @if (ViewBag.Oferta != null)
             {
-                @foreach (var item in (List<OfertaDetalleModel>)ViewBag.Detalles)
+                @foreach (var item in ViewBag.Oferta)
                 {
                     <tr>
                         <td>
-                            @item.Producto.Nombre
+                            @*ProductoNombre*@
+                            @item[0]
                         </td>
                         <td>
-                            @item.Producto.Precios.Last().Valor
+                            @*ProductoPrecio*@
+                            @item[1]
                         </td>
                         <td>
-                            @item.DescuentoPorcentaje
+                            @*Descuento*@
+                            @item[2]
                         </td>
                     </tr>
                 }

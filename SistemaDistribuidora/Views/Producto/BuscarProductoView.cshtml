@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<SistemaDistribuidora.Models.ProductoModel>
-@*ERROR: esta ventana deveria ir en shared*@
 
 
 <p>
@@ -17,7 +16,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary" onclick="Invoke(2)">
+                    <button type="button" class="btn btn-primary">
                         Buscar
                     </button>
                 </div>
@@ -68,8 +67,10 @@
                     @Html.DisplayFor(modelItem => item.Marca.MarcaId)
                 </td>
                 <td>
-                    @*HACK= esta llamada deveria ser generica, para que llame al controlador que esta usando la vista parcial*@
-                    <a asp-action="BuscarProducto" asp-controller="OfertaDetalle" asp-route-id="@item.ProductoId">Seleccionar</a> 
+                    @*ERROR: esto devuelve productoId 0*@
+                    <a asp-action="LLamarGestorOferta" asp-controller="Producto" asp-route-id="@item.ProductoId">seleccionar</a>
+                    @*<input type="button" value="Buscar" class="btn btn-primary" onclick="location.href='@Url.Action("LLamarGestorOferta", "Producto",@item.ProductoId)'" />*@
+
                 </td>
             </tr>
         }

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SistemaDistribuidora.Data;
 using SistemaDistribuidora.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SistemaDistribuidora.Controllers
 {
@@ -170,26 +168,40 @@ namespace SistemaDistribuidora.Controllers
         }
 
 
-        //public PartialViewResult BuscarProductoViewP()
-        //{           
-        //    return PartialView("_BuscarProductoViewP");
-        //}
-
-        //// GET: Producto
-        //public PartialViewResult BuscarProductoView()
-        //{
-        //    var distribuidoraContext = _context.Producto.Include(p => p.Categoria).Include(p => p.Marca).Include(p => p.UnidadMedida).Include(p => p.Precios);
-        //    return PartialView( distribuidoraContext.ToListAsync());
-        //}
-
-        //HACK:esto no se si es lo mas lindo
-        public IEnumerable<SistemaDistribuidora.Models.ProductoModel>  devolverProductos()
+        public IActionResult BuscarProductoView()
         {
             var distribuidoraContext = _context.Producto.Include(p => p.Categoria).Include(p => p.Marca).Include(p => p.UnidadMedida).Include(p => p.Precios);
-            return distribuidoraContext.ToList(); 
+            return View(distribuidoraContext.ToList());
         }
 
-        
+        public IActionResult LLamarGestorOferta(int productoId)
+        {
+            ////HACK: esto no se si esta bien. Como maneja esto la inyeccion de dependencias. Trate de hacerlo asi pero como el controlador no esta creado tampoco existe el servicio
+            return RedirectToAction("OfertasGestorView", "OfertaDetalle", productoId);
+            
+
+            //OfertaDetalleController ofertaController =(OfertaDetalleController)this.HttpContext.RequestServices.GetService(typeof(OfertaDetalleController)); 
+            //var result = ofertaController.OfertasGestorView(prodcutoId);
+            //return result;
+
+
+            //var controller = serv.Current.GetService<LifeCycleEffectsResultsController>();
+            // var result = controller.IndexComparison(model);
+            // return result;
+
+
+            
+            //OfertaDetalleController detalle = new OfertaDetalleController(_context);            
+            //return View(detalle.OfertasGestorView(prodcutoId));
+        }
+
+
+
+
+
+
+
+
 
 
     }

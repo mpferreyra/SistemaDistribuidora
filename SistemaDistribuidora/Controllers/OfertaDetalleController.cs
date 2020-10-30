@@ -18,7 +18,6 @@ namespace SistemaDistribuidora.Controllers
         public OfertaDetalleController(DistribuidoraContext context)
         {
             _context = context;            
-            detalles = new List<OfertaDetalleModel>();
         }
 
         // GET: OfertaDetalle
@@ -168,30 +167,58 @@ namespace SistemaDistribuidora.Controllers
 
         //---------------------------------CODIGO ESCRITO--------------------------------
 
-        public IActionResult OfertasGestorView()
+        public IActionResult OfertasGestorView(int ProductoID)
         {
+            //ERROR= cuando corrija el envio debo quitar esto
+            //ProductoID = 1;
+            if (ProductoID !=0)
+            {
+                //HACK: esto esta bien o deveria ser una llamda al controlador
+                ProductoModel Producto = _context.Producto.Find(1);
+                var Precio = _context.Precio.Where(p => p.ProductoID == Producto.ProductoId).ToList().Last();
+                ViewBag.ProductoId = Producto.ProductoId;
+                ViewBag.ProductoNombre = Producto.Nombre;
+                ViewBag.ProductoPrecio = Precio.Valor;
+            } 
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public  IActionResult AgregarDetalle([Bind("OfertaDetalleId,DescuentoPorcentaje,CantidadValidadDescuento,DescuentoCantidad,OfertaId,ProductoId")] OfertaDetalleModel detalle)
-        {   
-            detalles.Add(detalle);            
-            ViewBag.Detalles = detalles;
-            return View(nameof(OfertasGestorView));
-        }
-        
-        //TODO: Pasar esto al controlador de producto
-        public IActionResult BuscarProducto( int ProductoID)
-        {            
-            //HACK: cual de las dos formas de llamar a la entidad es correcta o incluso no es mejor llamar a las dos de un saque
-            ProductoModel Producto = _context.Producto.Find(1);
-            var Precio = _context.Precio.Where(p => p.ProductoID == Producto.ProductoId).ToList().Last(); 
-            ViewBag.ProductoNombre = Producto.Nombre;
-            ViewBag.ProductoPrecio = Precio.Valor;
 
+        //public IActionResult AgregarDetalle([Bind("OfertaDetalleId,DescuentoPorcentaje,CantidadValidadDescuento,DescuentoCantidad,OfertaId,ProductoId")] OfertaDetalleModel detalle)
+        //{
+        //    detalles.Add(detalle);             
+        //    ViewBag.Detalles = detalles;
+        //    return View(nameof(OfertasGestorView));
+        //}
+
+        //va agregando detalles a lista de detalles que representa la oferta
+        public IActionResult AgregarDetalle(int ProductoId, string ProductoNombre, int ProductoPrecio, int DescuentoPorcentaje)
+        {
+            //creo el detalle con los valores seleccionados por el usuario
+            List<object> detalles = new List<object> { ProductoId, ProductoNombre, ProductoPrecio, DescuentoPorcentaje };
+            if (ViewBag.Oferta == null)
+            {
+                //Si es el primero, creo la lista
+                List<List<object>> oferta = new List<List<object>>();
+                oferta.Add(detalles);
+                ViewBag.Oferta = oferta;
+            }
+            else
+            {
+                //si no es el primero, obtengo la lista, agrego el detalle y lo vuelvo a ingresar
+                List<List<object>> oferta = ViewBag.Oferta;
+                oferta.Add(detalles);
+                ViewBag.Oferta = oferta;
+            }
             return View(nameof(OfertasGestorView));
         }
+
+
+
+
+
+
+
+
     }
 }

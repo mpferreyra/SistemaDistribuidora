@@ -17,7 +17,8 @@ namespace SistemaDistribuidora.Controllers
 
         public OfertaDetalleController(DistribuidoraContext context)
         {
-            _context = context;            
+            _context = context;
+            
         }
 
         // GET: OfertaDetalle
@@ -166,15 +167,13 @@ namespace SistemaDistribuidora.Controllers
 
 
         //---------------------------------CODIGO ESCRITO--------------------------------
-
-        public IActionResult OfertasGestorView(int ProductoID)
-        {
-            //ERROR= cuando corrija el envio debo quitar esto
-            //ProductoID = 1;
-            if (ProductoID !=0)
-            {
-                //HACK: esto esta bien o deveria ser una llamda al controlador
-                ProductoModel Producto = _context.Producto.Find(1);
+        [Route("OfertaDetalle/OfertasGestorView/{id?}")]
+        public IActionResult OfertasGestorView(int id)
+        {    
+            //si no es 0, es un llamado para filtrar un producto
+            if (id != 0)
+            {                
+                ProductoModel Producto = _context.Producto.Find(id);
                 var Precio = _context.Precio.Where(p => p.ProductoID == Producto.ProductoId).ToList().Last();
                 ViewBag.ProductoId = Producto.ProductoId;
                 ViewBag.ProductoNombre = Producto.Nombre;

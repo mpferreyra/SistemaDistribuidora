@@ -168,16 +168,12 @@ namespace SistemaDistribuidora.Controllers
         }
 
 
-        public IActionResult BuscarProductoView()
-        {
-            var distribuidoraContext = _context.Producto.Include(p => p.Categoria).Include(p => p.Marca).Include(p => p.UnidadMedida).Include(p => p.Precios);
-            return View(distribuidoraContext.ToList());
-        }
 
-        public IActionResult LLamarGestorOferta(int productoId)
+        [Route("Producto/LLamarGestorOferta/{id?}")]
+        public IActionResult LLamarGestorOferta(int id)
         {
             ////HACK: esto no se si esta bien. Como maneja esto la inyeccion de dependencias. Trate de hacerlo asi pero como el controlador no esta creado tampoco existe el servicio
-            return RedirectToAction("OfertasGestorView", "OfertaDetalle", productoId);
+            return RedirectToAction("OfertasGestorView", "OfertaDetalle", id);
             
 
             //OfertaDetalleController ofertaController =(OfertaDetalleController)this.HttpContext.RequestServices.GetService(typeof(OfertaDetalleController)); 

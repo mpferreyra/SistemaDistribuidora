@@ -4,21 +4,19 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-
+<h1>Buscar Producto</h1>
 <section>
-    <form asp-action="FiltrarProductos">
+    <form asp-action="BuscarProductoView">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label asp-for="First().Nombre" class="control-label"></label>
-                    <input class="form-control" />
+                    <input name="filtroNombre" class="form-control" />
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary">
-                        Buscar
-                    </button>
+                    <input type="submit" value="Buscar" class="btn btn-primary" asp-route-filtroNombre="filtroNombre" asp-route-filtroCodigo="filtroCodigo"/>
                 </div>
             </div>
         </div>
@@ -26,7 +24,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label asp-for="First().Codigo" class="control-label"></label>
-                    <input class="form-control" />
+                    <input name="filtroCodigo" class="form-control" />
                 </div>
             </div>           
         </div>
@@ -66,11 +64,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Marca.MarcaId)
                 </td>
-                <td>
-                    @*ERROR: esto devuelve productoId 0*@
-                    <a asp-action="LLamarGestorOferta" asp-controller="Producto" asp-route-id="@item.ProductoId">seleccionar</a>
-                    @*<input type="button" value="Buscar" class="btn btn-primary" onclick="location.href='@Url.Action("LLamarGestorOferta", "Producto",@item.ProductoId)'" />*@
-
+                <td>                    
+                    <a asp-action="OfertasGestorView" asp-controller="OfertaDetalle" asp-route-id="@item.ProductoId">seleccionar</a>                    
                 </td>
             </tr>
         }
@@ -78,13 +73,5 @@
 </table>
 
 <script>
-    //    function seleccionarProducto() {
-    //        var productoSeleccionado = ('#ProductoTable').find('td:first').html();    
-    //        ('#Prueba').val(productoSeleccionado);
-    //}
-
-    //$('#ProductoTable tr').on('click', function () {
-    //    var dato = $(this).find('td:first').html();
-    //    $('#Prueba').val(dato.text);
-    //});
+    
 </script>

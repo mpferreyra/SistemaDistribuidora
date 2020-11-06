@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using SistemaDistribuidora.Data;
 using SistemaDistribuidora.Models;
+using SistemaDistribuidora.Utilities;
 
 namespace SistemaDistribuidora.Controllers
 {
     public class OfertaDetalleController : Controller
     {
-        private readonly DistribuidoraContext _context;
-        private List<OfertaDetalleModel> detalles;
+        private readonly DistribuidoraContext _context;        
 
         public OfertaDetalleController(DistribuidoraContext context)
         {
@@ -193,22 +195,18 @@ namespace SistemaDistribuidora.Controllers
         //va agregando detalles a lista de detalles que representa la oferta
         public IActionResult AgregarDetalle(int ProductoId, string ProductoNombre, int ProductoPrecio, int DescuentoPorcentaje)
         {
-            //creo el detalle con los valores seleccionados por el usuario
-            List<object> detalles = new List<object> { ProductoId, ProductoNombre, ProductoPrecio, DescuentoPorcentaje };
-            if (ViewBag.Oferta == null)
+            ListaOferta oferta = new ListaOferta();
+            //Si ya existe la oferta, la traigo del session
+            if (ViewBag.Oferta != null)
             {
-                //Si es el primero, creo la lista
-                List<List<object>> oferta = new List<List<object>>();
-                oferta.Add(detalles);
-                ViewBag.Oferta = oferta;
-            }
-            else
-            {
-                //si no es el primero, obtengo la lista, agrego el detalle y lo vuelvo a ingresar
-                List<List<object>> oferta = ViewBag.Oferta;
-                oferta.Add(detalles);
-                ViewBag.Oferta = oferta;
-            }
+                oferta.setOferta(JsonConvert.DeserializeObject<List<DetalleOfertaResumen>>(HttpContext.Session.GetString("oferta")));
+                //oferta.setOferta(ViewBag.Oferta);
+            }   
+            //Agrego el detalle y lo subo al session
+            oferta.addDetalles(ProductoId, ProductoNombre, ProductoPrecio, DescuentoPorcentaje);
+            HttpContext.Session.SetString("oferta",JsonConvert.SerializeObject(oferta.getOferta()));
+            //DIVINA: Aca pasa algo similar, aunque no estoy seguro que sea el mismo problema. Igual aca lo prove para chusmear nomas
+            var p = @HttpContextAccessor.HttpContext.Session.GetString("oferta");
             return View(nameof(OfertasGestorView));
         }
 

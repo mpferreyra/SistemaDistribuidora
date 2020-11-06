@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using SistemaDistribuidora.Data;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Http;
 
 namespace SistemaDistribuidora
 {
@@ -27,8 +29,17 @@ namespace SistemaDistribuidora
         {
             services.AddControllersWithViews();
 
+            services.AddMvc();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddDbContext<DistribuidoraContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("CadenaConexion")));
+
+            services.AddSession(Options =>
+            {
+                Options.IdleTimeout = TimeSpan.FromSeconds(3600);
+            }
+             );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +61,8 @@ namespace SistemaDistribuidora
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

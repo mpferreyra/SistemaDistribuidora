@@ -2,20 +2,25 @@
 
 namespace SistemaDistribuidora.Utilities
 {
-    public class ListaOferta
+    public class ListaDetalles
     {
         public List<DetalleOfertaResumen> Oferta { get; set; }
 
-        public ListaOferta()
+        public ListaDetalles()
         {
             Oferta = new List<DetalleOfertaResumen>();
         }
 
-        public List<DetalleOfertaResumen> getOferta()
+        public ListaDetalles(List<DetalleOfertaResumen> oferta)
+        {
+            SetOferta(oferta);
+        }
+
+        public List<DetalleOfertaResumen> GetOferta()
         {
             return Oferta;
         }
-        public void setOferta(List<DetalleOfertaResumen> oferta)
+        public void SetOferta(List<DetalleOfertaResumen> oferta)
         {
             Oferta = oferta;
         }

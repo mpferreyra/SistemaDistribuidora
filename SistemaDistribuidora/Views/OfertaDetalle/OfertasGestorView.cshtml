@@ -73,12 +73,13 @@
         <tbody>
             @if (ViewBag.Oferta != null)
             {
-                //DIVINA: No llegue a ver bien como iria aca pero ya de entrada no me lo deja llamar en ningun otro lado de la vista
-                @foreach (var detalle in @HttpContextAccessor.HttpContext.Session.GetString("MyValue"))
+                //DIVININo llegue a ver bien como iria aca pero ya de entrada no me lo deja llamar en ningun otro lado de la vista
+                @*@foreach (var detalle in @HttpContextAccessor.HttpContext.Session.GetString("MyValue"))*@
+                @foreach (var detalle in http ("MyValue"))
                 {
                     <tr>
                         <td>
-                            @*ProductoID*@                            
+                            @*ProductoID*@
                             @detalle.ProductoID
                         </td>
                         <td>
@@ -105,45 +106,49 @@
 @*Datos propios de la oferta*@
 <section>
     <h3>Configuracion</h3>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-                <label asp-for="Oferta.FechaInicio" class="control-label"></label>
-                <input asp-for="Oferta.FechaInicio" class="form-control" />
-                <span asp-validation-for="Oferta.FechaInicio" class="text-danger"></span>
-                <label asp-for="Oferta.FechaFin" class="control-label"></label>
-                <input asp-for="Oferta.FechaFin" class="form-control" />
-                <span asp-validation-for="Oferta.FechaFin" class="text-danger"></span>
+    <form asp-action="crearOferta">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="Oferta.FechaInicio" class="control-label"></label>
+                    <input asp-for="Oferta.FechaInicio" class="form-control" name="fechaInicio"/>
+                    <span asp-validation-for="Oferta.FechaInicio" class="text-danger"></span>
+                    <label asp-for="Oferta.FechaFin" class="control-label"></label>
+                    <input asp-for="Oferta.FechaFin" class="form-control" name="fechaFin"/>
+                    <span asp-validation-for="Oferta.FechaFin" class="text-danger"></span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <label class="control-label">Recordar Oferta</label>
-            <input type="checkbox" name="recordarOferta" class="btn btn-primary" value="false" />
-        </div>
-        <div class="col-md-4">
-            <label class="control-label">Pagina Principal</label>
-            <input type="checkbox" name="ofertaPrincipal" class="btn btn-primary" value="false" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="Oferta.Nombre" class="control-label">Nombre de Oferta</label>
-                <input asp-for="Oferta.Nombre" class="form-control" />
-                <span asp-validation-for="Oferta.Nombre" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label">Recordar Oferta</label>
+                <input type="checkbox" name="recordar" class="btn btn-primary" value="false" />
+            </div>
+            <div class="col-md-4">
+                <label class="control-label">Pagina Principal</label>
+                <input type="checkbox" name="ofertaPrincipal" class="btn btn-primary" value="false" />
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <input type="button" value="Reiniciar" class="btn btn-primary" />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Oferta.Nombre" class="control-label">Nombre de Oferta</label>
+                    <input asp-for="Oferta.Nombre" class="form-control" name="nombre"/>
+                    <span asp-validation-for="Oferta.Nombre" class="text-danger"></span>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <input type="button" value="Crear" class="btn btn-primary" />
+        <div class="row">
+            <div class="col-md-4">
+                <input type="button" value="Reiniciar" class="btn btn-primary" />
+            </div>
+            <div class="col-md-4">
+                @*HACK: wtf??? si le agrego los parametros no funciona XD, sin los parametros si*@
+                <input type="submit" value="Crear" class="btn btn-primary" @*asp-route-fechaInicio="fechaInicio" asp-route-fechaFin="fechaFin" 
+                       asp-route-ofertaPrincipal="ofertaPrincipal" asp-route-recordar="recordar" asp-route-nombre="nombre"*@/>
+            </div>
         </div>
-    </div>
+    </form>
 </section>
 
 @*-------------------------------------------------------SCRIPT--------------------------------------------------------------*@

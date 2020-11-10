@@ -195,19 +195,47 @@ namespace SistemaDistribuidora.Controllers
         //va agregando detalles a lista de detalles que representa la oferta
         public IActionResult AgregarDetalle(int ProductoId, string ProductoNombre, int ProductoPrecio, int DescuentoPorcentaje)
         {
-            ListaOferta oferta = new ListaOferta();
+            ListaDetalles oferta = new ListaDetalles();
             //Si ya existe la oferta, la traigo del session
             if (ViewBag.Oferta != null)
             {
-                oferta.setOferta(JsonConvert.DeserializeObject<List<DetalleOfertaResumen>>(HttpContext.Session.GetString("oferta")));
+                oferta.SetOferta(JsonConvert.DeserializeObject<List<DetalleOfertaResumen>>(HttpContext.Session.GetString("oferta")));
                 //oferta.setOferta(ViewBag.Oferta);
             }   
             //Agrego el detalle y lo subo al session
             oferta.addDetalles(ProductoId, ProductoNombre, ProductoPrecio, DescuentoPorcentaje);
-            HttpContext.Session.SetString("oferta",JsonConvert.SerializeObject(oferta.getOferta()));
+            HttpContext.Session.SetString("oferta",JsonConvert.SerializeObject(oferta.GetOferta()));
             //DIVINA: Aca pasa algo similar, aunque no estoy seguro que sea el mismo problema. Igual aca lo prove para chusmear nomas
-            var p = @HttpContextAccessor.HttpContext.Session.GetString("oferta");
+            //var p = @HttpContextAccessor.HttpContext.Session.GetString("oferta");
             return View(nameof(OfertasGestorView));
+        }
+
+        /// <summary>
+        /// Toma la lista de ResumenDetalle y crea la oferta
+        /// </summary>
+        /// <returns>ViewIndexPrincipal</returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult crearOferta(DateTime fechaInicio, DateTime fechaFin, bool ofertaPrincipal, bool recordar, string nombre)
+        {
+            //creo y guardo la oferta
+            OfertaModel oferta = new OfertaModel(nombre, fechaInicio, fechaFin, true, ofertaPrincipal, recordar);            
+            _context.Add(oferta);            
+            _context.SaveChanges();
+
+            //recupero la lista de resumen oferta y se la paso al gestor            
+            ListaDetalles listaDetalles = new ListaDetalles(JsonConvert.DeserializeObject<List<DetalleOfertaResumen>>(HttpContext.Session.GetString("oferta")));
+
+            //Cargo los detalles en la oferta
+            //foreach( DetalleOfertaResumen detalle in  )
+
+            //llamo el index
+
+
+            //_context.Add(ofertaDetalleModel);
+            //await _context.SaveChangesAsync();
+            //return RedirectToAction(nameof(Index));
+            return View();
         }
 
 

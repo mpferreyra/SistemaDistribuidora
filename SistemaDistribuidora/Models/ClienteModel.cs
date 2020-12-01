@@ -9,6 +9,16 @@ namespace SistemaDistribuidora.Models
     public class ClienteModel
     {
         public int ClienteId { get; set; }
+        public string RazonSocial { get; set; }
+        public int Telefono { get; set; }
+        public string Dirrecion { get; set; }
+        public string Mail { get; set; }
+        public int CodigoPostal { get; set; }
+        public string ActividadComercial { get; set; }
+        public int AntiguedadEnEmpresa { get; set; }
+        public string Cargo { get; set; }
+        public int CUIT { get; set; }
+
 
         //llaves foraneas
         [ForeignKey("Persona")]

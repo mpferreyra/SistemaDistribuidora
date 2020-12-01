@@ -12,16 +12,7 @@ namespace SistemaDistribuidora.Models
     {
         [Key]
         public int ProveedorId { get; set; }
-        public string Nombre { get; set; }
-        public string NombreFantasia { get; set; }
-        public int Telefono { get; set; }
-        public string Dirrecion { get; set; }
-        public string Mail { get; set; }
-
-        //llaves foraneas
-        [ForeignKey("Persona")]
-        public int PersonaId { get; set; }
-        public virtual PersonaModel Persona { get; set; }
+        public string Nombre { get; set; }    
 
 
     }

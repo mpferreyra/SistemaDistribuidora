@@ -75,7 +75,7 @@
             {
                 //DIVININo llegue a ver bien como iria aca pero ya de entrada no me lo deja llamar en ningun otro lado de la vista
                 @*@foreach (var detalle in @HttpContextAccessor.HttpContext.Session.GetString("MyValue"))*@
-                @foreach (var detalle in http ("MyValue"))
+                @foreach (var detalle in ViewBag.oferta)
                 {
                     <tr>
                         <td>

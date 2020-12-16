@@ -8,7 +8,7 @@
 
 @*Todo: averiguar como usar el autocompletar de google en los campos de datos del usuario*@
 <hr />
-<form asp-action="CrearSolicitudUsuarioCliente">    
+<form asp-action="Create">    
         <div class="row">
             <div class="col-md-4">
                 <h4>Informacion general</h4>
@@ -19,9 +19,9 @@
                     <span asp-validation-for="RazonSocialCliente" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="CUITCliente" class="control-label"></label>
-                    <input asp-for="CUITCliente" class="form-control" />
-                    <span asp-validation-for="CUITCliente" class="text-danger"></span>
+                    <label asp-for="CUIT" class="control-label"></label>
+                    <input asp-for="CUIT" class="form-control" />
+                    <span asp-validation-for="CUIT" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="ActividadComercialCliente" class="control-label"></label>

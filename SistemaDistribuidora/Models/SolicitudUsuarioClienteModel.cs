@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace SistemaDistribuidora.Models
 {
     public class SolicitudUsuarioClienteModel
     {
+        [Key]
         public int SolicitudUsuarioClienteId { get; set; }
         public DateTime FechaPedido { get; set; }
         //de aprovacion o rechazo
@@ -16,14 +18,14 @@ namespace SistemaDistribuidora.Models
         public string Estado { get; set; }
         public string AprovacionUsuario { get; set; }
         public string RazonSocialCliente { get; set; }
+        public int CUIT{ get; set; }
         public int TelefonoCliente { get; set; }
         public string DirrecionCliente { get; set; }
         public string MailCliente { get; set; }
         public int CodigoPostalCliente { get; set; }
         public string ActividadComercialCliente { get; set; }
         public int AntiguedadEnEmpresaCliente { get; set; }
-        public string CargoCliente { get; set; }
-        public int CUITCliente { get; set; }
+        public string CargoCliente { get; set; }        
         public string DNIPersona { get; set; }
         public string NombresPersona { get; set; }
         public string ApellidosPersona { get; set; }

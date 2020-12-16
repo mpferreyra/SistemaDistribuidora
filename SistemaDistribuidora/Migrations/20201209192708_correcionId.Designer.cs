@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaDistribuidora.Data;
 
 namespace SistemaDistribuidora.Migrations
 {
     [DbContext(typeof(DistribuidoraContext))]
-    partial class DistribuidoraContextModelSnapshot : ModelSnapshot
+    [Migration("20201209192708_correcionId")]
+    partial class correcionId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -322,7 +324,7 @@ namespace SistemaDistribuidora.Migrations
                     b.Property<string>("AprovacionUsuario")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CUIT")
+                    b.Property<int>("CUITCliente")
                         .HasColumnType("int");
 
                     b.Property<string>("CargoCliente")

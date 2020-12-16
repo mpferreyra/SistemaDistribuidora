@@ -27,7 +27,7 @@ namespace SistemaDistribuidora.Data
         public DbSet<ProductoProveedorModel> ProductoProveedor { get; set; }
         public DbSet<ProveedorModel> Proveedor { get; set; }
         public DbSet<UnidadMedidaModel> UnidadMedida { get; set; }
-
+        public DbSet<SolicitudUsuarioClienteModel> SolicitudUsuarioCliente { get; set; }
 
 
     }

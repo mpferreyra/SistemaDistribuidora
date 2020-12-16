@@ -1,0 +1,91 @@
+﻿@model IEnumerable<SistemaDistribuidora.Models.SolicitudUsuarioClienteModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-action="Index" method="get">
+    <div class="row">
+        <div class="col-md-4">
+            Razon social: <input type="text" name="searchRazonSocial" value="@ViewData["SearchFilterRazon"]" />
+        </div>
+        <div class="col-md-4">
+            <input type="submit" value="Buscar" class="btn btn-primary" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <select name="FilterEstado">
+                <option value="Enviado">Seleccione el estado de la solicitud</option>
+                <option value="Enviado">Enviado</option>
+                <option value="Aprobado">Aprobado</option>
+                <option value="Desaprobado">Desaprobado</option>
+            </select>
+        </div>
+     </div>
+    <div class="row">
+        <div class="col-md-4">
+            <a asp-action="Index">Volver a lista completa</a>
+        </div>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RazonSocialCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CUIT)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.ActividadComercialCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombresPersona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaPedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RazonSocialCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CUIT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DirrecionCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActividadComercialCliente)
+                </td>                
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaPedido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>                
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SolicitudUsuarioClienteId">Edit</a> |                    
+                    <a asp-action="Revisar" asp-route-id="@item.SolicitudUsuarioClienteId">Revisar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

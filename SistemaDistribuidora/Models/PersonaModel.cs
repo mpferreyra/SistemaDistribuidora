@@ -9,8 +9,7 @@ namespace SistemaDistribuidora.Models
     public class PersonaModel
     {
         [Key]
-        public int PersonaId { get; set; }
-        public int? ClienteId { get; set; }
+        public int PersonaId { get; set; }        
         public string DNI { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }

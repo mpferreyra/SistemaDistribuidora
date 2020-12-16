@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace SistemaDistribuidora.Models
 {
     public class ClienteModel
     {
+        [Key]
         public int ClienteId { get; set; }
         public string RazonSocial { get; set; }
         public int Telefono { get; set; }

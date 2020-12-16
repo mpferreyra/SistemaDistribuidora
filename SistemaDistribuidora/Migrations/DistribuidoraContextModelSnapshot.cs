@@ -60,6 +60,50 @@ namespace SistemaDistribuidora.Migrations
                     b.ToTable("Categoria");
                 });
 
+            modelBuilder.Entity("SistemaDistribuidora.Models.ClienteModel", b =>
+                {
+                    b.Property<int>("ClienteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("ActividadComercial")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AntiguedadEnEmpresa")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CUIT")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Cargo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CodigoPostal")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Dirrecion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PersonaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RazonSocial")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Telefono")
+                        .HasColumnType("int");
+
+                    b.HasKey("ClienteId");
+
+                    b.HasIndex("PersonaId");
+
+                    b.ToTable("Cliente");
+                });
+
             modelBuilder.Entity("SistemaDistribuidora.Models.EquivalenciasModel", b =>
                 {
                     b.Property<int>("EquivalenciasId")
@@ -152,6 +196,36 @@ namespace SistemaDistribuidora.Migrations
                     b.HasKey("OfertaId");
 
                     b.ToTable("Oferta");
+                });
+
+            modelBuilder.Entity("SistemaDistribuidora.Models.PersonaModel", b =>
+                {
+                    b.Property<int>("PersonaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Apellidos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Celular")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DNI")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombres")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Telefono")
+                        .HasColumnType("int");
+
+                    b.HasKey("PersonaId");
+
+                    b.ToTable("Persona");
                 });
 
             modelBuilder.Entity("SistemaDistribuidora.Models.PrecioModel", b =>
@@ -390,6 +464,29 @@ namespace SistemaDistribuidora.Migrations
                     b.ToTable("UnidadMedida");
                 });
 
+            modelBuilder.Entity("SistemaDistribuidora.Models.UsuarioModel", b =>
+                {
+                    b.Property<int>("UsuarioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("Contraseña")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NombreUsuario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PersonaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UsuarioId");
+
+                    b.HasIndex("PersonaId");
+
+                    b.ToTable("Usuario");
+                });
+
             modelBuilder.Entity("SistemaDistribuidora.Models.CategoriaModel", b =>
                 {
                     b.HasOne("SistemaDistribuidora.Models.CategoriaModel", "CategoriaPadre")
@@ -397,6 +494,17 @@ namespace SistemaDistribuidora.Migrations
                         .HasForeignKey("CategoriaPadreId");
 
                     b.Navigation("CategoriaPadre");
+                });
+
+            modelBuilder.Entity("SistemaDistribuidora.Models.ClienteModel", b =>
+                {
+                    b.HasOne("SistemaDistribuidora.Models.PersonaModel", "Persona")
+                        .WithMany()
+                        .HasForeignKey("PersonaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Persona");
                 });
 
             modelBuilder.Entity("SistemaDistribuidora.Models.OfertaDetalleModel", b =>
@@ -511,6 +619,17 @@ namespace SistemaDistribuidora.Migrations
                     b.Navigation("Producto");
 
                     b.Navigation("Proveedor");
+                });
+
+            modelBuilder.Entity("SistemaDistribuidora.Models.UsuarioModel", b =>
+                {
+                    b.HasOne("SistemaDistribuidora.Models.PersonaModel", "Persona")
+                        .WithMany()
+                        .HasForeignKey("PersonaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Persona");
                 });
 
             modelBuilder.Entity("SistemaDistribuidora.Models.ProductoModel", b =>

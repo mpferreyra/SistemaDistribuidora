@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SistemaDistribuidora.Data;
 using SistemaDistribuidora.Models;
+using SistemaDistribuidora.Repository;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,10 +12,10 @@ namespace SistemaDistribuidora.Controllers
     public class SolicitudUsuarioClienteController : Controller
     {
         private readonly DistribuidoraContext _context;
+        private PersonaRepository personaRepository;
         public SolicitudUsuarioClienteController(DistribuidoraContext context)
         {
             _context = context;
-
         }
 
         public IActionResult Create()
@@ -31,8 +30,8 @@ namespace SistemaDistribuidora.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RazonSocialCliente","TelefonoCliente","DirrecionCliente","MailCliente","CodigoPostalCliente","ActividadComercialCliente","AntiguedadEnEmpresaCliente","CargoCliente","CUIT","DNIPersona","NombresPersona","ApellidosPersona","TelefonoPersona","CelularPersona","MailPersona")] SolicitudUsuarioClienteModel solicitudUsuarioCliente)
-        {
+        public async Task<IActionResult> Create([Bind("RazonSocialCliente", "TelefonoCliente", "DirrecionCliente", "MailCliente", "CodigoPostalCliente", "ActividadComercialCliente", "AntiguedadEnEmpresaCliente", "CargoCliente", "CUIT", "DNIPersona", "NombresPersona", "ApellidosPersona", "TelefonoPersona", "CelularPersona", "MailPersona", "NombreUsuario", "ContraseñaUsuario", "ConfirmarContraseñaUsuario")] SolicitudUsuarioClienteModel solicitudUsuarioCliente)
+        {            
             solicitudUsuarioCliente.FechaPedido = DateTime.Now;
             solicitudUsuarioCliente.Estado = "Enviado";
             if (ModelState.IsValid)
@@ -41,11 +40,11 @@ namespace SistemaDistribuidora.Controllers
                 await _context.SaveChangesAsync();
                 //HACK: redireccionar bien a la pagian de inicio sin usuario (cuando exista)
                 return RedirectToAction(nameof(Index));
-            }            
+            }
             return View(solicitudUsuarioCliente);
         }
 
-        
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -61,7 +60,7 @@ namespace SistemaDistribuidora.Controllers
             return View(solicitudUsuarioCliente);
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("SolicitudUsuarioClienteId", "RazonSocialCliente", "TelefonoCliente", "DirrecionCliente", "MailCliente", "CodigoPostalCliente", "ActividadComercialCliente", "AntiguedadEnEmpresaCliente", "CargoCliente", "CUIT", "DNIPersona", "NombresPersona", "ApellidosPersona", "TelefonoPersona", "CelularPersona", "MailPersona")] SolicitudUsuarioClienteModel solicitudUsuarioCliente)
@@ -90,7 +89,7 @@ namespace SistemaDistribuidora.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }           
+            }
             return View(solicitudUsuarioCliente);
         }
 
@@ -116,16 +115,45 @@ namespace SistemaDistribuidora.Controllers
             return View(solicitudUsuarioCliente);
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Aprobar(int SolicitudUsuarioClienteId)
         {
             var solicitudUsuarioCliente = await _context.SolicitudUsuarioCliente.FindAsync(SolicitudUsuarioClienteId);
+            //Actualizo los valores de la solicitud
             solicitudUsuarioCliente.FechaRevision = DateTime.Now;
             solicitudUsuarioCliente.Estado = "Aprobado";
-            _context.Update(solicitudUsuarioCliente);
-            await _context.SaveChangesAsync();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(solicitudUsuarioCliente);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!solicitudUsuarioClienteModelExists(solicitudUsuarioCliente.SolicitudUsuarioClienteId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            //cargo el usuario, el cliente y la persona
+            personaRepository = new PersonaRepository(_context);
+            try
+            {               
+                personaRepository.CrearConjuntoPersonaClienteUsuario(solicitudUsuarioCliente);
+            }
+            catch (Exception e)
+            {
+                return NotFound();
+            }
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -136,8 +164,25 @@ namespace SistemaDistribuidora.Controllers
             var solicitudUsuarioCliente = await _context.SolicitudUsuarioCliente.FindAsync(SolicitudUsuarioClienteId);
             solicitudUsuarioCliente.FechaRevision = DateTime.Now;
             solicitudUsuarioCliente.Estado = "Desaprobado";
-            _context.Update(solicitudUsuarioCliente);
-            await _context.SaveChangesAsync();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(solicitudUsuarioCliente);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!solicitudUsuarioClienteModelExists(solicitudUsuarioCliente.SolicitudUsuarioClienteId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
             return RedirectToAction(nameof(Index));
         }
 
@@ -146,7 +191,7 @@ namespace SistemaDistribuidora.Controllers
         {
             //var SolicitudContext = _context.SolicitudUsuarioCliente;
             //HACK: como seria la conversion a dbset para seguir usando los mismos metodos
-            var SolicitudContext = from s in _context.SolicitudUsuarioCliente                                   
+            var SolicitudContext = from s in _context.SolicitudUsuarioCliente
                                    select s;
 
             //Busqueda
@@ -155,9 +200,9 @@ namespace SistemaDistribuidora.Controllers
             {
                 SolicitudContext = SolicitudContext.Where(s => s.RazonSocialCliente.Contains(SearchFilterRazon));
             }
-            
+
             if (!String.IsNullOrEmpty(FilterEstado))
-            {                
+            {
                 SolicitudContext = SolicitudContext.Where(s => s.Estado.Contains(FilterEstado));
             }
             else
@@ -168,6 +213,6 @@ namespace SistemaDistribuidora.Controllers
             return View(await SolicitudContext.ToListAsync());
         }
 
-        
+
     }
 }

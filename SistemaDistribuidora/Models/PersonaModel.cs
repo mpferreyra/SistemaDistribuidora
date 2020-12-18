@@ -16,6 +16,17 @@ namespace SistemaDistribuidora.Models
         public int Telefono { get; set; }        
         public int Celular { get; set; }               
         public string Mail { get; set; }
-        
+
+
+        public PersonaModel(string dNI,string nombres,string apellidos,int telefono,int celular,string mail)
+        {            
+            DNI = dNI;
+            Nombres = nombres;
+            Apellidos = apellidos;
+            Telefono = telefono;
+            Celular = celular;
+            Mail = mail;
+        }
+
     }
 }

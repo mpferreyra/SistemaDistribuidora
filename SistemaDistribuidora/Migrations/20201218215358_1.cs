@@ -142,11 +142,26 @@ namespace SistemaDistribuidora.Migrations
                     ApellidosPersona = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TelefonoPersona = table.Column<int>(type: "int", nullable: false),
                     CelularPersona = table.Column<int>(type: "int", nullable: false),
-                    MailPersona = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    MailPersona = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NombreUsuario = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContraseñaUsuario = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SolicitudUsuarioCliente", x => x.SolicitudUsuarioClienteId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TipoUsuario",
+                columns: table => new
+                {
+                    TipoUsuarioId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoUsuario", x => x.TipoUsuarioId);
                 });
 
             migrationBuilder.CreateTable(
@@ -198,8 +213,9 @@ namespace SistemaDistribuidora.Migrations
                     UsuarioId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NombreUsuario = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Contraseña = table.Column<int>(type: "int", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: false)
+                    Contraseña = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PersonaId = table.Column<int>(type: "int", nullable: false),
+                    TipoUsuarioId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -209,6 +225,12 @@ namespace SistemaDistribuidora.Migrations
                         column: x => x.PersonaId,
                         principalTable: "Persona",
                         principalColumn: "PersonaId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Usuario_TipoUsuario_TipoUsuarioId",
+                        column: x => x.TipoUsuarioId,
+                        principalTable: "TipoUsuario",
+                        principalColumn: "TipoUsuarioId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -453,6 +475,11 @@ namespace SistemaDistribuidora.Migrations
                 name: "IX_Usuario_PersonaId",
                 table: "Usuario",
                 column: "PersonaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Usuario_TipoUsuarioId",
+                table: "Usuario",
+                column: "TipoUsuarioId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -498,6 +525,9 @@ namespace SistemaDistribuidora.Migrations
 
             migrationBuilder.DropTable(
                 name: "Persona");
+
+            migrationBuilder.DropTable(
+                name: "TipoUsuario");
 
             migrationBuilder.DropTable(
                 name: "Categoria");

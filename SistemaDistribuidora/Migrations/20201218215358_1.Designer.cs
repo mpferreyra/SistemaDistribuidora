@@ -10,7 +10,7 @@ using SistemaDistribuidora.Data;
 namespace SistemaDistribuidora.Migrations
 {
     [DbContext(typeof(DistribuidoraContext))]
-    [Migration("20201216192526_1")]
+    [Migration("20201218215358_1")]
     partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -410,6 +410,9 @@ namespace SistemaDistribuidora.Migrations
                     b.Property<int>("CodigoPostalCliente")
                         .HasColumnType("int");
 
+                    b.Property<string>("ContraseñaUsuario")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DNIPersona")
                         .HasColumnType("nvarchar(max)");
 
@@ -431,6 +434,9 @@ namespace SistemaDistribuidora.Migrations
                     b.Property<string>("MailPersona")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NombreUsuario")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NombresPersona")
                         .HasColumnType("nvarchar(max)");
 
@@ -446,6 +452,21 @@ namespace SistemaDistribuidora.Migrations
                     b.HasKey("SolicitudUsuarioClienteId");
 
                     b.ToTable("SolicitudUsuarioCliente");
+                });
+
+            modelBuilder.Entity("SistemaDistribuidora.Models.TipoUsuario", b =>
+                {
+                    b.Property<int>("TipoUsuarioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TipoUsuarioId");
+
+                    b.ToTable("TipoUsuario");
                 });
 
             modelBuilder.Entity("SistemaDistribuidora.Models.UnidadMedidaModel", b =>
@@ -473,8 +494,8 @@ namespace SistemaDistribuidora.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("Contraseña")
-                        .HasColumnType("int");
+                    b.Property<string>("Contraseña")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreUsuario")
                         .HasColumnType("nvarchar(max)");
@@ -482,9 +503,14 @@ namespace SistemaDistribuidora.Migrations
                     b.Property<int>("PersonaId")
                         .HasColumnType("int");
 
+                    b.Property<int>("TipoUsuarioId")
+                        .HasColumnType("int");
+
                     b.HasKey("UsuarioId");
 
                     b.HasIndex("PersonaId");
+
+                    b.HasIndex("TipoUsuarioId");
 
                     b.ToTable("Usuario");
                 });
@@ -631,7 +657,15 @@ namespace SistemaDistribuidora.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SistemaDistribuidora.Models.TipoUsuario", "TipoUsuario")
+                        .WithMany()
+                        .HasForeignKey("TipoUsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Persona");
+
+                    b.Navigation("TipoUsuario");
                 });
 
             modelBuilder.Entity("SistemaDistribuidora.Models.ProductoModel", b =>

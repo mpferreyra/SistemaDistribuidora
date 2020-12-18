@@ -27,5 +27,23 @@ namespace SistemaDistribuidora.Models
         public int PersonaId { get; set; }
         public virtual PersonaModel Persona { get; set; }
 
+        public ClienteModel(string razonSocial, int telefono, string dirrecion, string mail, int codigoPostal, string actividadComercial, int antiguedadEnEmpresa, string cargo, int cUIT, int personaId)
+        {
+            
+            RazonSocial = razonSocial;
+            Telefono = telefono;
+            Dirrecion = dirrecion;
+            Mail = mail;
+            CodigoPostal = codigoPostal;
+            ActividadComercial = actividadComercial;
+            AntiguedadEnEmpresa = antiguedadEnEmpresa;
+            Cargo = cargo;
+            CUIT = cUIT;
+            PersonaId = personaId;            
+        }
+
+
+
+
     }
 }

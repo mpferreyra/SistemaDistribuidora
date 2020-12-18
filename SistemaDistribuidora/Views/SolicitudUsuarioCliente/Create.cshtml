@@ -5,86 +5,107 @@
 }
 
 <h1>Solicitud de usuario</h1>
-
+@*TODO: ver que los campos contraseña se muestren como tal*@
+@*TODO: sacar los autocompletar por que se apilan*@
 @*Todo: averiguar como usar el autocompletar de google en los campos de datos del usuario*@
 <hr />
 <form asp-action="Create">    
-        <div class="row">
-            <div class="col-md-4">
-                <h4>Informacion general</h4>
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="RazonSocialCliente" class="control-label"></label>
-                    <input asp-for="RazonSocialCliente" class="form-control" />
-                    <span asp-validation-for="RazonSocialCliente" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CUIT" class="control-label"></label>
-                    <input asp-for="CUIT" class="form-control" />
-                    <span asp-validation-for="CUIT" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ActividadComercialCliente" class="control-label"></label>
-                    <input asp-for="ActividadComercialCliente" class="form-control" />
-                    <span asp-validation-for="ActividadComercialCliente" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="TelefonoCliente" class="control-label"></label>
-                    <input asp-for="TelefonoCliente" class="form-control" />
-                    <span asp-validation-for="TelefonoCliente" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="DirrecionCliente" class="control-label"></label>
-                    <input asp-for="DirrecionCliente" class="form-control" />
-                    <span asp-validation-for="DirrecionCliente" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MailCliente" class="control-label"></label>
-                    <input asp-for="MailCliente" class="form-control" />
-                    <span asp-validation-for="MailCliente" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CodigoPostalCliente" class="control-label"></label>
-                    <input asp-for="CodigoPostalCliente" class="form-control" />
-                    <span asp-validation-for="CodigoPostalCliente" class="text-danger"></span>
-                </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Informacion de Cliente</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RazonSocialCliente" class="control-label"></label>
+                <input asp-for="RazonSocialCliente" class="form-control" />
+                <span asp-validation-for="RazonSocialCliente" class="text-danger"></span>
             </div>
-            <div class="col-md-4">
-                @*Informacion del contacto con el que se va a comunicar Administracion para atender los pedidos*@
-                <h4>Informacion Contacto</h4>
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="DNIPersona" class="control-label"></label>
-                    <input asp-for="DNIPersona" class="form-control" />
-                    <span asp-validation-for="DNIPersona" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="NombresPersona" class="control-label"></label>
-                    <input asp-for="NombresPersona" class="form-control" />
-                    <span asp-validation-for="NombresPersona" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ApellidosPersona" class="control-label"></label>
-                    <input asp-for="ApellidosPersona" class="form-control" />
-                    <span asp-validation-for="ApellidosPersona" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="TelefonoPersona" class="control-label"></label>
-                    <input asp-for="TelefonoPersona" class="form-control" />
-                    <span asp-validation-for="TelefonoPersona" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CelularPersona" class="control-label"></label>
-                    <input asp-for="CelularPersona" class="form-control" />
-                    <span asp-validation-for="CelularPersona" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MailPersona" class="control-label"></label>
-                    <input asp-for="MailPersona" class="form-control" />
-                    <span asp-validation-for="MailPersona" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="CUIT" class="control-label"></label>
+                <input asp-for="CUIT" class="form-control" />
+                <span asp-validation-for="CUIT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActividadComercialCliente" class="control-label"></label>
+                <input asp-for="ActividadComercialCliente" class="form-control" />
+                <span asp-validation-for="ActividadComercialCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefonoCliente" class="control-label"></label>
+                <input asp-for="TelefonoCliente" class="form-control" />
+                <span asp-validation-for="TelefonoCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DirrecionCliente" class="control-label"></label>
+                <input asp-for="DirrecionCliente" class="form-control" />
+                <span asp-validation-for="DirrecionCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MailCliente" class="control-label"></label>
+                <input asp-for="MailCliente" class="form-control" />
+                <span asp-validation-for="MailCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodigoPostalCliente" class="control-label"></label>
+                <input asp-for="CodigoPostalCliente" class="form-control" />
+                <span asp-validation-for="CodigoPostalCliente" class="text-danger"></span>
             </div>
         </div>
+        <div class="col-md-4">
+            @*Informacion del contacto con el que se va a comunicar Administracion para atender los pedidos*@
+            <h4>Informacion de Contacto</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DNIPersona" class="control-label"></label>
+                <input asp-for="DNIPersona" class="form-control" />
+                <span asp-validation-for="DNIPersona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombresPersona" class="control-label"></label>
+                <input asp-for="NombresPersona" class="form-control" />
+                <span asp-validation-for="NombresPersona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApellidosPersona" class="control-label"></label>
+                <input asp-for="ApellidosPersona" class="form-control" />
+                <span asp-validation-for="ApellidosPersona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefonoPersona" class="control-label"></label>
+                <input asp-for="TelefonoPersona" class="form-control" />
+                <span asp-validation-for="TelefonoPersona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CelularPersona" class="control-label"></label>
+                <input asp-for="CelularPersona" class="form-control" />
+                <span asp-validation-for="CelularPersona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MailPersona" class="control-label"></label>
+                <input asp-for="MailPersona" class="form-control" />
+                <span asp-validation-for="MailPersona" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            @*Informacion del contacto con el que se va a comunicar Administracion para atender los pedidos*@
+            <h4>Informacion de Usuario</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreUsuario" class="control-label"></label>
+                <input asp-for="NombreUsuario" class="form-control" />
+                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContraseñaUsuario" class="control-label"></label>
+                <input asp-for="ContraseñaUsuario" class="form-control" />
+                <span asp-validation-for="ContraseñaUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmarContraseñaUsuario" class="control-label" >Confirme su contraseña</label>
+                <input asp-for="ConfirmarContraseñaUsuario" class="form-control"/>
+                <span asp-validation-for="ConfirmarContraseñaUsuario" class="text-danger"></span>
+            </div>            
+        </div>
+    </div>
         <div class="row">
             <input type="submit" value="Create" class="btn btn-primary btn-sm ml-auto" />
         </div>

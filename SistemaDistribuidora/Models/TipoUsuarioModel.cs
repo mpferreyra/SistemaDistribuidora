@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDistribuidora.Models
 {
-    public class TipoUsuario
+    public class TipoUsuarioModel
     {
         [Key]
         public int TipoUsuarioId { get; set; }

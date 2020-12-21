@@ -23,7 +23,7 @@ namespace SistemaDistribuidora.Models
 
         [ForeignKey("TipoUsuario")]
         public int TipoUsuarioId { get; set; }
-        public virtual TipoUsuario TipoUsuario { get; set; }
+        public virtual TipoUsuarioModel TipoUsuario { get; set; }
 
 
         public UsuarioModel(string nombreUsuario, string contraseña, int personaId, int tipoUsuarioId)

@@ -12,6 +12,7 @@ namespace SistemaDistribuidora.Models
     {  
         [Key]
         public int UsuarioId { get; set; }
+        //TODO: tiene que ser unico
         public string NombreUsuario  { get; set; }
         [PasswordPropertyText]
         public string Contraseña { get; set; }

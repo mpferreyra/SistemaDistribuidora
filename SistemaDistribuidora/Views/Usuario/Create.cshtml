@@ -1,0 +1,91 @@
+﻿@model SistemaDistribuidora.Models.UsuarioModel
+
+@{
+    ViewData["Title"] = "Crear Usuario";
+}
+
+<h1>Crear Usuario</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreUsuario" class="control-label">Nombre</label>
+                <input asp-for="NombreUsuario" class="form-control" />
+                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contraseña" class="control-label"></label>
+                <input asp-for="Contraseña" class="form-control" />
+                <span asp-validation-for="Contraseña" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmarContraseña" class="control-label"></label>
+                <input asp-for="ConfirmarContraseña" class="form-control" />
+                <span asp-validation-for="ConfirmarContraseña" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="PersonaId" class="form-control" id="PersonaId" type="hidden" />
+                <label asp-for="Persona.DNI" class="control-label" ></label>
+                <input asp-for="Persona.DNI" class="form-control-plaintext" id="PersonaDNI" readonly value="..."/>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="boton-modal">
+                    Buscar persona
+                </button>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoUsuarioId" class="control-label"></label>
+        <select asp-for="TipoUsuarioId" class="form-control" asp-items="ViewBag.TipoUsuarioId" ></select>
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*Venta modal que muestra la seleccion de Persona*@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="modal" data-url="@Url.Action("BuscarPersonaView","BuscarPersona")">
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Volver</a>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}
+@*HACK: ver porque lo tengo que referenciar*@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    //me traigo la ventana de buscar persona al modal
+    $(document).ready(function () {
+        $("#boton-modal").click(function () {
+            var url = $("#modal").data('url');
+            $.get(url, function (data) {
+                $("#modal").html(data);
+            });
+        });
+    });
+    //Seteo el valor de DNI que devuelve el modal buscar persona
+    function recibir_Parametros(DNIvalor,IdValor) {
+        document.getElementById("PersonaDNI").value = DNIvalor;
+        document.getElementById("PersonaId").value = IdValor;
+
+    }
+</script>
+
+
+

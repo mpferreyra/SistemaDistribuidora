@@ -15,6 +15,10 @@ namespace SistemaDistribuidora.Models
         public string NombreUsuario  { get; set; }
         [PasswordPropertyText]
         public string Contraseña { get; set; }
+        [NotMapped]
+        [Required(ErrorMessage = "Confirme su contraseña")]
+        [CompareAttribute("Contraseña", ErrorMessage = "Contraseñas diferentes.")]
+        public string ConfirmarContraseña { get; set; }
 
         //llaves foraneas
         [ForeignKey("Persona")]
@@ -26,11 +30,16 @@ namespace SistemaDistribuidora.Models
         public virtual TipoUsuarioModel TipoUsuario { get; set; }
 
 
-        public UsuarioModel(string nombreUsuario, string contraseña, int personaId, int tipoUsuarioId)
+        public UsuarioModel()
+        {
+
+        }
+        public UsuarioModel(string nombreUsuario, string contraseña, string confirmarContraseña, int personaId, int tipoUsuarioId)
         {
             
             NombreUsuario = nombreUsuario;
             Contraseña = contraseña;
+            ConfirmarContraseña = confirmarContraseña;
             PersonaId = personaId;
             TipoUsuarioId = tipoUsuarioId;
         }

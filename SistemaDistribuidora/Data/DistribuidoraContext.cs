@@ -31,7 +31,7 @@ namespace SistemaDistribuidora.Data
         public DbSet<UnidadMedidaModel> UnidadMedida { get; set; }
         public DbSet<UsuarioModel> Usuario { get; set; }
         public DbSet<SolicitudUsuarioClienteModel> SolicitudUsuarioCliente { get; set; }
-
+        public DbSet<TipoUsuarioModel> TipoUsuario { get; set; }
 
     }
 }

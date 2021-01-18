@@ -54,11 +54,11 @@ namespace SistemaDistribuidora.Repository
         /// Crear un nuevo usuario
         /// </summary>
         /// <returns></returns>
-        public bool CreateUsuario(int usuarioId, string nombreUsuario, string contraseña, int personaId, int tipoUsuario)
+        public bool CreateUsuario(int usuarioId, string nombreUsuario, string contraseña, string confirmarContraseña, int personaId, int tipoUsuario)
         {
             try
             {
-                _context.Add(new UsuarioModel(nombreUsuario,contraseña,personaId, tipoUsuario));
+                _context.Add(new UsuarioModel(nombreUsuario,contraseña, confirmarContraseña, personaId, tipoUsuario));
                 _context.SaveChangesAsync();
                 return true;
             }
@@ -89,7 +89,7 @@ namespace SistemaDistribuidora.Repository
                     _context.SaveChanges();
 
                     // Creo el usuario de tipo cliente
-                    _context.Add(new UsuarioModel(Cliente.NombreUsuario,Cliente.ContraseñaUsuario,persona.PersonaId,1));
+                    _context.Add(new UsuarioModel(Cliente.NombreUsuario,Cliente.ContraseñaUsuario,Cliente.ConfirmarContraseñaUsuario,persona.PersonaId,1));
                     _context.SaveChanges();
 
                     dbContextTransaction.Commit();

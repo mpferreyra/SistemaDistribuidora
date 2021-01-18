@@ -32,9 +32,9 @@ namespace SistemaDistribuidora
             services.AddMvc();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            //services.AddDbContext<DistribuidoraContext>(options =>
-            //        options.UseSqlServer(Configuration.GetConnectionString("CadenaConexion")));
-            services.AddDbContext<DistribuidoraContext>(ServiceLifetime.Scoped);
+            services.AddDbContext<DistribuidoraContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("CadenaConexion")));
+
 
             services.AddSession(Options =>
             {

@@ -13,12 +13,21 @@ namespace SistemaDistribuidora.Models
         public int PrecioId { get; set; }
         public float Valor { get; set; }
         public DateTime FechaAlta { get; set; }
-        public DateTime FechaBaja { get; set; }
+        public DateTime? FechaBaja { get; set; }
 
         [ForeignKey("Producto")]
         public int ProductoID { get; set; }
         public virtual ProductoModel Producto { get; set; }
 
+        public PrecioModel()
+        { }
 
+        public PrecioModel(float valor, DateTime fechaAlta, DateTime? fechaBaja, int productoID)
+        {            
+            Valor = valor;
+            FechaAlta = fechaAlta;
+            FechaBaja = fechaBaja;
+            ProductoID = productoID;
+        }
     }
 }

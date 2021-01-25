@@ -1,31 +1,43 @@
 ﻿@{ Layout = null; }
 @model SistemaDistribuidora.Models.UsuarioModel
 
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SistemaDistribuidora</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Loggin.css" />
+</head>
+
+
+
 <body class="main-bg">
-    <div class="login-container text-c animated flipInX">
-        <div>
-            <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
-        </div>
-        <p class="text-whitesmoke">Distribuidora Beagle</p>
+    <div class="login-container text-c animated flipInX">        
+        <h1 class="text-darkyellow">Distribuidora Beagle</h1>
         <div class="container-content">
-            <form class="margin-t">
+            <form class="margin-t" asp-action="LogginView">
                 <div class="form-group">
                     @*<input type="text" class="form-control" placeholder="Usuario" required="">*@
-                    <label asp-for="NombreUsuario" class="control-label"></label>pp
+                    <label asp-for="NombreUsuario" class="text-darkyellow"></label>
                     <input asp-for="NombreUsuario" class="form-control" />
                 </div>
                 <div class="form-group">
                     @*<input type="password" class="form-control" placeholder="*****" required="">*@
-                    <label asp-for="Contraseña" class="control-label"></label>
+                    <label asp-for="Contraseña" class="text-darkyellow"></label>
                     <input asp-for="Contraseña" class="form-control" />
                 </div>
-                <button type="submit" class="form-button button-l margin-b">Ingrese</button>
-
+                @*<button type="submit" class="form-button button-l margin-b">Ingrese</button>*@
+                <input type="submit" value="Ingrese" class="form-button button-l margin-b" />
                 <a class="text-darkyellow" href="#"><small>Olvido su contraseña</small></a>
-                <a class="text-darkyellow" href="#"><small>Crear nueva cuenta</small></a>
+                <hr />
+                <a class="text-darkyellow" asp-controller="SolicitudUsuarioCliente" asp-action="Create"><small>Solitar una cuenta</small></a>
             </form>
         </div>
     </div>
-    <script src="~/js/Loggin.js"></script>
+    
 </body>
+
+</html>
 

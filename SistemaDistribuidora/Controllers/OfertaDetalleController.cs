@@ -175,7 +175,7 @@ namespace SistemaDistribuidora.Controllers
             //si no es 0, es un llamado para filtrar un producto
             if (id != 0)
             {                
-                ProductoModel Producto = _context.Producto.Find(id);
+                ProductoModel Producto = _context.Producto.Find(id);                
                 var Precio = _context.Precio.Where(p => p.ProductoID == Producto.ProductoId).ToList().Last();
                 ViewBag.ProductoId = Producto.ProductoId;
                 ViewBag.ProductoNombre = Producto.Nombre;

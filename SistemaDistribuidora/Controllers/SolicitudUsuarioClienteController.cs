@@ -37,9 +37,8 @@ namespace SistemaDistribuidora.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(solicitudUsuarioCliente);
-                await _context.SaveChangesAsync();
-                //HACK: redireccionar bien a la pagian de inicio sin usuario (cuando exista)
-                return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync();                
+                return RedirectToAction("LogginView", "Loggin");
             }
             return View(solicitudUsuarioCliente);
         }

@@ -28,7 +28,7 @@
                 <span asp-validation-for="ConfirmarContraseña" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input asp-for="PersonaId" class="form-control" id="PersonaId" type="hidden" />
+                <input asp-for="PersonaId"  class="form-control" id="PersonaId"  type="hidden" />
                 <label asp-for="Persona.DNI" class="control-label" ></label>
                 <input asp-for="Persona.DNI" class="form-control-plaintext" id="PersonaDNI" readonly value="..."/>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="boton-modal">
@@ -83,7 +83,6 @@
     function recibir_Parametros(DNIvalor,IdValor) {
         document.getElementById("PersonaDNI").value = DNIvalor;
         document.getElementById("PersonaId").value = IdValor;
-
     }
 </script>
 

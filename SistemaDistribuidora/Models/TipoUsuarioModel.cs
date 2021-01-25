@@ -10,6 +10,7 @@ namespace SistemaDistribuidora.Models
     {
         [Key]
         public int TipoUsuarioId { get; set; }
+        [Display(Name = "Permisos")]
         public string Descripcion { get; set; }
     }
 }

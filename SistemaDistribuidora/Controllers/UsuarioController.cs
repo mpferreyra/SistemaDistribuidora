@@ -49,10 +49,8 @@ namespace SistemaDistribuidora.Controllers
         // GET: Usuario/Create
         public IActionResult Create()
         {
-            ViewData["PersonaId"] = new SelectList(_context.Persona, "PersonaId", "PersonaId");
-
-            SelectList listaTipoUsuario = new SelectList(_context.TipoUsuario, "TipoUsuarioId", "TipoUsuarioId");
-            ViewData["TipoUsuarioId"] = listaTipoUsuario;
+            ViewData["PersonaId"] = new SelectList(_context.Persona, "PersonaId", "Nombres");
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "TipoUsuarioId", "Descripcion");
             return View();
         }
 
@@ -61,8 +59,8 @@ namespace SistemaDistribuidora.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Route("Usuario/Create/{DNI?}")]
-        public async Task<IActionResult> Create(string tipoUsuarioDescripcion,[Bind("UsuarioId,NombreUsuario,Contraseña,ConfirmarContraseña,PersonaId,TipoUsuarioId")] UsuarioModel usuarioModel)
+        
+        public async Task<IActionResult> Create([Bind("UsuarioId,NombreUsuario,Contraseña,ConfirmarContraseña,PersonaId,TipoUsuarioId")] UsuarioModel usuarioModel)
         {
             //HACK: falta traer bien y vincular la descripcion del tipo de usuario con el tipoUsuarioid
             if (ModelState.IsValid)
@@ -71,8 +69,8 @@ namespace SistemaDistribuidora.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PersonaId"] = new SelectList(_context.Persona, "PersonaId", "PersonaId", usuarioModel.PersonaId);
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "TipoUsuarioId", "TipoUsuarioId", usuarioModel.TipoUsuarioId);
+            ViewData["PersonaId"] = new SelectList(_context.Persona, "PersonaId", "Nombres", usuarioModel.PersonaId);
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "TipoUsuarioId", "Descripcion", usuarioModel.TipoUsuarioId);
             return View(usuarioModel);
         }
 
@@ -89,8 +87,8 @@ namespace SistemaDistribuidora.Controllers
             {
                 return NotFound();
             }
-            ViewData["PersonaId"] = new SelectList(_context.Persona, "PersonaId", "PersonaId", usuarioModel.PersonaId);
-            ViewData["TipoUsuarioId"] = new SelectList(_context.Set<TipoUsuarioModel>(), "TipoUsuarioId", "TipoUsuarioId", usuarioModel.TipoUsuarioId);
+            ViewData["PersonaId"] = new SelectList(_context.Persona, "PersonaId", "Nombres", usuarioModel.PersonaId);
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "TipoUsuarioId", "Descripcion", usuarioModel.TipoUsuarioId);
             return View(usuarioModel);
         }
 
@@ -99,13 +97,13 @@ namespace SistemaDistribuidora.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UsuarioId,NombreUsuario,Contraseña,PersonaId,TipoUsuarioId")] UsuarioModel usuarioModel)
+        public async Task<IActionResult> Edit(int id, [Bind("UsuarioId,NombreUsuario,Contraseña,ConfirmarContraseña,PersonaId,TipoUsuarioId")] UsuarioModel usuarioModel)
         {
             if (id != usuarioModel.UsuarioId)
             {
                 return NotFound();
             }
-
+            
             if (ModelState.IsValid)
             {
                 try
@@ -126,8 +124,15 @@ namespace SistemaDistribuidora.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PersonaId"] = new SelectList(_context.Persona, "PersonaId", "PersonaId", usuarioModel.PersonaId);
-            ViewData["TipoUsuarioId"] = new SelectList(_context.Set<TipoUsuarioModel>(), "TipoUsuarioId", "TipoUsuarioId", usuarioModel.TipoUsuarioId);
+            foreach (var modelState in ViewData.ModelState.Values)
+            {
+                foreach (var  error in modelState.Errors)
+                {
+                    string p = error.ToString();
+                }
+            }
+            ViewData["PersonaId"] = new SelectList(_context.Persona, "PersonaId", "Nombres", usuarioModel.PersonaId);
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "TipoUsuarioId", "Descripcion", usuarioModel.TipoUsuarioId);
             return View(usuarioModel);
         }
 

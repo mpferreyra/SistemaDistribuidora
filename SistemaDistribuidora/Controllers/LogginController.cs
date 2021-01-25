@@ -24,9 +24,9 @@ namespace SistemaDistribuidora.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]        
-        public  IActionResult LogginView(string nombreUsuario)
+        public  IActionResult LogginView(string nombreUsuario, string contraseña)
         {
-            string nivelUsuario = tipoDeUsuario(nombreUsuario);
+            string nivelUsuario = credencialesCorrectas(nombreUsuario, contraseña);
             switch(nivelUsuario)
             {
                 case "Administrador":
@@ -45,21 +45,31 @@ namespace SistemaDistribuidora.Controllers
             }                       
         }
 
+        /// <summary>
+        /// Comprueba las credenciales. Devuelve null si no existen o el tipo de usuario si si.
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="contraseña"></param>
+        /// <returns></returns>
+        public string credencialesCorrectas( string usuarioNombre, string contraseña)
+        {
+            var descripcionUsuario = (from s in _context.Usuario
+                                      where s.NombreUsuario == usuarioNombre && s.Contraseña == contraseña
+                                      select s.TipoUsuario.Descripcion).SingleOrDefault();
+            return descripcionUsuario;
+        }
 
+        /// <summary>
+        /// Busca el tipo de usuario (permiso)
+        /// </summary>
+        /// <param name="usuarioNombre"></param>
+        /// <returns></returns>
         public  string tipoDeUsuario(string usuarioNombre)
         {
-            var tipoUsuarioID = from s in  _context.Usuario
+           var descripcionUsuario = (from s in  _context.Usuario
                                    where s.NombreUsuario == usuarioNombre
-                                   select s.TipoUsuarioId;            
-            switch(tipoUsuarioID.ToString())
-            {
-                case "1":
-                    return ("Administrador");
-                case "2":
-                    return ("Cliente");
-                default:
-                    return ("NotFound");
-            }
+                                   select s.TipoUsuario.Descripcion).SingleOrDefault();
+            return descripcionUsuario;
         }
     }
 }

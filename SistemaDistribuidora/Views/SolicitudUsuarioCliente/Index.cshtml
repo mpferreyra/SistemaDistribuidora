@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Solicitudes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crear nueva solicitud</a>
 </p>
 <form asp-action="Index" method="get">
     <div class="row">
@@ -27,12 +27,7 @@
                 <option value="Desaprobado">Desaprobado</option>
             </select>
         </div>
-     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <a asp-action="Index">Volver a lista completa</a>
-        </div>
-    </div>
+     </div>    
 </form>
 <table class="table">
     <thead>
@@ -81,7 +76,7 @@
                     @Html.DisplayFor(modelItem => item.Estado)
                 </td>                
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.SolicitudUsuarioClienteId">Edit</a> |                    
+                    <a asp-action="Edit" asp-route-id="@item.SolicitudUsuarioClienteId">Editar</a> |                    
                     <a asp-action="Revisar" asp-route-id="@item.SolicitudUsuarioClienteId">Revisar</a>
                 </td>
             </tr>

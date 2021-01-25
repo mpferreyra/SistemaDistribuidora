@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SistemaDistribuidora.Data;
 using SistemaDistribuidora.Models;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -58,12 +59,17 @@ namespace SistemaDistribuidora.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductoId,Nombre,Codigo,Descripcion,imagen,disponibilidad,MarcaID,UnidadMedidaId,CategoriaId")] ProductoModel productoModel)
-        {
+        [ValidateAntiForgeryToken]        
+        public async Task<IActionResult> Create(int PrecioValor, [Bind("ProductoId,Nombre,Codigo,Descripcion,imagen,disponibilidad,MarcaID,UnidadMedidaId,CategoriaId")] ProductoModel productoModel)
+        { 
             if (ModelState.IsValid)
             {
                 _context.Add(productoModel);
+                await _context.SaveChangesAsync();
+                ////creo el precio
+                //TODO: sacar el valro de fecha baja a hoy, lo puse porque la migracion no corria bien y corregi para que fuera nulo
+                PrecioModel precio = new PrecioModel(PrecioValor, DateTime.Now, DateTime.Now, productoModel.ProductoId);
+                _context.Add(precio);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

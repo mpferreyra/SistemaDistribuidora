@@ -15,7 +15,7 @@
     <p>
         <a asp-action="Create" asp-controller="Persona">Crear nueva persona</a>
     </p>
-    <table class="table">
+    <table class="table" id="tabla">
         <thead>
             <tr>
                 <th>
@@ -36,7 +36,7 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
+            <tr data-dismiss="modal">
                 <td>
                     @Html.DisplayFor(modelItem => item.PersonaId)
                 </td>
@@ -50,10 +50,7 @@
                     @Html.DisplayFor(modelItem => item.Apellidos)
                 </td>
                 <td>
-                    <a class="text-success" id="seleccionado" data-dismiss="modal">Seleccionar</a>
-                    @*HACK: esto calculo no se hace asi*@
-                    <input class="form-control" type="hidden" id="DNIvalor" value=@item.DNI>
-                    <input class="form-control" type="hidden" id="IdValor" value=@item.PersonaId>
+                    <a class="text-success">Seleccionar</a>                    
                 </td>
             </tr>
             }
@@ -67,9 +64,11 @@
 <script>
     //Llamo al script de la ventana padre, que setea el dni en el control correspondiente
     $(document).ready(function () {
-        $("#seleccionado").click(function () {
-            parent.recibir_Parametros(document.getElementById("DNIvalor").value, document.getElementById("IdValor").value);
+        $("table tbody tr").click(function () {
+            parent.recibir_Parametros($(this).find("td:eq(1)").text().trim(), $(this).find("td:eq(0)").text().trim());
         });
     });
+
+            
 </script>
 

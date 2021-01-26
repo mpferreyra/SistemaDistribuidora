@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Distribuidora Beagle</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="css/slick.css" />
+	<link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+
+<body>
+	<!-- HEADER -->
+	<header>
+		<!-- top Header -->
+		<div id="top-header">
+			<div class="container">
+				<div class="pull-left">
+					<span>Bienvenido a la Distribuidora Beagle</span>
+				</div>
+				<div class="pull-right">
+					<ul class="header-top-links">
+						<li><a href="#">Telefono</a></li>
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram"></i></a></li>											
+						<li class="dropdown default-dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ENG <i class="fa fa-caret-down"></i></a>
+							<ul class="custom-menu">
+								<li><a href="#">English (ENG)</a></li>
+								<li><a href="#">Russian (Ru)</a></li>
+								<li><a href="#">French (FR)</a></li>
+								<li><a href="#">Spanish (Es)</a></li>
+							</ul>
+						</li>
+						<li class="dropdown default-dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">USD <i class="fa fa-caret-down"></i></a>
+							<ul class="custom-menu">
+								<li><a href="#">USD ($)</a></li>
+								<li><a href="#">EUR (€)</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /top Header -->
+
+		<!-- header -->
+		<div id="header">
+			<div class="container">
+				<div class="pull-left">
+					<!-- Logo -->
+					<div class="header-logo">
+						<a class="logo" href="#">
+							<img src="./img/logo editado.png" alt="">
+						</a>
+					</div>
+					<!-- /Logo -->
+
+					<!-- Search -->
+					<div class="header-search">
+						<form>
+							<input class="input search-input" type="text" placeholder="¿Que esta buscando?">
+							<select class="input search-categories">
+								<option value="0">Categorias</option>
+								<option value="1">Amortiguadores</option>
+								<option value="1">Tren delantero</option>
+							</select>
+							<button class="search-btn"><i class="fa fa-search"></i></button>
+						</form>
+					</div>
+					<!-- /Search -->
+				</div>
+				<div class="pull-right">
+					<ul class="header-btns">
+						<!-- Account -->
+						<li class="header-account dropdown default-dropdown">
+							<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+								<div class="header-btns-icon">
+									<i class="fa fa-user-o"></i>
+								</div>
+								<strong class="text-uppercase">Mi cuenta <i class="fa fa-caret-down"></i></strong>
+							</div>
+							<a href="#" class="text-uppercase">Login</a> / <a href="#" class="text-uppercase">Join</a>
+							<!-- **/Preguntar si van a querer esto -->
+							<ul class="custom-menu">
+								<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+								<li><a href="#"><i class="fa fa-heart-o"></i> My Wishlist</a></li>
+								<li><a href="#"><i class="fa fa-exchange"></i> Compare</a></li>
+								<li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>
+								<li><a href="#"><i class="fa fa-unlock-alt"></i> Login</a></li>
+								<li><a href="#"><i class="fa fa-user-plus"></i> Create An Account</a></li>
+							</ul>
+						</li>
+						<!-- /Account -->
+
+						<!-- Cart -->
+						<li class="header-cart dropdown default-dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+								<div class="header-btns-icon">
+									<i class="fa fa-shopping-cart"></i>
+									<span class="qty">3</span>
+								</div>
+								<strong class="text-uppercase">Mi carrito:</strong>
+								<br>
+								<span>35.20$</span>
+							</a>
+							<div class="custom-menu">
+								<div id="shopping-cart">
+									<!-- **/Preguntar si van a querer esto -->
+									<div class="shopping-cart-list">
+										<div class="product product-widget">
+											<div class="product-thumb">
+												<img src="./img/thumb-product01.jpg" alt="">
+											</div>
+											<div class="product-body">
+												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
+												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+											</div>
+											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
+										</div>
+										<div class="product product-widget">
+											<div class="product-thumb">
+												<img src="./img/thumb-product01.jpg" alt="">
+											</div>
+											<div class="product-body">
+												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
+												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+											</div>
+											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
+										</div>
+									</div>
+									<div class="shopping-cart-btns">
+										<button class="main-btn">View Cart</button>
+										<button class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></button>
+									</div>
+								</div>
+							</div>
+						</li>
+						<!-- /Cart -->
+
+						<!-- Mobile nav toggle-->
+						<li class="nav-toggle">
+							<button class="nav-toggle-btn main-btn icon-btn"><i class="fa fa-bars"></i></button>
+						</li>
+						<!-- / Mobile nav toggle -->
+					</ul>
+				</div>
+			</div>
+			<!-- header -->
+		</div>
+		<!-- container -->
+	</header>
+	<!-- /HEADER -->
+
+	<!-- NAVIGATION -->
+	<div id="navigation">
+		<!-- container -->
+		<div class="container">
+			<div id="responsive-nav">
+				<!-- category nav -->
+				<div class="category-nav">
+					<span class="category-header">Categorias <i class="fa fa-list"></i></span>
+					<ul class="category-list">
+						<li class="dropdown side-dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Amortiguadores <i class="fa fa-angle-right"></i></a>
+							<div class="custom-menu">
+								<div class="row">
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr class="hidden-md hidden-lg">
+									</div>
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr class="hidden-md hidden-lg">
+									</div>
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="row hidden-sm hidden-xs">
+									<div class="col-md-12">
+										<hr>
+										<a class="banner banner-1" href="#">
+											<!-- **/Preguntar si van a querer esto -->
+											<img src="./img/banner05.jpg" alt="">
+											<div class="banner-caption text-center">
+												<h2 class="white-color">NEW COLLECTION</h2>
+												<h3 class="white-color font-weak">HOT DEAL</h3>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li><a href="#">Tren delantero</a></li>
+						<li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Accesorios <i class="fa fa-angle-right"></i></a>
+							<div class="custom-menu">
+								<div class="row">
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr>
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr class="hidden-md hidden-lg">
+									</div>
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr>
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+									</div>
+									<div class="col-md-4 hidden-sm hidden-xs">
+										<a class="banner banner-2" href="#">
+											<img src="./img/banner04.jpg" alt="">
+											<div class="banner-caption">
+												<h3 class="white-color">NEW<br>COLLECTION</h3>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li><a href="#">Filtros</a></li>
+						<li><a href="#">Cubiertas</a></li>
+						<li class="dropdown side-dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Aceite <i class="fa fa-angle-right"></i></a>
+							<div class="custom-menu">
+								<div class="row">
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr>
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr class="hidden-md hidden-lg">
+									</div>
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr>
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr class="hidden-md hidden-lg">
+									</div>
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr>
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li><a href="#">Limpieza</a></li>
+						<li><a href="#">Ver todos</a></li>
+					</ul>
+				</div>
+				<!-- /category nav -->
+
+				<!-- menu nav -->
+				<div class="menu-nav">
+					<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+					<ul class="menu-list">
+						<li><a href="#">BOSCH</a></li>
+						<li><a href="#">FRAM</a></li>
+						<li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Taranto <i class="fa fa-caret-down"></i></a>
+							<div class="custom-menu">
+								<div class="row">
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr class="hidden-md hidden-lg">
+									</div>
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+										<hr class="hidden-md hidden-lg">
+									</div>
+									<div class="col-md-4">
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="row hidden-sm hidden-xs">
+									<div class="col-md-12">
+										<hr>
+										<a class="banner banner-1" href="#">
+											<img src="./img/banner05.jpg" alt="">
+											<div class="banner-caption text-center">
+												<h2 class="white-color">NEW COLLECTION</h2>
+												<h3 class="white-color font-weak">HOT DEAL</h3>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown mega-dropdown full-width"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Vic <i class="fa fa-caret-down"></i></a>
+							<div class="custom-menu">
+								<div class="row">
+									<div class="col-md-3">
+										<div class="hidden-sm hidden-xs">
+											<a class="banner banner-1" href="#">
+												<img src="./img/banner06.jpg" alt="">
+												<div class="banner-caption text-center">
+													<h3 class="white-color text-uppercase">Women’s</h3>
+												</div>
+											</a>
+											<hr>
+										</div>
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+									</div>
+									<div class="col-md-3">
+										<div class="hidden-sm hidden-xs">
+											<a class="banner banner-1" href="#">
+												<img src="./img/banner07.jpg" alt="">
+												<div class="banner-caption text-center">
+													<h3 class="white-color text-uppercase">Men’s</h3>
+												</div>
+											</a>
+										</div>
+										<hr>
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+									</div>
+									<div class="col-md-3">
+										<div class="hidden-sm hidden-xs">
+											<a class="banner banner-1" href="#">
+												<img src="./img/banner08.jpg" alt="">
+												<div class="banner-caption text-center">
+													<h3 class="white-color text-uppercase">Accessories</h3>
+												</div>
+											</a>
+										</div>
+										<hr>
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+									</div>
+									<div class="col-md-3">
+										<div class="hidden-sm hidden-xs">
+											<a class="banner banner-1" href="#">
+												<img src="./img/banner09.jpg" alt="">
+												<div class="banner-caption text-center">
+													<h3 class="white-color text-uppercase">Bags</h3>
+												</div>
+											</a>
+										</div>
+										<hr>
+										<ul class="list-links">
+											<li>
+												<h3 class="list-links-title">Categories</h3></li>
+											<li><a href="#">Women’s Clothing</a></li>
+											<li><a href="#">Men’s Clothing</a></li>
+											<li><a href="#">Phones & Accessories</a></li>
+											<li><a href="#">Jewelry & Watches</a></li>
+											<li><a href="#">Bags & Shoes</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li><a href="#">Fitam</a></li>						
+					</ul>
+				</div>
+				<!-- menu nav -->
+			</div>
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /NAVIGATION -->
+
+	<!-- HOME -->
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- ASIDE -->
+				<div id="aside" class="col-md-3">
+					<!-- aside widget -->
+					
+					<!-- /aside widget -->
+
+					<!-- aside widget -->
+					
+					<!-- aside widget -->
+
+					<!-- aside widget -->
+					
+					<!-- /aside widget -->
+
+					<!-- aside widget -->
+					
+					<!-- /aside widget -->
+
+					<!-- aside widget -->
+					
+					<!-- /aside widget -->
+				</div>
+				<!-- /ASIDE -->
+
+				<!-- MAIN -->
+				<div id="main" class="col-md-9">
+					<!-- store top filter -->
+					
+					<!-- /store top filter -->
+
+					<!-- STORE -->
+					<div id="store">
+						<!-- row -->
+						<div class="row">
+							<!-- Product Single  <a href="product-page.html">p</a>-->
+							<div class="col-md-4 col-sm-6 col-xs-6">
+								<div class="product product-single">
+									<div class="product-thumb">
+										<div class="product-label">
+											<span>New</span>
+											<span class="sale">-20%</span>
+										</div>
+										<button class="main-btn quick-view" onclick="window.location.href='index - producto solo.html';"><i class="fa fa-search-plus" ></i> Ver</button>
+										<img src="./img/FAceite1.jpg" alt="">
+									</div>
+									<div class="product-body">
+										<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>									
+										<h2 class="product-name"><a href="product-page.html">Filtro xxx</a></h2>
+										<div class="product-btns">
+											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /Product Single -->
+
+							<!-- Product Single -->
+							<div class="col-md-4 col-sm-6 col-xs-6">
+								<div class="product product-single">
+									<div class="product-thumb">
+										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
+										<img src="./img/FAceite2.jpg" alt="">
+									</div>
+									<div class="product-body">
+										<h3 class="product-price">$32.50</h3>
+										<div class="product-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star-o empty"></i>
+										</div>
+										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+										<div class="product-btns">
+											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /Product Single -->
+
+							<div class="clearfix visible-sm visible-xs"></div>
+
+							<!-- Product Single -->
+							<div class="col-md-4 col-sm-6 col-xs-6">
+								<div class="product product-single">
+									<div class="product-thumb">
+										<div class="product-label">
+											<span>New</span>
+											<span class="sale">-20%</span>
+										</div>
+										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
+										<img src="./img/FAceite4.jpg" alt="">
+									</div>
+									<div class="product-body">
+										<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
+										<div class="product-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star-o empty"></i>
+										</div>
+										<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+										<div class="product-btns">
+											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /Product Single -->
+
+							<div class="clearfix visible-md visible-lg"></div>
+
+							
+							
+							<!-- /Product Single -->
+						</div>
+						<!-- /row -->
+					</div>
+					<!-- /STORE -->
+
+					<!-- store bottom filter -->
+					<div class="store-filter clearfix">						
+						<div class="pull-right">
+							<div class="page-filter">
+								<span class="text-uppercase">Ver:</span>
+								<select class="input">
+										<option value="0">10</option>
+										<option value="1">20</option>
+										<option value="2">30</option>
+									</select>
+							</div>
+							<ul class="store-pages">
+								<li><span class="text-uppercase">Pagina:</span></li>
+								<li class="active">1</li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /store bottom filter -->
+				</div>
+				<!-- /MAIN -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->
+	<!-- /HOME -->
+
+
+	<!-- MArcas onda new bytes -->
+	<div class="logosMarcas" style="height: 194px;">
+	<a class="logoMarca" href="https://www.nb.com.ar/ZOTAC">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGgABAQEBAAMAAAAAAAAAAAAAAAUGAgMECP/EACoQAAEEAgIBAwMEAwAAAAAAAAEAAgMFBBEGITESE0EHFWEWI1GhcXLh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBSeRWeXWQRPw6qeyle7Xoj2A0a8kgFVlned59jh07oqrDy58vI2xroInP9pvy4kA6P8f8QT+N8yy7q3+3x0Zh9GzNIcnYiA67Hp87+F3ecxfj3DqmprJbLIi37vpJ0CB4GgSdfKkfT2bOqvbr/wBM2DJcmXc+VKxzGgfG9t8AfnyuZ223E+XWFjHVS2GHnPc4Oj3sFx9WtgHXf8+UGh47y2C2wst5w54szEaXSYrQXvP+vXffX4Uibn9jFlx4kvE8uPIkG2ROlcHuHfgGPvwvLwCtspLux5FY4rsM5Yc1kLmkO0XAk6PfwP8AKckwsyX6l0+XFhzyY8cTBJK2MljCHPPZA0PKC1gX05osq2tqx9XHBvUcjyXuA/BA1s9BexxW6hvqePNjAY/ZZLHvfocPIWX+o/3SyyoarFwM5+FF+7PJHC4h5A2Gg60ev7P4UzhUlrWcmkMdBZ4lZlkNdE6F7xEfg7IHg/0guWPOJjaTYVJTT2fsEh749nsHR0AD1v5V3i9jZWeHJkWNW6u070sjeT6iNdkggaWIqpLXhFpnQS08+bjZDwY5Y99gE670fg9hbXi11Pd4808lZLhMY4Mb7rtl51s6GggtoiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIP/9k=" alt="ZOTAC" data-pagespeed-url-hash="1236701670" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/AMD">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAIDAQEAAAAAAAAAAAAAAAQFAgMHBgj/xAA1EAABAwMCAwQHCAMAAAAAAAABAAIDBAURBhITITEUFUFRByIyYXGBkRc1Q1Vyc4KSssLR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBEWEj2xsL3Oa1rQS5x6ADqgo77qq02a4RUVa+XiyNDssaC1oJwMnPLop19u9JZrea6r3mEODfUAJyeniuT1dQL5WXm4S22uqnVHqUj4Yi5sWCCMn4AD5lWtfde8/RYGPOZ6SaOGTPXA9k/RB0Ft7trrJ3yKlvY9m7f4/px555Y81VP1vZ22qK5llXwJZXQtHDG7cACeWfevIO0dXdg4jax/dBpe2lu/8AE2Z24/28lU5A0VbSeQFzkyf4sQdGtut7FW1jKQSTU8ryGtE8e0EnoMgnC36q1GdPhks1unnp38uLG8YDvI56LzfpSr7RXW+npqSWCquJmHD4Dg9zQc5BI8+XJZaj1HU0N4tVlrHNZTsEL62R3rF/QkHl05fNBn9p1B+WVP8Adq91TSianimAwJGBwHlkZXNPSTU2u5WSmqbO2N8UVQWyyRQlrQS3kCcLo9q+7KT9hn+IQSUREBaqiGOohkp5mbo5Glr2noQRghbUQRrfQ0lvphTUUEcEIJIY3kMnqoR09ZCydht0BbUPD5W7eT3AkgkfMq2RBp7PB2TsnDbwOHw9nhtxjH0VedO2R1I2kNugNOx5e1mDgOIwT1VsiCroNP2WgqBPSW2milHR4Zkj4HwUS+aSs94rjW1rJjMWhpLZC0YHTkr9EEGK1W+K1d1tpY+x7NhiLeRHv/6pUMbYoY4meyxoa34AYC2IgIiICIiAiIgIiICIiAiIgIiIP//Z" alt="AMD" data-pagespeed-url-hash="346544369" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/GIGABYTE">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAHAABAAEFAQEAAAAAAAAAAAAAAAIBAwQFBwYI/8QALhAAAQMDBAECBQMFAAAAAAAAAQACAwQFEQYSITETFFEVIjJBYQcXkWJxgZLB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBaGv1dp2iqXU1Rc4xKw4c1rHPwfb5QVuahr308jYn7XuaQ13sccFcmtdzptP2K42+rovDemy5Y+aESB4yB2R7Z/CDpUd9tcldR0TKrNRWQieBmx3zsIJDs4wOAe1iVusNN0dQ6mnujBIw4cGse8A+2WgheQElTcNX6fkD2tqZ7M7a5oDQHlk2CB9sFaygu0Fh07V26SibBfGTg5mpw/e3IzyR7Z/4g6fX3q2W+2xXCrqhFTTbdj9hOdwyOAM9JNe7ZFZ23d9VihcAWyhjj2cDgDK8LqCpq75eLRbqag+ICkpWVNTTtlEbXuc1pwSeAMEf7LVNqp4ND3jT9YwxVFFPG5rC4EhpeMjI4PPOf6kHQafWGnJxKYrlu8TS9w8MgO0dkAtyf8K/NqWyRW+mr31o9PVEthcI3OLyDggADPf4XgdJPZV6yt+6o+Lt9F43uNOYxTDYQWkdOABxn77lmaVssEf6g1VA+R8tNbN01Ox3IBcW4/jP8hB6mbWmmoJpIZblskjcWub4JPlIOCOGqtRrLTlPL4p7jsfgOx4ZDwQCOm+xWn1FHH+51iGxuHQuLhtHP19rTV1cLfru8kX74MHbAH+j8+/DW8Yxwg6ZR1EVVSxVUDt0UzGyMdgjLSMg4/sryxbVOypttPUMn9S2SJrhLs2b8j6sfbKykBQkjjkxvY1+OsgFTRBbEcYIIY0Fow04HA/COijkOXxscfctBVxEEGxxtOWsaCeMgKhhiJJMTCT2S0cq4iCEbGM4YxrQe8DCNYwPLwxocezjkqaIIOYwvDyxpcOjjkKLoYXnLoWEnsloKuogoAGgADAHQCqiICIiAiIgIiICIiAiIgIiIP/Z" alt="GIGABYTE" data-pagespeed-url-hash="1125826045" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/TT-ESPORTS">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAHAABAAEFAQEAAAAAAAAAAAAAAAUBAwQGBwII/8QALhAAAgEEAQIFAwIHAAAAAAAAAQIAAwQFERIGIRMUMUFRByJxFZEWIzJhgbHB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APsuIiAiIgIiICIiAiIgIiICQnWVDLXODehhWZbp3Uclq+GygHZ0d/4k3PLMEUsx0oGyT7CBxDKXnVONyJx91lsgLkcdot6zdyAQNg/3myYqn1BgclRyXU+WuaVhT5bR7w1PFbidKFBO+/eRXTQPUX1G84w3T8Zrk79lU7UfvxEvfUO2W66+p2jXvFa3hh2fQSiDoe5+O8DqmPulvLGhdojotamtRVcaYAjY2JkTnmWwN1jcZjLHGZbmniVKlQG5FFqxYKFI7jetfMxcjieqqFvbC6yGqngimrtf8NOGY/I2dEfMDpsTQ6OA6krVLu8p5ZabVKlZ6Ph3FRuQYNwAPLiF2R7bEt/oXUdS3alQW5sybdEc1ci1UO4qISw0ft7Bv3gdAiaIvT+We2ubdsjUe4p16ZorSvKgVUIQuNFi3p8n8es83eFz46h54+tWa0p1qXBmvWIVVC8lI5f8MDfYiICWbuglzbVbepvhVRkbR0dEaOjL0QITAdM4rB16lawp1BUqLwZnct23vUx870fh8zfm+uxXWswAYo+gdDQ7EfE2OIEXk8FjshWt6tzRYtbDVLi5UAbB12/AlbXDWFvYpZU6O6VOqKy8j35Btj/QH47STiBBP0rhGCjypAUVAOLsP60CN6H1IErU6WwT1HqeQRS4KngSv2leBA16DRk5ECBfpPCNTFNrapxC8e1Vh24Kmjo9+yCV/hbCcqZ8s+6bUmX+a3rTGk9/YGTsQEREBERAREQEREBERAREQERED//Z" alt="TT ESPORTS" data-pagespeed-url-hash="316233273" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/GX-GAMING">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAMBAQEBAAAAAAAAAAAAAAQFBgcCAwj/xAAuEAABBAIBAwIEBQUAAAAAAAABAAIDBAURIQYSMRNRFEFhgQciYpGhIzJCgrH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A/ZaIiAiIgIiICLL5DN37+Wfh+ngz1IuLNyQd0cP6QP8AJynVcCGjut5XK25SOXG2+Nu/o2MgBBdIoMjWY2lNYEk8kcUTnlskpfwBs8u5+XzKlxvbJG2Rh21wBafcFB7REQEReJHtjjdI86a0EuPsAg9osbhcn1XnKRyVN+KrVXyOEbJmPLu0HWyQVadO2sxPZsRX7WLsxsaC2Sm4ktdsjtcCfogvlCzslmLEWnUmd1r0y2EfrPA/krLydU5HDZiTHZ6GGb1ADUfV03vJOgHBzvy/fx9Vfww5OyDNkbLakWt/D1jyB+qQ8n/XtQVH4fdNW8Ay1LdnZJPZ7dtYSQAN+SRyeVY5PqSjjs5HjbXc0PgMzpvLWaJGjrx4Kyh60sWKuQGFxwiigbszuf3yAeA8tP8Ad+5155WHsS3JbDoYprJbbAJY9/c5ze4n8xHnnbv5Qby9n3dU5OLE1HfDYZ8rWTWHba6c8H0x7b8a8/8AF0JoAAAGgPAXDcI19j0oJy6PG1pS6SVjiO1z9NEvnnWm/ZdY6ZvXrNVsdxkc/bsNuV5WPimA+Y0e4H340gu0REBQs1Xmt4i3UrvayaaF8bHO3oEgjnSmogwtDF9XVMNDifgenbFWIaDJ2vdvknZG9eSpmCwuXwuDu/CMonJ3JzJppLYYgfAA18ueFrkQY2j0/fo4/ctWnlb11+78ll5127GmtJHgD+VMpxdR1KrK0dKi6No0GvsufoAD8oJG9b3re9A/RaZEHP8AoXp6xishar3oI3h72OGnjbe3u07R8tPdrjeiFZ9V1cNjsdckbhZXySQdpNaAgNY0eC8DTG6HOvktaoWRx1XIRelbZJJGeHMErmtcPYgHR+6Dlv4bY63k+oZLoL69WNjhK6D+mDsaDBr911uCMRxhgc52hrucduOvcrzVrwVYWwVoWQxM4axjQ1o+wX2QEREBERAREQEREBERAREQEREH/9k=" alt="GX GAMING" data-pagespeed-url-hash="1573301693" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/THERMALTAKE">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAIDAQEAAAAAAAAAAAAAAAUGAwQHAgj/xAAsEAABBAICAQMDAgcAAAAAAAABAAIDBAURBiESEyIxUWGBB5EUFjJBUnHw/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERARFDZjk2ExNv8Ahchd9GYsD/H0nu9p3o7AP0QTKLQxGWx2XrmfHWmTsadHQIIP3BGwooc44uXADKjZ67hkA/ctQWRFH5LL43HUW37dprKzyA2RrS8Ensa8QfnSxYTP4rMvlZjbXrmIAvHpuboHev6gPoglUREBERAREQFWOTcNo57Ii9ZtWYniMR+LPHWgSf7j7qzog4Veks8X5RZjxdqVpryeAcde8dHRHwQrVmOBY2ngLGRjuW3SRVzKGnx0SG710FD8xwGatcoyE9fGW5Ynykse2IkEaHwV0vkME03E7leKJ0kz6rmtYG7JPjrWkHLeFQzZywOO2rk7aDtzBrdEsc0da2OvldK4pxanx2Sw+rPPMZw0O9TXWt/Gh91S/wBNcLlqPJ2WLmPswRCJ4L5GEDZHXZXVEBERAREQEREBR+evSY7Fy24o2yuYWANc7Q9zgPn8qQWOaOOWMxysa9h+WuAIP4KCvz8rhjlkhOOuerGHlzfaACxpc4eXlregsVvl0UbPGKjOJ/NrdP8AHx70Rsg/QlWB1Sq6QyOrQl5BBcWDZHexv8lHUaRkDzTrl7e2uMY2D9jpBXP5yrNnEUlKffbSG6cC4f4nfY+f+2rLSnbapw2mtc1s0bZGtd0QCN6P7rGMdjw0tFCqGu+QIW6P++lssa1jA1oAaBoAdABB6REQEREBERAREQEREBERAREQEREH/9k=" alt="THERMALTAKE" data-pagespeed-url-hash="3503294819" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/GENIUS" alt="GENIUS">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAQEAAgMAAAAAAAAAAAAAAAYFAwQCBwj/xAArEAABBAIBAwIGAgMAAAAAAAABAAIDBAURIQYSMRNBBxQVInGRJVEzYYH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A+y0REBERAREQERcViaOtXlsTP7YomF73HwABslByosXpbP1uoK889WGWKOGXs2/X3cb3wVtICIiAiIgIoTNZe1fzGSghy/0qljg2P1gOHTuPhx144cF3oOr6tezHj7DZLBicK9i23tDTKG7ce3e9cFBWoo+n1zXmMZlxtiCOStJYa8vadsYHbOgdjlpAXWw3VYpY0tu/NXJWVTdklk7WkNc7TW6H5br8oNjPdW4vC2TXust9+gR2wntO/wCidA/8U7k/iPipq0kEeKszxytcxzZXtYCCNEHW1uU+pIctbFGPD2J2ai+Y7u0iIvGxtpOyB7lTHxXxWHxtOpLToxV7U8x2YttBYBzwOPJagx8fmcrkZIcBgYY8XXmk12V3OLufLnPJ7vA9vZe3sfWbTpQVGOc5sMbWBzuSdDWyo74W9PHH0TlLcfbZsjUbT5bH5/Z8/hXKAiIgIiIIc9H5F1uaJ9uo6hPkRcl+13qvAJPafbXJXjW6QydbG3KTJ8a8yiQRzOhJlJedEl2uPt34V0iCDt9FX5Ip44bVZm6cVSEnu4a0tLyePJIP7S90Vfnt3GR3KzadkwtO2u9QRxgANGuPYfoK8RBLYnp6/D1N9Zuz1A5sbo+2sws9UeAXg8cDXhMp0+/NdWx3MgP4+nGGwxk/5X+SSP69v96VSiAiIgIiICIiAiIgIiICIiAiIgIiIP/Z" data-pagespeed-url-hash="247545560" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/NEXXT" alt="NEXXT">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAMBAQEBAAAAAAAAAAAAAAQFBgMHAQj/xAAwEAABBAICAQICCAcAAAAAAAABAAIDBAURBhIhEzEiYQcUFSMyQYGRFjNRUmKhsf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD9loiICIiAir85l6WGrNs33PZC53Xu1jnAE+29DwuuNvVslSju05PVglG2O9kEtERAREQEREBERB5nn+Y5bE81nrvmMmPhlaHQem3fUtG9HW9+d+6h5HmWb65OankvuY7zWV3eiw6jPqEDyP6Nb7+VoJOK2LvLMzYvRNFC7WMcbw4FwdthB18uqzf8DcgZjrNUV4nudYjcwiVoBa1sgJ8n/IILfAT5DkNkUMhyOnkKksTjPWZX6v110CD0GiHEH3Wf+0s5xGS9x+F3xPka6GTWyNn8TQf7h4WgxLMxxuUZHJ4fF1KUMThLLA1old8J6tBB8kuDVRVsHmOXNv53sBK6QCFhdoPO/LQT7BoQaLkA5Zi+MVskMtK6wzzcZ0aQ0OPjXw/l7FceJ5TkvJclbtMu/VKkTT1jaxpZ3LdNbsjfv5K752jzDK8cq4p9NjZB4tSmdv3oH4fY/qfmvvEOP5/jmekjYxlnGzabI8PDfy2HBpO/BOkFfQyfMrPKZcD9twerCT2ea7OpA0Tr4Nr05YrFYHJwfSHbzMsLRTk79H9wT5AA8b2tqgIiICIiCFUs2pcjaglqOigi6+lLvxJseVxp278uOszzUDFNHv04u349MBA/ckforNEFLyWtXv46Js2OdeZ3LhEXOZp3V2iQPnofLamQQCg2rSo1mMqN7NIG/gAGx/tTkQR3Szj6xqDfpj7vz/MPXf8A3won1y/9jm0MeXWuxAr9uux31vZHjx5VmiCstXb0eLrWIse6WeXp6kO/Me27P7HwrNEQEREBERAREQEREBERAREQEREH/9k=" data-pagespeed-url-hash="151265286" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/AORUS" alt="AORUS">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAHAABAAICAwEAAAAAAAAAAAAAAAQGAwcBAgUI/8QAMRAAAQQBAgQCCAcBAAAAAAAAAQACAwQFERIGEyExFFEiQUJhcYGRoRYkMnKSorHw/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/APstERARcEgN1J0HmVygIiICIiAiIgIiIIWZyEeLoPtyxSyhvsxjVxWu8vx3lLZMVGNtKM9AR6ch+ZGg+i2ZYhisQuhniZLG8aOa5oIPxBWm8U+viuJmy5KJ7WVZC8xtGrtwBLRoT56KWrIuvCnDU8kbMhn3yzzuO9kMjidvr1f5u/xWXL5Sli4Wy25Nu87WMaNz3HyAHdVkZzN+K8a6rKGzt2VMcGbnHXs95A9Ef926rFkcbkaFeXPXsi5+Uc0tijZCJBGT2a3XXT4oPZZxdh3QWJi+dja5DX7oiDuJIDQPPoVkk4ox8Tq7ZobkPiSBEZK7mh2unb6qhwY58TMVSuwzx15n+LtPMTiNNSA3oO+0f3Xp8Q2bGQzs2SggndUx0OlY8twD5T0BAI9Tjr8GJq2Lb+IKuyRwqXy2PXe4VyQNO+pCiu4ww4rw2PzPKmeWRuER6uGmo+4VSgp5XFUadCaaWKhlGl9lzK+58ZPQgnTXtt+6ksipx8TY+s7mjFY2IOje6Jx5rz6Rd0HfcR/FNTFuvcQY+lk2ULXOjmeA5pLNW7evXUeroV1p8SU7kXOqVchPFqQHsrOLSR71VHMhy+dyWQyUlmpXfGa9V3JcXbexIGnlrr+9Sa1i/RsY3FYC5NZrl+ku+ntbG0uBJJ095TTF3qT+IhEvKliB9mRu130WZEVQUC1icdZvx356cUliL9MhHX3a+fz7KeiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIP//Z" data-pagespeed-url-hash="752015239" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/WD" alt="WD">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAQFBgMHCP/EAC4QAAEEAQIDBQkBAQAAAAAAAAABAgMEBQYREhMhBxQxQZMWFzVRVFV0wtIiUv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD7LAAAAj3blWjCs9yzFBEionG9yNTf5dQJAKj2l0/96pes0e0un/vVL1mgW4Kj2l0/96pes06Vc9hbMzYIMrTlleuzWNlTdV+SJuBZgAAAAAAAGF7ZvgNP8r9XG6ML2zfAqf5P6OAwtXBJZ0/Bej7261Ys8iJjYVcxU2VVXdE8ejiVNpytBl568ti8ynBW575u4u403Xbq3yTovXwLfF6mxWN0JBWgn4srEyTlt5bk5bnucnFuqcPRqkuHUuAdgsfVmucM7468F13Keu0ce6qirw9d13Tp/wBgUTNO4aGOszJ5W9RnnRP8TY97W8S7boir4oir4ke3hpcDrWhSkmbMneIpGPRu26cSbbp5L0NNqLNaNvZWDLTXLV6SsxEirRxOaxVRVVFXianmvzMm7LT5rWdXITpwq+1EjGp1RrUciI0D3MAAAAAAAAqtR4OlnqTal3moxr0e10bkRyLsqeaKnmWoAxPu0wX1eS9Vn8D3aYL6vJeqz+DbADE+7TBfV5L1Wfwd8d2f4SjehtsmvSuhej2te9vDui7pvs1FNeAAAAAAAAAAAAAAAAAAAAAAD//Z" data-pagespeed-url-hash="3648752650" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/MICROSOFT" alt="MICROSOFT">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAQACAwEAAAAAAAAAAAAAAAYEBQIDBwj/xAAuEAABBAIABAUDAwUAAAAAAAABAAIDBAURBhIhMRMUQVFhBxVCFiNxJDJigYL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A+y0REBERAREQEREBERAREQFLcfcR2uHYqb6sEMxne8O8TfTQHbR+VUqA+scjI62O54GTbfJrmLhro32IQat31JyoibJ5ClsuI/L0A+flWeE4iim4Rhz+ULK0Z5vELGlzW6kLBoDZ69F44bMPlo/6Ct/e78pPZv8AkvScRWfkfpXXrQVmuMkg/aZsjlFnZ7nfYEoKq3l8bV8mJrQabzgytoE+ITrWtD5HdZFG1Bcqx2qzy6KQba4tLSRv2I2oRuBywu0jYhfJFjb0MNQjr+wJC4vP+uQf8rlw7jchBJS+8Y29Za2KMV+STQgcHuLi8cw92nfsg9BRQWKwklOnj3X8detRPrP8zE15c4TbBDiOYfjsDXZYoxPEbbG44bMls0zGZZn6EJEZA8N4d1PXR2O/X5QXeUvV8dTdasF3htIbprS5xJOgAB3OyudG3BbhMkD+YA8rh6td6tI9CPUeiisjg33JAKmKtwUmmDcMjyCX+IOZwGz2YSCVuOCsacZNloTSlg5rbnRvJ218RJ5ADv0Hf+UFMiIgLEyGNoZAMF6nDZDNlokYHa331tZaINR+m8BrX2elodQPCC2FKtXpVmVqsLIYmb5WMGmjZ2dD+Su9EBERAREQEREBERAREQEREBERAREQEREBERB//9k=" data-pagespeed-url-hash="3506120875" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+
+	<a class="logoMarca" href="https://www.nb.com.ar/INTELAID">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAQGBwMFCP/EADMQAAEEAQMDAgMFCQEAAAAAAAEAAgMEEQUSEwYhMRRRIkFhBxUjQpEXMjM2UlNxc6Gx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBZ79p125Q1WtPTu2azuA54pdrc7jjI/Nnx9FoSqX2sfyhJ/vj/wDUFT0zr7qKs0+rrR3Y48b3OiLHDPjJHYfor3pXU1K/qrNMDHRzmsydxLmlmXBp2g5yT8XsvBnvW/2rt07mcKcsZEkP5JPwSckfM9h39uygaNW0+p9oAZKyGMmhG6tuPmYtYAR9f3kGierq+o9N6mHn/t7xu/TOV59bWebqe3onptvp4Wy8u/O7OO2MdvPusnhZy6Y8zz6bBf8AV5dLI6X1Yfn2aD2z/wB+qtl2cVuqOoZrcbp9ulM5GxuLC84YDgjuPKC9Q3qU0xhhuV5JRnLGSAu+vbKiaZqMtq3fisVRWjqSbGyGUOEje/xYx8PhZfUdXGrdOS1m6bButRkx1nudI1pe0HlJPlTNd5/R9V8XJs+84+bb/Rl/n6ZwgvVnqSCPqDT9LrsissuB347JgQ0gE4wB38e695ZnXHT46/0P7g4uPjPJx5xna7GfrjytMQEREBVzqjpWLqC5HLZv2YYo49hiixhxyTnv2+fsrGiCtU+idCgmFh7LViYeJJbDt3jHyIXtfd9AyQymnAZIAGxPdGC5gHgAkZClogiO0+g60LZpVjZHcSmJu/8AXGV0FavzPm4IuSRu17tg3OHsT8wu6IIUelaXGMR6bTYN27DYWjv79h5XcVaw5cVoRzfxMMHx/wCfddkQRINO0+uYzBQqxGMksLIWt2k+cYHZS0RAREQEREBERAREQEREBERAREQf/9k=" alt="INTELAID" data-pagespeed-url-hash="2180779423" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/ZOWIE">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAHAABAAMAAgMAAAAAAAAAAAAAAAQFBgEDAgcI/8QALhAAAQQCAQMDAgQHAAAAAAAAAQACAwQFESEGEjETFEEiURYkYXEzQlZykZLS/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBVXUWTs4upHNXxlnIPc/tMcDSSBonfAP2Vqs519mLWIw0bqA/N2ZWwxEgHtJBO9H9kED8Y5b+jMv/AKO/4UnC9Yw3cozGXsdaxluT+GycHTv05A0VlLj20bL6uT68ycdxnErIWSljHEb0CDopFMzNZXCY7G2rWSfSsGea9YBDg3uB1yd8a+flB7AzGQt0Nyx0opa7Gdz5ZLIiDTs8chV9TqSW7FXbRxUs1mWIzPjMoYI29xaCXH7kbHHhefUOGu38pXuV5ab44WaEFtjnxh+ye8BpGzo65XL8ZmBZZkoblOO+6L0bDfRcYZGhxLSBvuBAP3QdlDqCO1ZqV/aSxyzSSxSMe4bhfGASDrz54IXU3qVhqNse0dp2MkyGu/4br6fH6+V1t6fuQehaq3o35COeSeSSaI+nI57Q1w7QdgaA1yo9Hpm+2lNBbu13OGMfj6/pxuADXfzOJPJ2B4QTJ+oX+8NavSje5sMcrzLZbEB3gkAbHPhXVGV09Rk0jGsc8bLWvDwP2I8rOXemrD7vuoWYiyXQRxObeqGTtLARtpB43vlaDGwPr0IYZGVo3Mbotrs7Ix/aPgIJSIiAqXq/Bsz+KNQyejIx4khk1vtcNj/HKukQYA43rTxYo4K7INAzzRtc9+uBs6Cm4qLrSvZhjNDDV6pkb6ohb2/TvnWj5WyRAREQEREBERAREQEREBERAREQEREBERAREQf/2Q==" alt="ZOWIE" data-pagespeed-url-hash="1728851371" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/NVIDIA">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAMBAQEBAAAAAAAAAAAAAAMEBgUHAgj/xAArEAABBAIBAwQBAwUAAAAAAAABAAIDBAURBhIhMRMUIkFxFUKBIzJRUnL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A/ZaIiAiIgIiICIiAiIgIiIC42Z5DTx0xrAOsWWs63xsIAjb/ALPcTpo/K7Kx/L+OTWrct7Hx+r7iNrLUAeGOcWkFkjCe3UNffkIOPe5DyOWQzU7kdeKSQthEsDTE4/TRLrW/+ulcyhzHk/65XoXJ2xk2GRSsdXa1w24Ajx2UNyVseRnlv3I4pnS9crbG+nrb2DjCwO+X5dr+FVNrF2c/jfZMtzWPeRunuWH/ACmcXD9g7Afyg9Dv80oVL9qn+nZSd9U6ldDC1zR9731eFPjuWYu/kKdOBs/VciMkT3MAZ26ttPfe/ifpQ4XD3q3Ic/cmjaIbuvRPWDvQPkfXlZ2PimdrcfxrqsTGZWlae9o9Qa6Hd/O9eQOyDSN5jjXH417jme8FJrw1vS6Q78fLwq7+d4tvqvdQygghl9KSf0AY2u3ru4OVFvF78HH8HThhY6evebZtfMDXck9999dgqUeD5TFjMniYcfW9G/YdIZnzN+LSR+0fhBscfn6N3MT4yuJXPghZMZCB0OY5rSCDv/Dh9Ktx/lmMzd99KoywyRjC9plYA17QdEt7nazp45naNnKewhbKJqEVSGT1Wt2Q2NrnaJ2OwdpfUHF85i72HuVpq1r2X9N7GNEZ9Mkl2yT3/ucg9AREQEREEToYXHboWEnyS0IIIAdiFgI8HpClRAREQEREBERAREQEREBERAREQEREBERAREQf/9k=" alt="NVIDIA" data-pagespeed-url-hash="2703303092" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/NZXT">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAMBAAMAAAAAAAAAAAAAAAQFBgcBAgj/xAAzEAABBAIBAgMGAgsAAAAAAAABAAIDBAURBhIhEzFRBxQVIkFhMnE1QlVzgYKUobLR4f/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD7LREQEREBERAREQEREBERAREQc8yvPLuN5VNj561Y0oZuhzmtd4nT676tb/gp8/LLg5vXw1dlSSlN4ZbJ0uLy1zQdgg6/ssjk8YMx7SrmOMnQZpJel3o4Rkjf22FD4nBZrc6o1bYc2aGfwyHfTW+35INHleZ8vxu328PUgiLy1r5YZAD56/W9ArmlmuTWeHvzbKtD3jZeyHw36dEOxP4vP6j7LH+0HNwZXkzK75JDjqbvDPhaJPf53AE639B+S22O5hhpMDauVa88FeixrBHI1rSSQQ1rdE+iCgf7R7BwsRiqwHJulLXsLHeGGjuHAb333rzVlm87zHHVK0wxVWXqrGay5sMhbCdk6J6voB3XPqslqpdg5E6i01zbLmjWmFwPUWj08+3/ABdey1yDIcJv3ar+uKahK5p/kd2QZXjnMOUZe9A2PFVn1TMyOeWKF58NpI2d9RA0O66MsB7F/wBF5D983/Fb9AREQEREENuNxzbvvzaFUWtk+MIWh+9aPza2jsdj3XBcfSrPtDWpjE0vHbQ+bW1MRBWfAMH+xcb/AErP9Lz8EwwiMQxNAMJDiz3ZnSTo99a8+5VkiCGcbj3UxSNCqarTsQmFvQO++zdaXvFRpRVHVIqkEdZwIdEyMBhB8wQBpSUQRqVGlRa5tKnXrNcduEMYYCfvoKSiICIiAiIgIiICIiAiIgIiICIiD//Z" alt="NZXT" data-pagespeed-url-hash="141813089" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/dx-racer">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAIDAQEAAAAAAAAAAAAAAAQHAgMGBQj/xAAvEAABBAEDAgQCCwAAAAAAAAABAAIDBBEFBiESMRMUYXFBURYiJDJSYnKBkcHh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBFwu56WuaruCM2NCkt6VWz4cItxs8V34nc59h/qgO29qcWr1b+n7ddQjhIc6GG80ulcCMBxJwG+wKCyUVaz7W3FSsm3RZG2K1KDZpU7JiAaOcBziPXt2+HCl6nta1qFmKhQoRaRpcTWyPe/D3zycHDul3UcduT8/RB36wkkZFGZJHtYxoyXOOAP3Kq+ltyzp17z2sUPLx1XgwCmQTZfnDWj6xcM+3vhbtzu1GOQ3tzabLbicQK9dlxrIWuI4b0tPU4/M/0g76rrGlW7PlamoVp5sE9EcgccDv2U9VgzbGuU9Hhho0HGa6fEvSRzNjexmciFuTwPifVSZNqm7LDH9FW6ZAx3XNJ5wSSyAD7rcEjJ9UFjIqo1Lb27r96S1Npz424DIom2WFsbB2APiBenb2tfsQV6NHTXaYyaP7ZYlt+MeDkMA6viRk4GEFiIqwg2RfdrDatunFHRa7Pm6rmhxwOOHOyP4KsyNgZG1jerDQAMklBmiIgIiIIs9Rs16CxJy2AOLG/mPHV7gZA/UVnPWrzvjkmgikdGcsLmBxafmCey3ogIiICIiAiIgIiICIiAiIgIiICIiAiIg//9k=" alt="DX-RACER" data-pagespeed-url-hash="3028371554" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/CORSAIR">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAIDAQEAAAAAAAAAAAAAAAEGAgUHBAj/xAAsEAACAgIBBAEBBwUAAAAAAAABAgADBBEFEhMhMQZRFCIyQmFxkQcjQWKx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD7LiIgIiICIiAiIgIiICIiAnh5LkcPA6RlXrR3AxRmBIJA2fX/AD/M9055/U7LGFzfGOrqw6eq2tgGXQbw2j435bz7gRzfybMyBg24oGDmJa61uz/2rgB95dkaKnaEE+P1EuvCZxz+KpzLaTQ7AixG/Iykhh/IM4rj1chncfXiYuHl5C12u47SM4Gwo8aHj1LHwt3PXcPlcBk4eXYtIrv7ToVc1hx1IAfex6/YyDptObiX9XYyqLejy3RYG0P10fEivOwbKzbXmY7op0zrapAP0J3Kz8lWjkcZBxvH32tXUDZ0Usu6e4hanRHknW9f6n6zX/Ma2z7WyOMxrTSuNXXcy0sBYe8hVQNbJADH9JReftWL2Wv+009pfxP1jpH7ncmvIosqW1Lq3RzpWDggnfoGUfIQtnclTl23YefbnVZFNtNJesKqnos6T7HjTfRiJjkU8rzHDnGfGXHtxxZlMw6qg9nUSjAFSd6BOvH4wYF6tycepyll9SMBshnAOvrJpvou32bq7de+lgdfxKNyl9/IvblnEvR7eCsrK9lvFpcbX178fxNh8ZZqvklwzF7Vt+JUMUhCq2Iq+Qd/nB9j6QLdERATUW/HuLv5J+RzMcZV7aCm77yqB6AX1NvEDFVVECqAqjwAPAEnQ3vXn1uTEBERAREQEREBERAREQEREBERAREQEREBERA//9k=" alt="CORSAIR" data-pagespeed-url-hash="3304357150" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/RAZER">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAQFBgIDCP/EAC4QAAEEAQIFAgMJAAAAAAAAAAEAAgMEEQUhBhITIjFBYRQVcTJEUXKBkZKxwf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD7LREQEREBERAREQEREBERAVdf1ehSuRVbU3TklxjscWjJwMkDAydt1MsRCeF0RfIwOGOZjy1w9wQsRxXTkpU21rF5s0tyQA2p+Vgjii3a0lxPM7mdn3HN4QaeDU57GszUYqobHXOJpXvGdwCAG+d8+fCm2rlSry/FWoIObPL1XhufpkrOcJ6e74pt0a028IYujhsTmnBAIBJO4GNtv9z7cVw3ZdYoGhDUlmZWsua2zEXsccxYGxGCUGijeyRgfG8Oa4Za4HII/EFdAg5wfHlUvDbq9LhWCVj3vijifI7s5SDkucA0eMHIwofC7b1O65l7qH5nGbm4OIpc90f8SzH5SgvbGoUK8nSsXa0L/PLJK1px9CV6zWIIYetNNHFHt3ueA3f3KzXFdnTZNWqadcMUcZxPZkczJLWntjBx6nz7D3V1rcscemOlfNWhZ291iEyMGSPLQR/aCRVt1bIJrWYZw3yY3h2Prgrll+jJOazLlZ84JBjEgLsjyMZyoXDk8U0Mhhs052hwya1Z0LRt6guOVnK1WydQhdOys2k/WZndVtc9Zr2zOLAXZ+y4jGce3qg3SIiAiIgh0KUVSa29n3ibrOz6EtaCP3Gf1UxEQEREBERAREQEREBERAREQEREBERAREQEREH/2Q==" alt="RAZER" data-pagespeed-url-hash="724199397" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/SAPPHIRE">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIEBQYI/8QAJhAAAQQCAQQCAgMAAAAAAAAAAQACAwQFERIGEyExFVFhcRRCgf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/APZaIiAiIgIiICIiAiIgIiICpZXIR46qJ5Y5ZeUjY2siaC5znHQABKurL6jrPt40wNoxXeTxuOSUxjX2CPRQTx+Sktz9p2Lv1fBPOdjQ39eHHyrffb3XxadyYOWvsfhcricLkK2TjsQUosdG2N7ZGtuPl7u9Bvg+te10E1NzGB1cuMoGjycfI1o+0GfN1PHBGZbOHy9eFuucksADWgnWzpylP1K2ux75sJmWRs2XSGu3iAPZJ5elXxPSlP4+AZNks1gAGVpsOcwuB363ohRxXS1d1Bvywnlskv7gFl/AguOhoH60itvFZCHIwSTQB/BkroiXDWy06JH4Va9m461yaqyjesywhhe2CMO8OBIPkj6Wfj+l6rjZktiVrpLUr2CKw5reBcS3wD9LJq9M5c9hlp/jlD33NnIcWt7nIbHn+wQbzepIy90bsTlWTCPuNidAA942AeI351tWcdl3XbPYOJydXYJ52IQ1v62CVg5PpizFJa+MLntnhY1jpJ3c43CRpIBJ9OAWjgsdLWyAlfh/4g4kdz5J83+cSNIR0SIiIIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIg//Z" alt="SAPPHIRE" data-pagespeed-url-hash="4070309679" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/ASUS">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAUGAgQHCP/EAC8QAAIBAwMCBAILAAAAAAAAAAABAgMEBQYREiExFSJBUQdhFBZSVnGBgqGi0vD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9lgAAAAAAAAAAAAAAAAEVqjL0MHiKt9V6yXlpQ+3N9l/vQCI1Xq7wfI0sbZWEshdyXKcIyflT7LZJ7sjaeuspUtXKGmLuVbnttHk4qO3dvj3M/hph61SVXU2T5Tu7tt0XLuovvL8/T5fiUTD3WAjjJW2Vtr6VdVnUp1raUYyimktuvTuvYC7/XjO/dS5/n/U3dPawu8lnqGKucV9EnUpynLlN8o7JtdGvkUGvkMVSpS8Pv8AUFKok+ClVjx39N9mjZxuTyWI1FZZzOW91VVSi1GbW0pri4p7v1/f1A6bqzLXeIx9K4s8fO+qTrKm6Ud90mpPl0T9iu3Ot8uqrVvpW9lTXaUozTfv0USD1rqy21NjqGOsLG7VZXEaiUopt+WS2ST336kXWv8AT7nvG2y9pVikpRoXEVBSXRtJrddfmBbqWt85OpGL0rcpNpN+fpv+kvxxbEZO98asqeDusrUm6qUqVeryi47ro0um3udpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/9k=" alt="ASUS" data-pagespeed-url-hash="55331129" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/MSI">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAMAAwEAAAAAAAAAAAAAAAQFBgEDBwj/xAAsEAABBAIBAwEIAgMAAAAAAAABAAIDBAUREgYhMRMHFBUiUWFxgTJBUmKh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBQ8rPLXp+pCW+o6SONpcCWgve1myAe+tqYoeYhknxk7IRuYN5RD/dp23/AKAgyuQzFEumgrDIZvKR75QcHta3R0dtGmj86JUjCZc2actuh77CIHsbLUubeNuOhxeTyH7JH2WdzFWEdaQ5Gf32elk2CSNtbkx+wAC06+mtkeVpMd6gEOEbajtwxzRmOVkZZxbG7m4HRIIGo2/l3dBbZ/P47CGuL8jme8OLWFo3rWtk/buqqfr7puKz6IsTSDejIyIlgWb6iik6l9pEOPLHmnWIjeeJA035n9/uflXHUdb477QqmIjg40avGIho4t4tHJ+teP8AFBprHXvTkVn0RZllG9GRkRLB+z5/Sm5TqnE0braJfLZtu0RBWjMj+42PH2WI6vYzJ9aV8YyB0ePoNDHhjDxDWjm/QA+g0urqsYqXIfF+nb94ZN0gPosryN760SCQNfjug3sXUld8M0smPysAhaHObLTc1x2QBof35VhirzchTFlsFmBpJAbOzg/t/el5n1dcz17FYnD34ZDdkPqStDNE7dxYHAdgdbOl6biKUeOxtajF/CCNrAfqQO5QS0REBERBR5DEeoXiKrTtV5CXurWthjXny5pAOt+SNee/YqVise2nuRxY6Vw4/IwMYxu98WNHgbP5J8qyRAREQEREBERAREQEREBERAREQEREBERAREQf/9k=" alt="MSI" data-pagespeed-url-hash="3387259748" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/ADATA">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAQEAAwEBAAAAAAAAAAAAAAYFAgMEBwj/xAAsEAABAwMDAQcFAQEAAAAAAAABAAIDBAURBhIhFBMVMUFRYYEHFiIycVIj/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AP2WiLB1He5rJURz1VKZbZIA18sfL4n58xnlp9kG8iltV3mGbR09ztFVHOYpIXh0buRiRpwR5fwretVbDcbdT10B/wCc8YePb1CD1oiICIiAiIgIiIC6K2lp62lkpaqFs0Mgw5juQQu9EHxzVukLnZX1FTSbpLc7xLHHLW58HDOT/eVk2zUN7oqHu231b4onyZa1rRuyeMA4yF9G+rNxlo9ONpoTtNXJ2bnD/IGSPnj4WXo7S1LaaVuo7vPHK2OITxNZy1rS3IcfU+iDe0PU3tkbrfqKKVtQAHwPkcHGRvmMjgkcePPKqVLDUEdXFcIq+3y0dXbohWCF0g3FobuBBA4/yf7j1XM6nqIaagrKy0Oho60xtbK2oDy3eMjIxlBTIpyu1RFTXVlOaSR1IajpTV7wGCbGduD78Z/vouP3DdO9+6/t89V2HUbOsZjZu25zj1QUqKbbqiLveCkko5GU1RK6CKr3gsdI3ALcem7jPmqRAREQEREEp9S7ULnZY3mUxNpZDK94YXYbtOTgePOF5tPU8Fyt4sNQ+WSjpBFNG4S4MzCMhrxjIAPl7eytPFeOW3UMtY2rfSxGoa4OEm38sgEDn5KDIq9HWmefton1VK8xPheY5s72uBBB3h3kUOlKeSCkgnudxngpNphie9mxpaMNOAwZx7qjRBNy6NsktuNG+Oc5HMvbOLyfEu5/HPwvaLFCKzrOsrOo6Hoe03jdt3Z3fr++fPw9lrogm6jRdklt7aQRzxbNu2Rkx3gjzGcjPwqGNpZE1rnueWgAudjJ9zhc0QEREBERAREQEREBERAREQEREH//2Q==" alt="ADATA" data-pagespeed-url-hash="3558613120" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+
+	<a class="logoMarca" href="https://www.nb.com.ar/RAIDMAX">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAQACAwEAAAAAAAAAAAAAAAYDBAIFBwj/xAAqEAABBAIBAwIGAwEAAAAAAAABAAIDBAURBhIhMRMUByJBUWGBMnGCwf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD7LREQEREBERAREQEREBERAUblue1MdlbFB+Osymu7pe9rhrX30rJeQcuwuak5FmLsNWy2t8zzIAQ1zABsb+vbugtshzGpWwdfNQ1JrFSdxYT1hrmOG/lIP9Fc8dy6pe47czEdaRrahIfCXDq8Ag7/AGoGwLGawOGxWEx9l0UJPuHBjnMbM462Xa0Pv+A5Z6ONz1CTN46TE2Qy7A4D0I3OiDwepujrWu5HlBSTfEalFXgmONskTBxA629tOI/4tylzrFW8TcvNimbJUaHvgdoOIJABB8eTpQ9bE8gpPxVuDDWpJapc/oMbtbDyQDpZMhhOSXo8hlpcU+GS49sftomEO1sOLteQB0Dz5JQV55/jxgxk/azbNgwej1Dq7N3vf2W7f5VHV47VzjaMktafXUBI0GMnto789woA8Ny3uHQ+2smBtL3AOjoymIEsH56u2lmvU8/PxbE4IYm8DFNI55Nd3SNu+XZ1ofycgveO8nhzmNt2qdWT1qx0YC4dTu2xo+O/ddQPiNjjACMfbNgy9HodurWvO/77aXTcUgzPGuS3Daw9p9eWJ3UKsLnx9QHU0NIH+f2urGO5M3Ijkww8vre9L/b+3d1b/lvp1vp+m/v+UHsFd75K8b5IzE9zQXMJ2WnXjYWVa9CwbdOKwYZYDI0OMcrC17T9QQVsIC4uAeC1zdg9iD4K5IgneG4d2Edk6gafQda9SA/dhaND9eFRIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIg/9k=" alt="RAIDMAX" data-pagespeed-url-hash="1521087431" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/GSKILL">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGgABAQEBAAMAAAAAAAAAAAAAAAUGBAEHCP/EACkQAAEEAgEDAwQDAQAAAAAAAAEAAgMEBREGEiExE0FhFCJRkRY0ceH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A+y0REBERAREQEREBERAREQFw5rIx4rFz5CZj3xwgFzW62dkDt+13KRzCjYyPG7lKoxrp5WAMaXAAkEHyf8QR282DgCOO5og9wRX7EftVs3n4MThYsnYrWS2QsAiDQHguG9EE+Vi81xzkGV6ZJ8DA2dkLYWPFwaAaNA63pWMnRv3OLxYR+DksS0oq4BMzY2SODNOLXb768IOlnNOpwb/Hc33Ov6//AFd7+VYeK5frWp/pTSc1r3S6AeSCftAOz4/C9fTcPzj2AVuO/Syh4Il+ua7Wj+Nq7kOFZG9yLIZRtmCu71WyVeuMSMf279QPj29igsjmmOdjreSbUvGpWLAJDEAJC46+3Z9lUxWZrZG/epwMlD6RYJC4AA9QJGu/ws7lcdyjKcYuYu/Wo+s0x+g+B/S2QB2z2PjsPheKtLk2IzmUsUMZWtRXHRkOdYDddIPtv5QaTPZevhoIJrLJXtnsNgaIwCep2+52fHZU1huQ1eU5vGxMmxNaCWvbjnY1tgHrADwQe/yFRjyHMzI0SYCmGbHURaHj390GoREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf//Z" alt="GSKILL" data-pagespeed-url-hash="3036359235" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/EVGA">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAMAAwEAAAAAAAAAAAAAAAQFBgECAwj/xAApEAABBAIBAwIGAwAAAAAAAAABAAIDBAURIQYSMRNRFBUiQWFxI5Gh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAATH/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBeFyU16sswYZDGxzw0EAu0N62V7qNkYTZoWK7ewulicwd423ZB1seyDP1pM/fAldm8fQe7ltaOJspG/AJJ8/pT6Uudkq3a1qGCK3E3+CwzmOUkHR0eRz5VFRigxzo/i+jpzdiILJakQewuHIIO+Fo8LLlrD5p8jXZVidoQwb7ntA8lxHHKkWunTGU+aYkTTAMsxEx2GeO17fP691Fw2Wu5D5lkIofVoRkspxtbp8paDsgn3PhVvUuJykeVkOH22HKtEVsjxGQeX/j6d/6tIym+lhvgsYWRvii7IS8bHcBwTpUxTlvUckYs28zRxjncsr+i14H4Lid799Kf09dvWRPDeZAZYC0CaB4dHKDvRA3sHjlVN6263HHDnOlLlmzFsNMMYkjJPkh2xoHS5wVG5iauWyceMbBJYDDXoxO7y3tBA2R7k7KgdQdS2KWaEVaH1aVPtN94bvt7joAH3HlaqN7ZY2yMcHMcAWkcgj7FZnD9PWWUYG2rbgbHqSZGIsDvXc8a0T9tfhSukIb9KvYxdxjzHUk7a858Sxnev6SFX6IiqCIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIP/2Q==" alt="EVGA" data-pagespeed-url-hash="29895412" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> 
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/HUNNOX">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGgABAQEAAwEAAAAAAAAAAAAAAAYDAgQFCP/EACkQAAEEAQMDBQACAwAAAAAAAAEAAgMEEQUGEiExQQcTIlFhFHEWQpL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A+y0REBERAREQEREBERAREQFM753FY0AUTXhhkFiRzXmTPQDHbB/VTKI9U9MuamzTGU6stgMlf7nAE4B498IMNx77safrc1KlDTs12R8myB5dk8c9wcLS3vW7DtClrQpwGaxYdE5mTxAHLqOufCn9b2dbbuaatpOnzin7Lix5yWcvbJxyP27osY9N3Df0alts6HZgEE7pHWJWkMwc/Yx0z9oPf0vf81iW/DarwRSQ15ZK5byw9zGk8Tk/QXUq+pFs26ot0qza78e65nLkBkgkZP4ui3aN+1tu7MaUsV+C258TXMw6WMgZA+/xcNs7Uv2roralp08MElWRvuPYQI38iWn+0FDc31LBLq8YrRSmvK2Gnwyfdc4uwT17YHhYM1jdDdb1CH4Otw6YyYVT1jD+UZdgA9+Jd57qfo7S11la87+HI2zUljkhDm/GXiXAhp8+Cvb/AMrqG5NbqaBfG4pofYc3iS0dvGc9wP8AXwg1Z6hWI56di1QYNOsDDnsyXscOjh1ODg9f6IVJszV9Q1ujJfuVYq8D3YrhucuaM5JyoOltXXbzINEmhkqVq4fO6V7PiZXAYAPnHQf9Ku9OZNYhov0rVqM8Jq9IZXD4ubnGM+cePxBWoiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIP/9k=" alt="HUNNOX" data-pagespeed-url-hash="1842614379" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/cromink">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAQFBgMHCP/EADAQAAEEAgIBAQUGBwAAAAAAAAEAAgMEBREGIRIxExQiUXEWVWGRktEHFSNBYoGh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBZvlnJzg7tOnDj3XZ7Z0xgl8O9gAeh32VpFj+fYPIX7+OyeLLTYqO2GuGwCHBwP5hB0dyrJ1HOdleL26kDY3PMscolaNDeiQAB/soeawxwQWbGEykNactDJnRDwPl2Dvfy7VVeqc0ykcsOQexkDonM9lBH8LyRoE776Pa42OHtGOpipXvC9EY3SOlcHRkgd6BPzQXsXMmWfbPpYPK24YnuYZYogWkj112o7f4g4cy1GOgssbZAJc4DUe3Fvxd/hv6KuxdPmGGimq4uGs6u+V0jTMx3ns/Tr+yh0eHWI4/Z3K0srDRfCfGIbbIXlzXDZ9B0gv+S8zo0bVrFR+395bE4CeNoc2N5aSOiRvSh4bnlGGGlUyLrMsrwPOy5jWt7J0SAellMpUoUqUFK3NLDkQ+V9iSau8F/k3TdEjZHSYaxx+EWIslbdLDNUEH9KB3k1wIIcN/RBv8jzTG0MlNRnhn3FNHE+Trx+NpPl6+gAU/AZ+DNy2Pc61n3eI+LbD2hrJD/j3v/i8igGNJ8beV9vGZonPJif5FjQ4Fv5HQWz4HmKkGY/k9PJPsUJfI1o5onCSJ2iS3fpr1QehoiICIiAiIgIiIIOVxWPysTYshVjsNadt8vUH8CFW/YzjP3TF+t37rQIgz/wBjOM/dMX63fupGO41gsfcZbp4+OKdm/F4c4kbGj6n5FXCICIiAiIgIiICIiAiIgIiICIiD/9k=" alt="CROMINK" data-pagespeed-url-hash="1026321394" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/LG">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAHAABAAICAwEAAAAAAAAAAAAAAAYHAwQBAgUI/8QAMRAAAQQBAgMGAwkBAAAAAAAAAQACAwQRBRIGEzEHFCFBUWFSgZEVFiIjJDJCU6GS/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERARFoXdY0qlJyrepVIJPgklAd9MoN9Fgp26t2Hm1LEU8fTdG8OH1CzoCIiAiIgIiICIiCLdoWtTabRiq1JOVYtb/wA0dY42jL3D3x0VYyRTy1mTQSU2sssmcWbw+YBjSSXuIyCQPDyPsp12r1ZHuo2ekJbLXc4+Aa5wBZk+hIwq60oth1BzbD+TmKWMl+Rtc6N7Rnwz1KDnQdWu6LfbbpyOa4H8bP4yN+EhXTe1XHCsmtUw0/pefG1+SP25AOCqcpWJQZI3R1Ja8AIc7u0Z3HBDQHFu4kn5+atGzVlpdmMtSZuJY9PIe30dtyR/qDa4F1q1r2iuu244o5BM6PEQIbgAHzJ9V42v8Xan94DoXD1GOzYYdr3yeI3YyQPEAAepXgcD8Z0dB0Y0bNWzK8yuk3M24wQB5n2WGxY+w+NLlu5HO2rqMcrmSMaNwbKMhw8iQThBLuDeJ9Q1LUptK1eh3e1GHEOa0hpIOCCCeqmCqjs5svk425Udq3LW5UhZz3HcRgYJGcK10BERAREQa9+nXv1JKluJssEgw5p81Cb3Z84y5q3oZYh4NZahJc0DoN7SCfmp8iCJcP8ABVXT7Edm9Y73LEd0TGxCOJjvXaOp9ypYQHAgjIPUFcogxd3r/wBEX/ASaCGZgZLCyRo6BzQR/qyog6COMO3BjQ7pkAZXdEQEREBERAREQEREBERAREQEREH/2Q==" alt="LG" data-pagespeed-url-hash="1064661260" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/SFX">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAHAABAAIDAQEBAAAAAAAAAAAAAAMGAQQFAgcI/8QAMRAAAQQCAAUCAwYHAAAAAAAAAQACAwQFEQYSEyExQVEUFZEWIkJScYEkMmFiocHw/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AP2WiIgIvL3NaNuc1o9ydLIII2O4PgoMoiICIiAiIgIiIC53EeS+U4axf5Oo6MAMZ+ZxIAH1K6K4XHNWa1w7N8MznmgeydjB+LkcCR9NoKZmqvxMwx8x+acQTN57Esrz0KDSNnQB5Rr/AL2UWMy9DC9NuDyVyw6tt1iGZuorbd/fdH37EDuP6D6xx0HR4yxclysDcDam600rD/ETHyISPzb9PHqpLFaSSi2/agbXknhdUw+Mi/ma14LS4+p7EnZ9f2QWDi7iW5VytGpQtVKlezX6/wATYY4tO96HYew/ytalnctNbhi+1GBk55GgsDHAnZ8DY8re4grW4KuPx8E+PDa9Ql3xVV0o0xoBcDo67fuq7ZoOyTIG2sliIq4j+NdJVouZJ0W823Aho9j28oO1n+JMiziG3Qp3sfQrVAxr5bIJ53uG9DQ9lu8PWs9kYrEzczircYjcyN0Ebvuy6BG9jwtagzD/AGov2rdmpZZkmiWvE6EuOow4OPca/C5dWLJ4n5VK7DS1YHSQySxHoljdsGnOIABOvqgrp45njwj60sOs+2b4cQ8h0Xb1za/17q740WxQgF98b7XIOqWDTeb10vn8ODwk+EiptyAlzVxzrUVsRP5nOaXbA7c2vuu7ed9/ZXvATvs4epPNMyZ74gTIxrmtf/cA4A9/KDfREQEREFbzHBmFyM3WLJqkm+YurPDNu3veiCNrcxPD2Ox1k22iWzbI0bFmQySa/U+F2EQYcGnyAfTuvHRi3vps2Byg8o8e36KREHjkZzb5BseDpeWQwta0MiYA3YaABob86UqIImwxM5eSFjeQabpoGh6geykaAAABoDwFlEBERAREQEREBERAREQEREBERB//2Q==" alt="SFX" data-pagespeed-url-hash="1202388066" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/SILVERSTONE">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAMFBgIECP/EACsQAAEEAgEEAgECBwAAAAAAAAEAAgMEBREGEhMhMRRRIhVBI2FxgZGhwf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD7LREQEREBERAREQEREBERBU5nO0MVYhrWBPJPMC6OOGIvcQPZ0FFT5PhrMbnfJdAWyGNzJ4yxwcBsjRH0vDzLB3Mpdp2KtapMIWuDu7NJE8b9aLFTM4jnXx6lngDe+57IjYfII2mNzfBI37IQbV2Ux4grTm1H2rTgyB2/DyfQCjvZrFUJXQ270MMjGB7mud5DSdAn+6zUWCzs/GhgbkNFkUMX8GeOZxeJGnbTrSit8XzFzFXZrclZ+UtWI3kh5DBGz00HWwUGjHJ8CYDP+qV+0Hhhds66iCQPX8lHPyrBR0n223mTxsc1jhCC53U7ehr3+xVEOM5izXqwWZWwiK6yZzxbfK8NDSDovHgrm9xC+X5JsT4LrLDoXRutvcHnpDgdlgGvfhBdxctwxlfFPJPTcyPuH5MLo/x3rfkfalbyrjzg4ty1bTBt35ehsD/qqON8fylLONtWWxQ0xCWOgbaklDnE+Dp4UI4rkY+N16jfhm3XyHywHE9DwCdNJ1v90Ggj5NgZI5ZGZSsWxAOkPV6BIG/8kBTPzeIZWhtOvwCGcOMT+rw4NGzr+mlk85xvP5l9iaaHHVnvqtgjZHK4gkStfsnX0CuMxwzJyXpI8dJWGOPdkijkeQYnvYWkDQ9b0g1+OzmIyNgwUr0M8oBd0Md519/7VksnwzC5XFWW/Na3tNg7excfINjp1phGh6WsQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf/Z" alt="SILVERSTONE" data-pagespeed-url-hash="809901225" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/INTEL">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGgABAQEAAwEAAAAAAAAAAAAAAAYFAgMECP/EAC8QAAEEAgECBAQFBQAAAAAAAAEAAgMEBREhBhITIjFBFBUyoSNRYXGBQlKRkvD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A+y0REBERARcJHsijL5HNYxo2XOOgB+pKyJeqMIyQxx3fiHjjtrxul+7QQg2kWC/qvExAGf42Bn98lOVrR+57Vp47IUcjD41K3FYZ7ljgdfuPZB60REBERAREQFl5bLxUhMyNrZrMUJmMbpRG0N2AO554bv22tRRDYpsj051Q+KN0t2W3NEWDl2maDW/4CDRkPT88rJ81kKj53tbIK9m2xzI9jYAbsNPr665XtqZrGjNS4RnZDJDE2RvIa2QEb8o3zocqQfibMvzd8uMlkd8ohbAXQEnxBG0EN2PqB/LldLsTku+WEY2z41vDwxwzeFxE9sQ72OJ+gnRb/KCzyXUNKPD3ruOtVbklWPucyOUO99c6U1n2y0KsPVlOrFSkYYXO8J/FiN4Hc1zdcEOPqsijhb1qtZ8Otko7DMc6IsfRZAx548mwfMd871sqgkx+UzcmOxViq6tiqUcL7D38OneGA9oH5A8FBboiICIiAiIgKSy2JzOOzE2a6dMUpsaNmnKdNkI/qB36/wDfoq1EEYetb1fTch0vkoXjgljS5v8ABIC4Hre7NxS6VyU7jwNggfYFWyIIZ7uvs15Aytha7vV3d+Jr7nf+qrMPUdQxkFSSw6w+JmnSv9XH3JXtRAREQEREBERAREQEREBERAREQEREH//Z" alt="INTEL" data-pagespeed-url-hash="3023554767" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/NVIDIA">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAGwABAAMBAQEBAAAAAAAAAAAAAAMEBgUHAgj/xAArEAABBAIBAwQBAwUAAAAAAAABAAIDBAURBhIhMRMUIkFxFUKBIzJRUnL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A/ZaIiAiIgIiICIiAiIgIiIC42Z5DTx0xrAOsWWs63xsIAjb/ALPcTpo/K7Kx/L+OTWrct7Hx+r7iNrLUAeGOcWkFkjCe3UNffkIOPe5DyOWQzU7kdeKSQthEsDTE4/TRLrW/+ulcyhzHk/65XoXJ2xk2GRSsdXa1w24Ajx2UNyVseRnlv3I4pnS9crbG+nrb2DjCwO+X5dr+FVNrF2c/jfZMtzWPeRunuWH/ACmcXD9g7Afyg9Dv80oVL9qn+nZSd9U6ldDC1zR9731eFPjuWYu/kKdOBs/VciMkT3MAZ26ttPfe/ifpQ4XD3q3Ic/cmjaIbuvRPWDvQPkfXlZ2PimdrcfxrqsTGZWlae9o9Qa6Hd/O9eQOyDSN5jjXH417jme8FJrw1vS6Q78fLwq7+d4tvqvdQygghl9KSf0AY2u3ru4OVFvF78HH8HThhY6evebZtfMDXck9999dgqUeD5TFjMniYcfW9G/YdIZnzN+LSR+0fhBscfn6N3MT4yuJXPghZMZCB0OY5rSCDv/Dh9Ktx/lmMzd99KoywyRjC9plYA17QdEt7nazp45naNnKewhbKJqEVSGT1Wt2Q2NrnaJ2OwdpfUHF85i72HuVpq1r2X9N7GNEZ9Mkl2yT3/ucg9AREQEREEToYXHboWEnyS0IIIAdiFgI8HpClRAREQEREBERAREQEREBERAREQEREBERAREQf/9k=" alt="NVIDIA" data-pagespeed-url-hash="2703303092" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+	<a class="logoMarca" href="https://www.nb.com.ar/BENQ">
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyAFoDASIAAhEBAxEB/8QAHAABAAICAwEAAAAAAAAAAAAAAAIFBgcBAwQI/8QAKxAAAQQCAQMCBgIDAAAAAAAAAQACAwQFEQYSITEHFRMUIkFRkRYkMmGh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APstERAREQEREBERAREQEREBERBh3qXm8lhY6Bx1hkJmc8PLmBw7dOvI/wBqhi5RyOvnKVP3PH5Vs8jQW1mgjROiCekaKvPUzDZPMR4/26r8wYXPL2l7WjR6df5EfhUNjjXI8llqcpwePwzInAukrOa0eQdkNcdn8IOi3zTN37tqWjkqmOrQ7MUcjW7kAPYAkHZ/QUrnPMxLisfJVfHHaMkkdjTARJoMLXDY7b2VP+MZvBZKc0cNRzFOQ/R8xG15A8+Cdg/8XOW4vyO7HSl9nowPbNI58NT4cbY2kR6337nsfuUHpuZzlWBz1H3i1BNXtuBfFG0dLG70QDryN/n9pDm+U8pyFsYCeKnTr+OrQLt76dkg9zrx4Vn6h4PKZbK4uahV+NFBv4p62t1tzT4J7+FWRYjkvEbl2XCVmX6Mw3o93N1vWxsHY39vKC29P+SXspatYnLM/u1gSXhobsB3SQQO2wSPCzNaj9PsrDVz75Z2T2MnkJhE76Q1rGucC9xPkn760tuICIiAiIgIiICIiAiIggGMEheGN6j2J13/AGpoiAiIgIiICIiAiIgIiICIiAiIg//Z" alt="BENQ" data-pagespeed-url-hash="2503214751" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+	</a>
+
+
+	<div id="navigation">
+		<!-- container -->
+		<div class="container">
+			<div id="responsive-nav">
+				<div class="menu-nav">
+					<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+					<ul class="menu-list" align="Center">
+						<li><a href="#">Contacto</a></li>
+						<li><a href="#">Quienes somos</a></li>
+						<li><a href="#">Forma de pago</a></li>
+						<li><a href="#">Ayuda</a></li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+
+</div>	
+
+	<!-- jQuery Plugins -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>

@@ -83,15 +83,12 @@ namespace SistemaDistribuidora.Repository
                     PersonaModel persona = new PersonaModel(Cliente.DNIPersona, Cliente.NombresPersona, Cliente.ApellidosPersona, Cliente.TelefonoPersona, Cliente.CelularPersona, Cliente.MailPersona);
                     _context.Add(persona);
                     _context.SaveChanges();
-
                     // Creo el cliente
                     _context.Add(new ClienteModel(Cliente.RazonSocialCliente, Cliente.TelefonoCliente, Cliente.DirrecionCliente, Cliente.MailCliente, Cliente.CodigoPostalCliente, Cliente.ActividadComercialCliente , Cliente.AntiguedadEnEmpresaCliente, Cliente.CargoCliente, Cliente.CUIT,persona.PersonaId));
                     _context.SaveChanges();
-
                     // Creo el usuario de tipo cliente
                     _context.Add(new UsuarioModel(Cliente.NombreUsuario,Cliente.ContraseñaUsuario,Cliente.ConfirmarContraseñaUsuario,persona.PersonaId,1));
                     _context.SaveChanges();
-
                     dbContextTransaction.Commit();
                 }
                 catch (Exception ex)

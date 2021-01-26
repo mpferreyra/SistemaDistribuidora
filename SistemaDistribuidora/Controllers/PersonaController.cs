@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SistemaDistribuidora.Data;
 using SistemaDistribuidora.Models;
-
+//pp
 namespace SistemaDistribuidora.Controllers
 {
     public class PersonaController : Controller

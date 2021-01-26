@@ -10,7 +10,7 @@ using SistemaDistribuidora.Data;
 namespace SistemaDistribuidora.Migrations
 {
     [DbContext(typeof(DistribuidoraContext))]
-    [Migration("20210124194503_1")]
+    [Migration("20210126032536_1")]
     partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

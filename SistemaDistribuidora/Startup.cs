@@ -69,7 +69,7 @@ namespace SistemaDistribuidora
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Loggin}/{action=LogginView}/{id?}");
+                    pattern: "{controller=home}/{action=index}/{id?}");
             });
         }
     }

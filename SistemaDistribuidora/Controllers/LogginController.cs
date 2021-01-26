@@ -30,13 +30,13 @@ namespace SistemaDistribuidora.Controllers
             switch(nivelUsuario)
             {
                 case "Administrador":
-                    {
+                    {                        
                         return  RedirectToAction("Index", "Home");
                     }
                 case "Cliente":
                     {
                         //TODO: retornar a las vista de clietne
-                        return  View();
+                        return Redirect("www.google.com.ar");
                     }
                 default:
                     {

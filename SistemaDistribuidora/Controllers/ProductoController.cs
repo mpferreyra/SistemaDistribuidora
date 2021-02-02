@@ -73,6 +73,7 @@ namespace SistemaDistribuidora.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            //TODO: revisar que muestra solo los ids
             ViewData["CategoriaId"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaId", productoModel.CategoriaId);
             ViewData["MarcaID"] = new SelectList(_context.Marca, "MarcaId", "MarcaId", productoModel.MarcaID);
             ViewData["UnidadMedidaId"] = new SelectList(_context.UnidadMedida, "UnidadMedidaId", "UnidadMedidaId", productoModel.UnidadMedidaId);

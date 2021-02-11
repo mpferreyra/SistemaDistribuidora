@@ -11,6 +11,7 @@ namespace SistemaDistribuidora.Models
     {
         [Key]
         public int CategoriaId { get; set; }
+        [Required(ErrorMessage = "Ingrese el nombre de la categoria")]
         public string Nombre { get; set; }
 
         [ForeignKey("subCategoriaId")]

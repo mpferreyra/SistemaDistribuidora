@@ -11,15 +11,37 @@ namespace SistemaDistribuidora.Models
     {
         [Key]
         public int ClienteId { get; set; }
+
+        [Required(ErrorMessage = "Ingrese la razon social")]
+        [Display(Name = "Razon social")]
         public string RazonSocial { get; set; }
+
+        [Required(ErrorMessage = "Ingrese el telefono")]
+        [Phone]
         public int Telefono { get; set; }
+
+        [Required(ErrorMessage = "Ingrese la direccion")]
         public string Dirrecion { get; set; }
+
+        [Required(ErrorMessage = "Ingrese el Mail")]
+        [EmailAddress]
         public string Mail { get; set; }
+
+        [Display(Name = "Codigo postal")]
         public int CodigoPostal { get; set; }
+
+        [Required(ErrorMessage = "Ingrese la actividad comercial")]
+        [Display(Name = "Actividad comercial")]
         public string ActividadComercial { get; set; }
+
+        [Display(Name = "Antiguedad en la empresa")]
         public int AntiguedadEnEmpresa { get; set; }
+
         public string Cargo { get; set; }
+
+        [Required(ErrorMessage = "Ingrese el CUIT")]
         public int CUIT { get; set; }
+
 
 
         //llaves foraneas

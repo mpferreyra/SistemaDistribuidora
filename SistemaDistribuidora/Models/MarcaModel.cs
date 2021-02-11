@@ -10,6 +10,8 @@ namespace SistemaDistribuidora.Models
     {
         [Key]
         public int MarcaId { get; set; }
+
+        [Required(ErrorMessage = "Ingrese el nombre")]
         public string Nombre { get; set; }
     }
 }

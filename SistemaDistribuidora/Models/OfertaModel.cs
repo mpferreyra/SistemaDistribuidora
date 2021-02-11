@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,11 +12,20 @@ namespace SistemaDistribuidora.Models
     {
         [Key]
         public int OfertaId { get; set; }
-        //[Index(IsUnique = true)]
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Nombre de oferta")]
         public String Nombre { get; set; }
+
+        [Required(ErrorMessage = "Ingrese la fecha de inicio")]
+        [Display(Name = "Fecha de inicio")]
         public DateTime FechaInicio { get; set; }
-        public DateTime FechaFin { get; set; }
+
+        [Display(Name = "Fecha de fin")]
+        public DateTime? FechaFin { get; set; }
         public Boolean Activa { get; set; }
+
+        [Display(Name = "Incluir a oferta principal")]
         public Boolean OfertaPrincipal { get; set; }
         public Boolean Recordar { get; set; }
 

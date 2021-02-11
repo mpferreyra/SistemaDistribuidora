@@ -15,26 +15,71 @@ namespace SistemaDistribuidora.Models
         public int SolicitudUsuarioClienteId { get; set; }
         public DateTime FechaPedido { get; set; }
         //de aprovacion o rechazo
-        public DateTime FechaRevision { get; set; }
+        public DateTime? FechaRevision { get; set; }
         //true aprovado 
         public string Estado { get; set; }
         public string AprovacionUsuario { get; set; }
+
+        [Required(ErrorMessage = "Ingrese la razon social")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Razon social")]
         public string RazonSocialCliente { get; set; }
+
+        [Required(ErrorMessage = "Ingrese el CUIT")]
         public int CUIT{ get; set; }
+
+        [Display(Name = "Telefono del cliente")]
         public int TelefonoCliente { get; set; }
+
+        [Display(Name = "Direccion del cliente")]
+        [Required(ErrorMessage = "Ingrese la direccion del cliente")]
         public string DirrecionCliente { get; set; }
+
+        [Display(Name = "Mail del cliente")]
+        [Required(ErrorMessage = "Ingrese el mail del cliente")]
+        [EmailAddress]
         public string MailCliente { get; set; }
+
+
+        [Display(Name = "Codigo postal")]
         public int CodigoPostalCliente { get; set; }
+
+        [Display(Name = "Actividad comercial")]
+        [Required(ErrorMessage = "Ingrese la actividad comercial")]
+        //TODO: podria ser un select
         public string ActividadComercialCliente { get; set; }
+
+        [Display(Name = "Antiguedad en la empresa")]
         public int AntiguedadEnEmpresaCliente { get; set; }
-        public string CargoCliente { get; set; }        
+
+        [Display(Name = "Cargo que usufrutua en la empresa")]
+        public string CargoCliente { get; set; }
+
+        [Display(Name = "DNI")]
+        [Required(ErrorMessage = "Ingrese el DNI")]
         public string DNIPersona { get; set; }
+
+        [Display(Name = "Nombre")]
+        [Required(ErrorMessage = "Ingrese el nombre")]
         public string NombresPersona { get; set; }
+
+        [Display(Name = "Apellido")]
+        [Required(ErrorMessage = "Ingrese el apellido")]
         public string ApellidosPersona { get; set; }
         public int TelefonoPersona { get; set; }
         public int CelularPersona { get; set; }
+
+        [Display(Name = "Mail")]
+        [Required(ErrorMessage = "Ingrese el mail")]
+        [EmailAddress]
         public string MailPersona { get; set; }
+
+        [Display(Name = "Elija el nombre de usuario")]
+        [Required(ErrorMessage = "Ingres el nombre de usuario")]
         public string NombreUsuario { get; set; }
+
+        [Display(Name = "Elija una contraseña")]
+        [Required(ErrorMessage = "Ingres la contraseña")]
         public string ContraseñaUsuario { get; set; }
         [NotMapped]
         [Required(ErrorMessage = "Confirme su contraseña")]

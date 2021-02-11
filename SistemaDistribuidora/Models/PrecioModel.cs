@@ -11,8 +11,14 @@ namespace SistemaDistribuidora.Models
     {
         [Key]
         public int PrecioId { get; set; }
+
+        [Required(ErrorMessage = "Ingrese el precio")]
         public float Valor { get; set; }
+
+        [Display(Name = "Fecha de alta")]
         public DateTime FechaAlta { get; set; }
+
+        [Display(Name = "Fecha de baja")]
         public DateTime? FechaBaja { get; set; }
 
         [ForeignKey("Producto")]

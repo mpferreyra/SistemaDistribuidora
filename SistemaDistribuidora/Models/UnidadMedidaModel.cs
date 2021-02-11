@@ -10,6 +10,8 @@ namespace SistemaDistribuidora.Models
     {
         [Key]
         public int UnidadMedidaId { get; set; }
+
+        [Display(Name = "Ingrese el nombre")]
         public string Nombre { get; set; }
         public string Imagen { get; set; }
     }

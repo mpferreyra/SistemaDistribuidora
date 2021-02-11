@@ -10,13 +10,21 @@ namespace SistemaDistribuidora.Models
     public class ProductoModel
     {
         //datos del producto
-        [Key]
-        public int ProductoId { get; set; }
+        [Key]        
+        public int ProductoId { get; set; }    
+        
+        [Required(ErrorMessage = "Ingrese el nombre del producto")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Nombre { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required(ErrorMessage = "Ingrese el codigo del producto")]
         public string Codigo { get; set; }
+
+
         public string Descripcion { get; set; }
-        public string imagen { get; set; }
-        public bool disponibilidad { get; set; }        
+        public string Imagen { get; set; }
+        public bool Disponibilidad { get; set; }        
 
         [ForeignKey("Marca")]
         public int MarcaID { get; set; }

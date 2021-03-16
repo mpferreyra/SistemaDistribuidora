@@ -13,9 +13,9 @@ namespace SistemaDistribuidora.Migrations
                 {
                     AutomotorId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(nullable: true),
+                    Nombre = table.Column<string>(nullable: false),
                     Modelo = table.Column<int>(nullable: false),
-                    Marca = table.Column<string>(nullable: true)
+                    Marca = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,7 +28,7 @@ namespace SistemaDistribuidora.Migrations
                 {
                     CategoriaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(nullable: true),
+                    Nombre = table.Column<string>(nullable: false),
                     CategoriaPadreId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -62,7 +62,7 @@ namespace SistemaDistribuidora.Migrations
                 {
                     MarcaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(nullable: true)
+                    Nombre = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -77,7 +77,7 @@ namespace SistemaDistribuidora.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(nullable: true),
                     FechaInicio = table.Column<DateTime>(nullable: false),
-                    FechaFin = table.Column<DateTime>(nullable: false),
+                    FechaFin = table.Column<DateTime>(nullable: true),
                     Activa = table.Column<bool>(nullable: false),
                     OfertaPrincipal = table.Column<bool>(nullable: false),
                     Recordar = table.Column<bool>(nullable: false)
@@ -93,12 +93,12 @@ namespace SistemaDistribuidora.Migrations
                 {
                     PersonaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DNI = table.Column<string>(nullable: true),
-                    Nombres = table.Column<string>(nullable: true),
-                    Apellidos = table.Column<string>(nullable: true),
+                    DNI = table.Column<string>(nullable: false),
+                    Nombres = table.Column<string>(nullable: false),
+                    Apellidos = table.Column<string>(nullable: false),
                     Telefono = table.Column<int>(nullable: false),
                     Celular = table.Column<int>(nullable: false),
-                    Mail = table.Column<string>(nullable: true)
+                    Mail = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -125,26 +125,26 @@ namespace SistemaDistribuidora.Migrations
                     SolicitudUsuarioClienteId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FechaPedido = table.Column<DateTime>(nullable: false),
-                    FechaRevision = table.Column<DateTime>(nullable: false),
+                    FechaRevision = table.Column<DateTime>(nullable: true),
                     Estado = table.Column<string>(nullable: true),
                     AprovacionUsuario = table.Column<string>(nullable: true),
-                    RazonSocialCliente = table.Column<string>(nullable: true),
+                    RazonSocialCliente = table.Column<string>(nullable: false),
                     CUIT = table.Column<int>(nullable: false),
                     TelefonoCliente = table.Column<int>(nullable: false),
-                    DirrecionCliente = table.Column<string>(nullable: true),
-                    MailCliente = table.Column<string>(nullable: true),
+                    DirrecionCliente = table.Column<string>(nullable: false),
+                    MailCliente = table.Column<string>(nullable: false),
                     CodigoPostalCliente = table.Column<int>(nullable: false),
-                    ActividadComercialCliente = table.Column<string>(nullable: true),
+                    ActividadComercialCliente = table.Column<string>(nullable: false),
                     AntiguedadEnEmpresaCliente = table.Column<int>(nullable: false),
                     CargoCliente = table.Column<string>(nullable: true),
-                    DNIPersona = table.Column<string>(nullable: true),
-                    NombresPersona = table.Column<string>(nullable: true),
-                    ApellidosPersona = table.Column<string>(nullable: true),
+                    DNIPersona = table.Column<string>(nullable: false),
+                    NombresPersona = table.Column<string>(nullable: false),
+                    ApellidosPersona = table.Column<string>(nullable: false),
                     TelefonoPersona = table.Column<int>(nullable: false),
                     CelularPersona = table.Column<int>(nullable: false),
-                    MailPersona = table.Column<string>(nullable: true),
-                    NombreUsuario = table.Column<string>(nullable: true),
-                    ContraseñaUsuario = table.Column<string>(nullable: true)
+                    MailPersona = table.Column<string>(nullable: false),
+                    NombreUsuario = table.Column<string>(nullable: false),
+                    ContraseñaUsuario = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -184,12 +184,12 @@ namespace SistemaDistribuidora.Migrations
                 {
                     ClienteId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RazonSocial = table.Column<string>(nullable: true),
+                    RazonSocial = table.Column<string>(nullable: false),
                     Telefono = table.Column<int>(nullable: false),
-                    Dirrecion = table.Column<string>(nullable: true),
-                    Mail = table.Column<string>(nullable: true),
+                    Dirrecion = table.Column<string>(nullable: false),
+                    Mail = table.Column<string>(nullable: false),
                     CodigoPostal = table.Column<int>(nullable: false),
-                    ActividadComercial = table.Column<string>(nullable: true),
+                    ActividadComercial = table.Column<string>(nullable: false),
                     AntiguedadEnEmpresa = table.Column<int>(nullable: false),
                     Cargo = table.Column<string>(nullable: true),
                     CUIT = table.Column<int>(nullable: false),
@@ -240,11 +240,11 @@ namespace SistemaDistribuidora.Migrations
                 {
                     ProductoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(nullable: true),
-                    Codigo = table.Column<string>(nullable: true),
+                    Nombre = table.Column<string>(nullable: false),
+                    Codigo = table.Column<string>(nullable: false),
                     Descripcion = table.Column<string>(nullable: true),
-                    imagen = table.Column<string>(nullable: true),
-                    disponibilidad = table.Column<bool>(nullable: false),
+                    Imagen = table.Column<string>(nullable: true),
+                    Disponibilidad = table.Column<bool>(nullable: false),
                     MarcaID = table.Column<int>(nullable: false),
                     UnidadMedidaId = table.Column<int>(nullable: false),
                     CategoriaId = table.Column<int>(nullable: false)

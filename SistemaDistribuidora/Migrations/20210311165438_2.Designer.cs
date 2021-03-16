@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaDistribuidora.Data;
 
 namespace SistemaDistribuidora.Migrations
 {
     [DbContext(typeof(DistribuidoraContext))]
-    partial class DistribuidoraContextModelSnapshot : ModelSnapshot
+    [Migration("20210311165438_2")]
+    partial class _2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -481,8 +483,6 @@ namespace SistemaDistribuidora.Migrations
 
                     b.HasKey("SolicitudUsuarioClienteId");
 
-                    b.HasIndex("TipoUsuarioId");
-
                     b.ToTable("SolicitudUsuarioCliente");
                 });
 
@@ -649,15 +649,6 @@ namespace SistemaDistribuidora.Migrations
                     b.HasOne("SistemaDistribuidora.Models.ProveedorModel", "Proveedor")
                         .WithMany()
                         .HasForeignKey("ProveedorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SistemaDistribuidora.Models.SolicitudUsuarioClienteModel", b =>
-                {
-                    b.HasOne("SistemaDistribuidora.Models.TipoUsuarioModel", "TipoUsuario")
-                        .WithMany()
-                        .HasForeignKey("TipoUsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SistemaDistribuidora.Data;
 using SistemaDistribuidora.Models;
@@ -20,6 +21,7 @@ namespace SistemaDistribuidora.Controllers
 
         public IActionResult Create()
         {
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "TipoUsuarioId", "Descripcion");
             return View();
         }
 
@@ -30,7 +32,7 @@ namespace SistemaDistribuidora.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RazonSocialCliente", "TelefonoCliente", "DirrecionCliente", "MailCliente", "CodigoPostalCliente", "ActividadComercialCliente", "AntiguedadEnEmpresaCliente", "CargoCliente", "CUIT", "DNIPersona", "NombresPersona", "ApellidosPersona", "TelefonoPersona", "CelularPersona", "MailPersona", "NombreUsuario", "ContraseñaUsuario", "ConfirmarContraseñaUsuario")] SolicitudUsuarioClienteModel solicitudUsuarioCliente)
+        public async Task<IActionResult> Create([Bind("RazonSocialCliente", "TelefonoCliente", "DirrecionCliente", "MailCliente", "CodigoPostalCliente", "ActividadComercialCliente", "AntiguedadEnEmpresaCliente", "CargoCliente", "CUIT", "DNIPersona", "NombresPersona", "ApellidosPersona", "TelefonoPersona", "CelularPersona", "MailPersona", "NombreUsuario", "ContraseñaUsuario", "ConfirmarContraseñaUsuario","TipoUsuarioId")] SolicitudUsuarioClienteModel solicitudUsuarioCliente)
         {            
             solicitudUsuarioCliente.FechaPedido = DateTime.Now;
             solicitudUsuarioCliente.Estado = "Enviado";
@@ -40,6 +42,7 @@ namespace SistemaDistribuidora.Controllers
                 await _context.SaveChangesAsync();                
                 return RedirectToAction("LogginView", "Loggin");
             }
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "TipoUsuarioId", "Descripcion");
             return View(solicitudUsuarioCliente);
         }
 
@@ -56,19 +59,23 @@ namespace SistemaDistribuidora.Controllers
             {
                 return NotFound();
             }
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "TipoUsuarioId", "Descripcion");
             return View(solicitudUsuarioCliente);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SolicitudUsuarioClienteId", "RazonSocialCliente", "TelefonoCliente", "DirrecionCliente", "MailCliente", "CodigoPostalCliente", "ActividadComercialCliente", "AntiguedadEnEmpresaCliente", "CargoCliente", "CUIT", "DNIPersona", "NombresPersona", "ApellidosPersona", "TelefonoPersona", "CelularPersona", "MailPersona")] SolicitudUsuarioClienteModel solicitudUsuarioCliente)
+        public async Task<IActionResult> Edit(int id, [Bind("SolicitudUsuarioClienteId", "RazonSocialCliente", "TelefonoCliente", "DirrecionCliente", "MailCliente", "CodigoPostalCliente", "ActividadComercialCliente", "AntiguedadEnEmpresaCliente", "CargoCliente", "CUIT", "DNIPersona", "NombresPersona", "ApellidosPersona", "TelefonoPersona", "CelularPersona", "MailPersona", "NombreUsuario", "ContraseñaUsuario", "ConfirmarContraseñaUsuario", "TipoUsuarioId")] SolicitudUsuarioClienteModel solicitudUsuarioCliente)
         {
             if (id != solicitudUsuarioCliente.SolicitudUsuarioClienteId)
             {
                 return NotFound();
             }
 
+            //para que la confirmacion de contraseña no falle en la comprovacino de estado
+            solicitudUsuarioCliente.ConfirmarContraseñaUsuario = solicitudUsuarioCliente.ContraseñaUsuario.Trim();
+            //ERROR: falla la validacion del estado en la parte de confirmar contraseña, a pesar de corregirse en la lina anterior
             if (ModelState.IsValid)
             {
                 try
@@ -89,6 +96,7 @@ namespace SistemaDistribuidora.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TipoUsuario, "TipoUsuarioId", "Descripcion");
             return View(solicitudUsuarioCliente);
         }
 

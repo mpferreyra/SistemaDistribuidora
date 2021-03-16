@@ -29,6 +29,11 @@ namespace SistemaDistribuidora.Models
         public Boolean OfertaPrincipal { get; set; }
         public Boolean Recordar { get; set; }
 
+        public OfertaModel()
+        {
+            
+        }
+
         public OfertaModel( String nombre, DateTime fechaInicio, DateTime fechaFin, Boolean activa, Boolean ofertaPrincipal, Boolean recordar)
         {            
             Nombre = nombre;

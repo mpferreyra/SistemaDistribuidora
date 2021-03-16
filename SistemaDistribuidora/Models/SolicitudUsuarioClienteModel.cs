@@ -37,7 +37,7 @@ namespace SistemaDistribuidora.Models
 
         [Display(Name = "Mail del cliente")]
         [Required(ErrorMessage = "Ingrese el mail del cliente")]
-        [EmailAddress]
+        //TODO: [EmailAddress]
         public string MailCliente { get; set; }
 
 
@@ -71,7 +71,7 @@ namespace SistemaDistribuidora.Models
 
         [Display(Name = "Mail")]
         [Required(ErrorMessage = "Ingrese el mail")]
-        [EmailAddress]
+        //TODO: [EmailAddress]
         public string MailPersona { get; set; }
 
         [Display(Name = "Elija el nombre de usuario")]
@@ -85,6 +85,11 @@ namespace SistemaDistribuidora.Models
         [Required(ErrorMessage = "Confirme su contraseña")]
         [CompareAttribute("ContraseñaUsuario", ErrorMessage = "Contraseñas diferentes.")]
         public string ConfirmarContraseñaUsuario { get; set; }
+
+
+        [ForeignKey("TipoUsuario")]
+        public int TipoUsuarioId { get; set; }
+        public virtual TipoUsuarioModel TipoUsuario { get; set; }
 
 
         public SolicitudUsuarioClienteModel()

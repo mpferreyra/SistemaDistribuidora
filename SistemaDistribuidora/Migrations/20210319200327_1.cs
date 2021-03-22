@@ -57,6 +57,19 @@ namespace SistemaDistribuidora.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EstadoSolicitud",
+                columns: table => new
+                {
+                    EstadoSolicitudId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Descripcion = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EstadoSolicitud", x => x.EstadoSolicitudId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Marca",
                 columns: table => new
                 {
@@ -119,36 +132,16 @@ namespace SistemaDistribuidora.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SolicitudUsuarioCliente",
+                name: "Provincia",
                 columns: table => new
                 {
-                    SolicitudUsuarioClienteId = table.Column<int>(nullable: false)
+                    ProvinciaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FechaPedido = table.Column<DateTime>(nullable: false),
-                    FechaRevision = table.Column<DateTime>(nullable: true),
-                    Estado = table.Column<string>(nullable: true),
-                    AprovacionUsuario = table.Column<string>(nullable: true),
-                    RazonSocialCliente = table.Column<string>(nullable: false),
-                    CUIT = table.Column<int>(nullable: false),
-                    TelefonoCliente = table.Column<int>(nullable: false),
-                    DirrecionCliente = table.Column<string>(nullable: false),
-                    MailCliente = table.Column<string>(nullable: false),
-                    CodigoPostalCliente = table.Column<int>(nullable: false),
-                    ActividadComercialCliente = table.Column<string>(nullable: false),
-                    AntiguedadEnEmpresaCliente = table.Column<int>(nullable: false),
-                    CargoCliente = table.Column<string>(nullable: true),
-                    DNIPersona = table.Column<string>(nullable: false),
-                    NombresPersona = table.Column<string>(nullable: false),
-                    ApellidosPersona = table.Column<string>(nullable: false),
-                    TelefonoPersona = table.Column<int>(nullable: false),
-                    CelularPersona = table.Column<int>(nullable: false),
-                    MailPersona = table.Column<string>(nullable: false),
-                    NombreUsuario = table.Column<string>(nullable: false),
-                    ContraseñaUsuario = table.Column<string>(nullable: false)
+                    Nombre = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SolicitudUsuarioCliente", x => x.SolicitudUsuarioClienteId);
+                    table.PrimaryKey("PK_Provincia", x => x.ProvinciaId);
                 });
 
             migrationBuilder.CreateTable(
@@ -179,30 +172,22 @@ namespace SistemaDistribuidora.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cliente",
+                name: "Localidad",
                 columns: table => new
                 {
-                    ClienteId = table.Column<int>(nullable: false)
+                    LocalidadId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RazonSocial = table.Column<string>(nullable: false),
-                    Telefono = table.Column<int>(nullable: false),
-                    Dirrecion = table.Column<string>(nullable: false),
-                    Mail = table.Column<string>(nullable: false),
-                    CodigoPostal = table.Column<int>(nullable: false),
-                    ActividadComercial = table.Column<string>(nullable: false),
-                    AntiguedadEnEmpresa = table.Column<int>(nullable: false),
-                    Cargo = table.Column<string>(nullable: true),
-                    CUIT = table.Column<int>(nullable: false),
-                    PersonaId = table.Column<int>(nullable: false)
+                    Nombre = table.Column<string>(nullable: true),
+                    ProvinciaId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cliente", x => x.ClienteId);
+                    table.PrimaryKey("PK_Localidad", x => x.LocalidadId);
                     table.ForeignKey(
-                        name: "FK_Cliente_Persona_PersonaId",
-                        column: x => x.PersonaId,
-                        principalTable: "Persona",
-                        principalColumn: "PersonaId",
+                        name: "FK_Localidad_Provincia_ProvinciaId",
+                        column: x => x.ProvinciaId,
+                        principalTable: "Provincia",
+                        principalColumn: "ProvinciaId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -269,6 +254,94 @@ namespace SistemaDistribuidora.Migrations
                         column: x => x.UnidadMedidaId,
                         principalTable: "UnidadMedida",
                         principalColumn: "UnidadMedidaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cliente",
+                columns: table => new
+                {
+                    ClienteId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RazonSocial = table.Column<string>(nullable: false),
+                    Telefono = table.Column<int>(nullable: false),
+                    Dirrecion = table.Column<string>(nullable: false),
+                    Mail = table.Column<string>(nullable: false),
+                    CodigoPostal = table.Column<int>(nullable: false),
+                    ActividadComercial = table.Column<string>(nullable: false),
+                    AntiguedadEnEmpresa = table.Column<int>(nullable: false),
+                    Cargo = table.Column<string>(nullable: true),
+                    CUIT = table.Column<int>(nullable: false),
+                    PersonaId = table.Column<int>(nullable: false),
+                    LocalidadId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cliente", x => x.ClienteId);
+                    table.ForeignKey(
+                        name: "FK_Cliente_Localidad_LocalidadId",
+                        column: x => x.LocalidadId,
+                        principalTable: "Localidad",
+                        principalColumn: "LocalidadId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Cliente_Persona_PersonaId",
+                        column: x => x.PersonaId,
+                        principalTable: "Persona",
+                        principalColumn: "PersonaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SolicitudUsuarioCliente",
+                columns: table => new
+                {
+                    SolicitudUsuarioClienteId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FechaPedido = table.Column<DateTime>(nullable: false),
+                    FechaRevision = table.Column<DateTime>(nullable: true),
+                    AprovacionUsuario = table.Column<string>(nullable: true),
+                    RazonSocialCliente = table.Column<string>(nullable: false),
+                    CUIT = table.Column<int>(nullable: false),
+                    TelefonoCliente = table.Column<int>(nullable: false),
+                    DirrecionCliente = table.Column<string>(nullable: false),
+                    MailCliente = table.Column<string>(nullable: false),
+                    CodigoPostalCliente = table.Column<int>(nullable: false),
+                    ActividadComercialCliente = table.Column<string>(nullable: false),
+                    AntiguedadEnEmpresaCliente = table.Column<int>(nullable: false),
+                    CargoCliente = table.Column<string>(nullable: true),
+                    DNIPersona = table.Column<string>(nullable: false),
+                    NombresPersona = table.Column<string>(nullable: false),
+                    ApellidosPersona = table.Column<string>(nullable: false),
+                    TelefonoPersona = table.Column<int>(nullable: false),
+                    CelularPersona = table.Column<int>(nullable: false),
+                    MailPersona = table.Column<string>(nullable: false),
+                    NombreUsuario = table.Column<string>(nullable: false),
+                    ContraseñaUsuario = table.Column<string>(nullable: false),
+                    TipoUsuarioId = table.Column<int>(nullable: false),
+                    EstadoSolicitudId = table.Column<int>(nullable: false),
+                    LocalidadId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SolicitudUsuarioCliente", x => x.SolicitudUsuarioClienteId);
+                    table.ForeignKey(
+                        name: "FK_SolicitudUsuarioCliente_EstadoSolicitud_EstadoSolicitudId",
+                        column: x => x.EstadoSolicitudId,
+                        principalTable: "EstadoSolicitud",
+                        principalColumn: "EstadoSolicitudId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SolicitudUsuarioCliente_Localidad_LocalidadId",
+                        column: x => x.LocalidadId,
+                        principalTable: "Localidad",
+                        principalColumn: "LocalidadId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SolicitudUsuarioCliente_TipoUsuario_TipoUsuarioId",
+                        column: x => x.TipoUsuarioId,
+                        principalTable: "TipoUsuario",
+                        principalColumn: "TipoUsuarioId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -407,9 +480,19 @@ namespace SistemaDistribuidora.Migrations
                 column: "CategoriaPadreId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Cliente_LocalidadId",
+                table: "Cliente",
+                column: "LocalidadId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Cliente_PersonaId",
                 table: "Cliente",
                 column: "PersonaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Localidad_ProvinciaId",
+                table: "Localidad",
+                column: "ProvinciaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OfertaDetalle_OfertaId",
@@ -472,6 +555,21 @@ namespace SistemaDistribuidora.Migrations
                 column: "ProveedorId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_SolicitudUsuarioCliente_EstadoSolicitudId",
+                table: "SolicitudUsuarioCliente",
+                column: "EstadoSolicitudId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SolicitudUsuarioCliente_LocalidadId",
+                table: "SolicitudUsuarioCliente",
+                column: "LocalidadId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SolicitudUsuarioCliente_TipoUsuarioId",
+                table: "SolicitudUsuarioCliente",
+                column: "TipoUsuarioId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Usuario_PersonaId",
                 table: "Usuario",
                 column: "PersonaId");
@@ -524,6 +622,12 @@ namespace SistemaDistribuidora.Migrations
                 name: "Proveedor");
 
             migrationBuilder.DropTable(
+                name: "EstadoSolicitud");
+
+            migrationBuilder.DropTable(
+                name: "Localidad");
+
+            migrationBuilder.DropTable(
                 name: "Persona");
 
             migrationBuilder.DropTable(
@@ -537,6 +641,9 @@ namespace SistemaDistribuidora.Migrations
 
             migrationBuilder.DropTable(
                 name: "UnidadMedida");
+
+            migrationBuilder.DropTable(
+                name: "Provincia");
         }
     }
 }

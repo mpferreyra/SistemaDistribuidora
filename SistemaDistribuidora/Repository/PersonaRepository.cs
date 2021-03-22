@@ -35,11 +35,11 @@ namespace SistemaDistribuidora.Repository
         /// Crear un nuevo cliente
         /// </summary>
         /// <returns></returns>
-        public bool CreateCliente(int clienteId, string razonSocial, int telefono, string dirrecion, string mail, int codigoPostal, string actividadComercial, int antiguedadEnEmpresa, string cargo, int cUIT, int personaId)
+        public bool CreateCliente(int clienteId, string razonSocial, int telefono, string dirrecion, string mail, int codigoPostal, string actividadComercial, int antiguedadEnEmpresa, string cargo, int cUIT, int personaId, int localidadId)
         {
             try
             {
-                _context.Add(new ClienteModel(razonSocial,telefono,dirrecion,mail,codigoPostal,actividadComercial,antiguedadEnEmpresa,cargo,cUIT,personaId));
+                _context.Add(new ClienteModel(razonSocial,telefono,dirrecion,mail,codigoPostal,actividadComercial,antiguedadEnEmpresa,cargo,cUIT, personaId, localidadId));
                 _context.SaveChangesAsync();
                 return true;
 
@@ -71,8 +71,8 @@ namespace SistemaDistribuidora.Repository
         /// <summary>
         /// Crear la persona, el cliente y el usuario segun una solicitud de clienteUsuario
         /// </summary>
-        /// <param name="Cliente"></param>
-        public void CrearConjuntoPersonaClienteUsuario(SolicitudUsuarioClienteModel Cliente)
+        /// <param name="Solicitud"></param>
+        public void CrearConjuntoPersonaClienteUsuario(SolicitudUsuarioClienteModel Solicitud)
         {
             //TODO: mejorar esto para que reconosca clientes, persona y usuarios ya existentes
             using (var dbContextTransaction = _context.Database.BeginTransaction())
@@ -80,14 +80,14 @@ namespace SistemaDistribuidora.Repository
                 try
                 {
                     // Creo la persona
-                    PersonaModel persona = new PersonaModel(Cliente.DNIPersona, Cliente.NombresPersona, Cliente.ApellidosPersona, Cliente.TelefonoPersona, Cliente.CelularPersona, Cliente.MailPersona);
+                    PersonaModel persona = new PersonaModel(Solicitud.DNIPersona, Solicitud.NombresPersona, Solicitud.ApellidosPersona, Solicitud.TelefonoPersona, Solicitud.CelularPersona, Solicitud.MailPersona);
                     _context.Add(persona);
                     _context.SaveChanges();
                     // Creo el cliente
-                    _context.Add(new ClienteModel(Cliente.RazonSocialCliente, Cliente.TelefonoCliente, Cliente.DirrecionCliente, Cliente.MailCliente, Cliente.CodigoPostalCliente, Cliente.ActividadComercialCliente , Cliente.AntiguedadEnEmpresaCliente, Cliente.CargoCliente, Cliente.CUIT,persona.PersonaId));
+                    _context.Add(new ClienteModel(Solicitud.RazonSocialCliente, Solicitud.TelefonoCliente, Solicitud.DirrecionCliente, Solicitud.MailCliente, Solicitud.CodigoPostalCliente, Solicitud.ActividadComercialCliente , Solicitud.AntiguedadEnEmpresaCliente, Solicitud.CargoCliente, Solicitud.CUIT,persona.PersonaId,Solicitud.LocalidadId));
                     _context.SaveChanges();
                     // Creo el usuario de tipo cliente
-                    _context.Add(new UsuarioModel(Cliente.NombreUsuario,Cliente.ContraseñaUsuario,Cliente.ConfirmarContraseñaUsuario,persona.PersonaId,1));
+                    _context.Add(new UsuarioModel(Solicitud.NombreUsuario,Solicitud.ContraseñaUsuario,Solicitud.ConfirmarContraseñaUsuario,persona.PersonaId, Solicitud.TipoUsuarioId));
                     _context.SaveChanges();
                     dbContextTransaction.Commit();
                 }

@@ -15,7 +15,7 @@ namespace SistemaDistribuidora.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.10")
+                .HasAnnotation("ProductVersion", "3.1.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -90,6 +90,9 @@ namespace SistemaDistribuidora.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("LocalidadId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Mail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -105,6 +108,8 @@ namespace SistemaDistribuidora.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ClienteId");
+
+                    b.HasIndex("LocalidadId");
 
                     b.HasIndex("PersonaId");
 
@@ -127,6 +132,41 @@ namespace SistemaDistribuidora.Migrations
                     b.HasKey("EquivalenciasId");
 
                     b.ToTable("Equivalencias");
+                });
+
+            modelBuilder.Entity("SistemaDistribuidora.Models.EstadoSolicitudModel", b =>
+                {
+                    b.Property<int>("EstadoSolicitudId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EstadoSolicitudId");
+
+                    b.ToTable("EstadoSolicitud");
+                });
+
+            modelBuilder.Entity("SistemaDistribuidora.Models.LocalidadModel", b =>
+                {
+                    b.Property<int>("LocalidadId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProvinciaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LocalidadId");
+
+                    b.HasIndex("ProvinciaId");
+
+                    b.ToTable("Localidad");
                 });
 
             modelBuilder.Entity("SistemaDistribuidora.Models.MarcaModel", b =>
@@ -395,6 +435,21 @@ namespace SistemaDistribuidora.Migrations
                     b.ToTable("Proveedor");
                 });
 
+            modelBuilder.Entity("SistemaDistribuidora.Models.ProvinciaModel", b =>
+                {
+                    b.Property<int>("ProvinciaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProvinciaId");
+
+                    b.ToTable("Provincia");
+                });
+
             modelBuilder.Entity("SistemaDistribuidora.Models.SolicitudUsuarioClienteModel", b =>
                 {
                     b.Property<int>("SolicitudUsuarioClienteId")
@@ -440,14 +495,17 @@ namespace SistemaDistribuidora.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Estado")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("EstadoSolicitudId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("FechaPedido")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("FechaRevision")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("LocalidadId")
+                        .HasColumnType("int");
 
                     b.Property<string>("MailCliente")
                         .IsRequired()
@@ -480,6 +538,10 @@ namespace SistemaDistribuidora.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("SolicitudUsuarioClienteId");
+
+                    b.HasIndex("EstadoSolicitudId");
+
+                    b.HasIndex("LocalidadId");
 
                     b.HasIndex("TipoUsuarioId");
 
@@ -556,9 +618,24 @@ namespace SistemaDistribuidora.Migrations
 
             modelBuilder.Entity("SistemaDistribuidora.Models.ClienteModel", b =>
                 {
+                    b.HasOne("SistemaDistribuidora.Models.LocalidadModel", "Localidad")
+                        .WithMany()
+                        .HasForeignKey("LocalidadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SistemaDistribuidora.Models.PersonaModel", "Persona")
                         .WithMany()
                         .HasForeignKey("PersonaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SistemaDistribuidora.Models.LocalidadModel", b =>
+                {
+                    b.HasOne("SistemaDistribuidora.Models.ProvinciaModel", "Provincia")
+                        .WithMany()
+                        .HasForeignKey("ProvinciaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -655,6 +732,18 @@ namespace SistemaDistribuidora.Migrations
 
             modelBuilder.Entity("SistemaDistribuidora.Models.SolicitudUsuarioClienteModel", b =>
                 {
+                    b.HasOne("SistemaDistribuidora.Models.EstadoSolicitudModel", "EstadoSolicitud")
+                        .WithMany()
+                        .HasForeignKey("EstadoSolicitudId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SistemaDistribuidora.Models.LocalidadModel", "Localidad")
+                        .WithMany()
+                        .HasForeignKey("LocalidadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SistemaDistribuidora.Models.TipoUsuarioModel", "TipoUsuario")
                         .WithMany()
                         .HasForeignKey("TipoUsuarioId")

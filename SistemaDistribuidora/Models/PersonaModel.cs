@@ -45,5 +45,8 @@ namespace SistemaDistribuidora.Models
             Mail = mail;
         }
 
+        public PersonaModel ()
+        { }
+
     }
 }

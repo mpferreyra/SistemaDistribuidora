@@ -42,6 +42,8 @@ namespace SistemaDistribuidora.Models
         [Required(ErrorMessage = "Ingrese el CUIT")]
         public int CUIT { get; set; }
 
+        
+
 
 
         //llaves foraneas
@@ -49,7 +51,11 @@ namespace SistemaDistribuidora.Models
         public int PersonaId { get; set; }
         public virtual PersonaModel Persona { get; set; }
 
-        public ClienteModel(string razonSocial, int telefono, string dirrecion, string mail, int codigoPostal, string actividadComercial, int antiguedadEnEmpresa, string cargo, int cUIT, int personaId)
+        [ForeignKey("Localidad")]
+        public int LocalidadId { get; set; }
+        public virtual LocalidadModel Localidad { get; set; }
+
+        public ClienteModel(string razonSocial, int telefono, string dirrecion, string mail, int codigoPostal, string actividadComercial, int antiguedadEnEmpresa, string cargo, int cUIT, int personaId, int localidadId)
         {
             
             RazonSocial = razonSocial;
@@ -62,6 +68,7 @@ namespace SistemaDistribuidora.Models
             Cargo = cargo;
             CUIT = cUIT;
             PersonaId = personaId;            
+            LocalidadId = localidadId;
         }
 
 

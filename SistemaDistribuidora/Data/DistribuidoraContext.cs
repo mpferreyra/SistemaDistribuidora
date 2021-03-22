@@ -32,6 +32,9 @@ namespace SistemaDistribuidora.Data
         public DbSet<UsuarioModel> Usuario { get; set; }
         public DbSet<SolicitudUsuarioClienteModel> SolicitudUsuarioCliente { get; set; }
         public DbSet<TipoUsuarioModel> TipoUsuario { get; set; }
+        public DbSet<EstadoSolicitudModel> EstadoSolicitud { get; set; }
+        public DbSet<ProvinciaModel> Provincia { get; set; }
+        public DbSet<LocalidadModel> Localidad { get; set; }
 
     }
 }

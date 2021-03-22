@@ -15,9 +15,7 @@ namespace SistemaDistribuidora.Models
         public int SolicitudUsuarioClienteId { get; set; }
         public DateTime FechaPedido { get; set; }
         //de aprovacion o rechazo
-        public DateTime? FechaRevision { get; set; }
-        //true aprovado 
-        public string Estado { get; set; }
+        public DateTime? FechaRevision { get; set; }  
         public string AprovacionUsuario { get; set; }
 
         [Required(ErrorMessage = "Ingrese la razon social")]
@@ -86,10 +84,18 @@ namespace SistemaDistribuidora.Models
         [CompareAttribute("ContraseñaUsuario", ErrorMessage = "Contraseñas diferentes.")]
         public string ConfirmarContraseñaUsuario { get; set; }
 
-
+        //Claves foraneas
         [ForeignKey("TipoUsuario")]
         public int TipoUsuarioId { get; set; }
         public virtual TipoUsuarioModel TipoUsuario { get; set; }
+
+        [ForeignKey("EstadoSolicitud")]
+        public int EstadoSolicitudId { get; set; }
+        public virtual EstadoSolicitudModel EstadoSolicitud { get; set; }        
+
+        [ForeignKey("Localidad")]
+        public int LocalidadId { get; set; }
+        public virtual LocalidadModel Localidad { get; set; }
 
 
         public SolicitudUsuarioClienteModel()
@@ -97,11 +103,10 @@ namespace SistemaDistribuidora.Models
 
         }
 
-        public SolicitudUsuarioClienteModel(DateTime fechaPedido, DateTime fechaRevision, string estado, string aprovacionUsuario, string razonSocialCliente, int cUIT, int telefonoCliente, string dirrecionCliente, string mailCliente, int codigoPostalCliente, string actividadComercialCliente, int antiguedadEnEmpresaCliente, string cargoCliente, string dNIPersona, string nombresPersona, string apellidosPersona, int telefonoPersona, int celularPersona, string mailPersona, string nombreUsuario, string contraseñaUsuario)
+        public SolicitudUsuarioClienteModel(DateTime fechaPedido, DateTime fechaRevision, string aprovacionUsuario, string razonSocialCliente, int cUIT, int telefonoCliente, string dirrecionCliente, string mailCliente, int codigoPostalCliente, string actividadComercialCliente, int antiguedadEnEmpresaCliente, string cargoCliente, string dNIPersona, string nombresPersona, string apellidosPersona, int telefonoPersona, int celularPersona, string mailPersona, string nombreUsuario, string contraseñaUsuario, int estadoSolicitudId, int localidadId)
         {
             FechaPedido = fechaPedido;
-            FechaRevision = fechaRevision;
-            Estado = estado;
+            FechaRevision = fechaRevision;            
             AprovacionUsuario = aprovacionUsuario;
             RazonSocialCliente = razonSocialCliente;
             CUIT = cUIT;
@@ -120,6 +125,8 @@ namespace SistemaDistribuidora.Models
             MailPersona = mailPersona;
             NombreUsuario = nombreUsuario;
             ContraseñaUsuario = contraseñaUsuario;
+            EstadoSolicitudId = estadoSolicitudId;
+            LocalidadId = localidadId;
         }
 
 

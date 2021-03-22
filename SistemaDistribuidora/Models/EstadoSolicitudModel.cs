@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace SistemaDistribuidora.Models
 {
-    public class TipoUsuarioModel
+    public class EstadoSolicitudModel
     {
         [Key]
-        public int TipoUsuarioId { get; set; }
-        [Display(Name = "Permisos")]
+        public int EstadoSolicitudId { get; set; }
+
         public string Descripcion { get; set; }
 
-        public TipoUsuarioModel()
+        public EstadoSolicitudModel()
         { }
-        public TipoUsuarioModel(string descripcion)
+        public EstadoSolicitudModel(string descripcion)
         {
             Descripcion = descripcion;
         }
-
-
-
     }
 }
+
+
